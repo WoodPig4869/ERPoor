@@ -6,9 +6,16 @@
 
         <q-toolbar-title> Quasar App </q-toolbar-title>
 
-        <q-btn flat round dense icon="inventory_2" size="lg" @click="toggleTheme" />
-        <q-btn flat round dense icon="local_shipping" size="lg" @click="toggleTheme" />
-        <q-btn flat round dense icon="checklist" size="lg" @click="toggleTheme" />
+        <q-btn flat round dense icon="inventory_2" size="lg" @click="showPurchaseForm = true">
+          <q-tooltip class="bg-indigo text-body2 shadow-4" :offset="[10, 10]"> 進貨 </q-tooltip>
+        </q-btn>
+        <PurchaseForm v-model="showPurchaseForm" />
+        <q-btn flat round dense icon="local_shipping" size="lg" @click="toggleTheme">
+          <q-tooltip class="bg-purple text-body2 shadow-4" :offset="[10, 10]"> 出貨 </q-tooltip>
+        </q-btn>
+        <q-btn flat round dense icon="checklist" size="lg" @click="toggleTheme">
+          <q-tooltip class="bg-amber text-body2 shadow-4" :offset="[10, 10]"> 盤點 </q-tooltip>
+        </q-btn>
         <q-btn flat round dense :icon="theme" size="mg" @click="toggleTheme" />
       </q-toolbar>
     </q-header>
@@ -50,11 +57,15 @@
 <script setup lang="ts">
 // import { useI18n } from 'vue-i18n';
 import EssentialLink, { type EssentialLinkProps } from 'components/EssentialLink.vue';
+import PurchaseForm from 'src/components/PurchaseForm.vue';
 import { useQuasar } from 'quasar';
 
-import { ref } from 'vue';
+import { ref, watch, onMounted } from 'vue';
 
 const $q = useQuasar();
+const showPurchaseForm = ref(false);
+const leftDrawerOpen = ref(false);
+const theme = ref('light_mode');
 
 interface MenuItem {
   to: string;
@@ -93,17 +104,27 @@ const linksList: EssentialLinkProps[] = [
   },
 ];
 
-const leftDrawerOpen = ref(false);
+// 初始化時從 localStorage 讀取
+onMounted(() => {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    theme.value = savedTheme;
+    $q.dark.set(savedTheme === 'dark_mode');
+  }
+});
+
+// 監聽 theme 變化並存入 localStorage
+watch(theme, (newVal) => {
+  localStorage.setItem('theme', newVal);
+});
 
 function toggleLeftDrawer() {
   leftDrawerOpen.value = !leftDrawerOpen.value;
 }
 
-const theme = ref('light_mode');
-
 const toggleTheme = () => {
   $q.dark.toggle();
-  theme.value = $q.dark.isActive ? 'light_mode' : 'dark_mode';
+  theme.value = $q.dark.isActive ? 'dark_mode' : 'light_mode';
 };
 </script>
 

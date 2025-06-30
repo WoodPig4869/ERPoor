@@ -31,9 +31,43 @@
 </template>
 
 <script setup lang="ts">
-import { defineComponent } from 'vue';
 import { ref } from 'vue';
 import { api } from 'boot/axios';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const username = ref('');
+const password = ref('');
+
+interface LoginResponse {
+  username: string;
+  nickname: string;
+  role: string;
+  accessToken: string;
+  refreshToken: string;
+}
+
+const login = async () => {
+  try {
+    const { data } = await api.post<LoginResponse>('/login', {
+      username: username.value,
+      password: password.value,
+    });
+
+    localStorage.setItem('username', data.username);
+    localStorage.setItem('nickname', data.nickname);
+    localStorage.setItem('role', data.role);
+    localStorage.setItem('accessToken', data.accessToken);
+    localStorage.setItem('refreshToken', data.refreshToken);
+
+    api.defaults.headers.common.Authorization = `Bearer ${data.accessToken}`;
+    await router.push('/');
+    console.log('登入成功', data);
+  } catch (err) {
+    console.error('登入失敗', err);
+  }
+};
 </script>
 
 <style>

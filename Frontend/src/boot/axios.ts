@@ -1,7 +1,9 @@
 import { defineBoot } from '#q-app/wrappers';
 import axios, { type AxiosInstance } from 'axios';
 import { Notify } from 'quasar';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 declare module 'vue' {
   interface ComponentCustomProperties {
     $axios: AxiosInstance;
@@ -15,9 +17,39 @@ declare module 'vue' {
 // good idea to move this instance creation inside of the
 // "export default () => {}" function below (which runs individually
 // for each client)
-const api = axios.create({ baseURL: 'http://localhost:8080' });
+const api = axios.create({
+  baseURL: 'http://localhost:8080',
+  timeout: 5000,
+});
 
-// ➤ 封裝 response interceptor 處理 RPC-style 回應格式
+// 👉 是否正在刷新中，避免多次呼叫 /renewRefreshToken
+let isRefreshing = false;
+let refreshSubscribers: ((token: string) => void)[] = [];
+
+// 👉 呼叫所有等待中的請求，注入新 token
+function onRefreshed(token: string) {
+  refreshSubscribers.forEach((cb) => cb(token));
+  refreshSubscribers = [];
+}
+
+// 👉 加入等待刷新完成的請求
+function subscribeTokenRefresh(cb: (token: string) => void) {
+  refreshSubscribers.push(cb);
+}
+
+// ✅ 設定 Request 預設加上 token
+api.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(new Error(error)),
+);
+
+// ✅ 回應攔截處理成功回應
 api.interceptors.response.use(
   (response) => {
     const res = response.data;
@@ -37,11 +69,56 @@ api.interceptors.response.use(
       }
     }
 
-    // ➤ 回傳純資料，讓呼叫端拿到 res.data
-    return res.data;
+    return res;
   },
-  (error) => {
-    // ➤ 處理網路錯誤、500等非RPC格式錯誤
+
+  async (error) => {
+    const originalRequest = error.config;
+
+    // 👉 如果是 401，且尚未 retry，嘗試刷新 token
+    if (error.response?.status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true;
+
+      if (isRefreshing) {
+        // 如果正在刷新，等待完成後再發送原請求
+        return new Promise((resolve) => {
+          subscribeTokenRefresh((token: string) => {
+            originalRequest.headers['Authorization'] = `Bearer ${token}`;
+            resolve(api(originalRequest));
+          });
+        });
+      }
+
+      isRefreshing = true;
+
+      try {
+        const res = await axios.post('/renewRefreshToken', {
+          refreshToken: localStorage.getItem('refreshToken'),
+        });
+
+        const newAccessToken = res.data.accessToken;
+        localStorage.setItem('accessToken', newAccessToken);
+        api.defaults.headers.common['Authorization'] = `Bearer ${newAccessToken}`;
+        onRefreshed(newAccessToken);
+
+        // 重新送出原請求
+        return api(originalRequest);
+      } catch (refreshError) {
+        Notify.create({
+          type: 'negative',
+          message: '登入過期，請重新登入',
+        });
+        // 清除 token 並導向登入或首頁
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('refreshToken');
+        await router.push('/login');
+        return Promise.reject(new Error(refreshError as string));
+      } finally {
+        isRefreshing = false;
+      }
+    }
+
+    // 其他錯誤提示
     Notify.create({
       type: 'negative',
       message: error.message || '網路錯誤',
