@@ -14,7 +14,7 @@
     </q-input>
 
     <q-table
-      title="庫存清單"
+      title="📦庫存清單"
       :rows="rows"
       :columns="columns"
       row-key="id"
@@ -23,17 +23,39 @@
       table-header-class="bg-light-blue-3 text-subtitle1"
       flat
       bordered
-    />
+    >
+      <!-- 自訂 productName 欄位 -->
+      <template #body-cell-productName="props">
+        <q-td :props="props">
+          <q-btn
+            flat
+            dense
+            color="primary"
+            :label="` ${props.row.productName}`"
+            @click="() => onProductClick(props.row.id)"
+          />
+        </q-td>
+      </template>
+    </q-table>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useQuasar } from 'quasar';
+
+const $q = useQuasar();
 
 const search = ref('');
 
+function onProductClick(productId: number) {
+  $q.notify({
+    color: 'primary',
+    message: '點擊品項ID:' + productId.toString(),
+  });
+}
+
 const columns = [
-  { name: 'id', label: 'ID', field: 'id', align: 'left' as const, sortable: true },
   {
     name: 'productName',
     label: '品名',

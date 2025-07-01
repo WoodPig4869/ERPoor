@@ -74,8 +74,16 @@ api.interceptors.response.use(
 
   async (error) => {
     const originalRequest = error.config;
+    // 👉 400，失敗請求
+    if (error.response?.status === 400) {
+      Notify.create({
+        type: 'negative',
+        message: error.response.data.message,
+      });
+      return Promise.reject(new Error(error.response.data.message));
+    }
 
-    // 👉 如果是 401，且尚未 retry，嘗試刷新 token
+    // 👉 401，且尚未 retry，嘗試刷新 token
     if (error.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
 
