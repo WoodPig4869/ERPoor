@@ -11,9 +11,13 @@ import org.springframework.stereotype.Service;
 import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
 public class JWTServiceImpl implements JWTService{
+    private final Logger logger = LoggerFactory.getLogger(JWTServiceImpl.class);
+
     @Value("${jwt.secret}")
     private String secretKey;
     @Value("${accessTokenValidityMinutes}")
@@ -51,13 +55,18 @@ public class JWTServiceImpl implements JWTService{
 
             Date expiration = claims.getExpiration();
             if (expiration != null && expiration.before(new Date())) {
+                logger.warn("JWT 已過期，過期時間: {}", expiration);
                 throw new JwtException("Token 已過期");
             }
 
+            logger.debug("成功解析 JWT，使用者: {}, 過期時間: {}", claims.getSubject(), expiration);
             return claims;
+
         } catch (JwtException | IllegalArgumentException e) {
+            logger.error("JWT 解析失敗: {}", e.getMessage());
             throw new JwtException("無效的 JWT Token: " + e.getMessage(), e);
         }
     }
+
 }
 

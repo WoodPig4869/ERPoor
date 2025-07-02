@@ -16,14 +16,12 @@ public interface RefreshTokenService {
     RefreshTokenEntity createTokenByUserId(Integer userId);
 
     /**
-     * 根據傳入的 refresh token 進行驗證，若為有效且未過期的 token，
-     * 則撤銷舊的 token 並建立並儲存新的 refresh token 實體。
-     * 若驗證失敗，將不會產生新的 token，並回傳 null。
+     * 根據指定的 refresh token 字串，驗證有效性並回傳使用者帳號 ID。
      *
-     * @param token 舊的 refresh token 字串
-     * @return 新建立的 {@link RefreshTokenEntity}，若舊 token 無效則回傳 null
+     * @param token 欲查詢的 refresh token 字串
+     * @return 若成功則回傳使用者帳號 ID，否則回傳 null
      */
-    String renewRefreshToken(String token);
+    Integer ValidateRefreshTokenAndGetUserId(String token);
 
     /**
      * 註銷指定的 refresh token（設定為 revoked = true）。

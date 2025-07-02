@@ -27,12 +27,42 @@ public class AuthenticationController {
         try {
             LoginResponse response = authenticationService.login(request);
             logger.info("用戶登入成功，username={}", request.getUsername());
-            return ResponseEntity.ok(CommonResponse.success(response));
+            return ResponseEntity.ok(new CommonResponse<>(200,"登入成功",response));
         } catch (Exception e) {
             logger.warn("用戶登入失敗，username={}, 原因: {}", request.getUsername(), e.getMessage());
             return ResponseEntity
-                    .status(HttpStatus.UNAUTHORIZED)
-                    .body(CommonResponse.error(400, "登入失敗："));
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(CommonResponse.error(400, "登入失敗"));
+        }
+    }
+
+    @PostMapping("/renewRefreshToken")
+    public ResponseEntity<CommonResponse<LoginResponse>> renewRefreshToken(@RequestBody refreshTokenRequest refreshToken) {
+        logger.debug("收到更新請求 refreshToken={}", refreshToken);
+        try {
+            LoginResponse response = authenticationService.renewRefreshToken(refreshToken.getRefreshToken());
+            logger.info("用戶更新refreshToken成功");
+            return ResponseEntity.ok(CommonResponse.success(response));
+        } catch (Exception e) {
+            logger.warn("用戶更新refreshToken失敗, 原因: {}", e.getMessage());
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(CommonResponse.error(400, "更新refreshToken失敗："));
+        }
+    }
+
+    @PostMapping("/revokeRefreshToken")
+    public ResponseEntity<CommonResponse<String>> revokeRefreshToken(@RequestBody refreshTokenRequest refreshToken) {
+        logger.debug("收到登出請求 refreshToken={}", refreshToken);
+        boolean logoutSuccess = authenticationService.revokeRefreshToken(refreshToken.getRefreshToken());
+        if (logoutSuccess) {
+            logger.info("用戶登出成功");
+            return ResponseEntity.ok(new CommonResponse<>(200, "已註銷登入憑證", null));
+        } else {
+            logger.warn("用戶登出失敗");
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(CommonResponse.error(400, "登出失敗"));
         }
     }
 
@@ -46,8 +76,17 @@ public class AuthenticationController {
         } catch (Exception e) {
             logger.warn("用戶註冊失敗，username={}, 原因: {}", request.getUsername(), e.getMessage());
             return ResponseEntity
-                    .status(HttpStatus.UNAUTHORIZED)
-                    .body(CommonResponse.error(400, "註冊失敗："));
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(CommonResponse.error(400, "註冊失敗"));
         }
     }
+
+    public static class refreshTokenRequest{
+        private String refreshToken;
+
+        public String getRefreshToken() {
+            return refreshToken;
+        }
+    }
+
 }

@@ -1,23 +1,23 @@
-2025-06-13 15:33:11 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 26420 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
-2025-06-13 15:33:11 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
-2025-06-13 15:33:11 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-13 15:33:11 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-06-13 15:33:11 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-06-13 15:33:12 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-13 15:33:12 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 72 ms. Found 1 JPA repository interface.
-2025-06-13 15:33:13 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-13 15:33:13 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-13 15:33:13 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-13 15:33:13 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-13 15:33:13 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2523 ms
-2025-06-13 15:33:13 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-06-13 15:33:14 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@52a07779
-2025-06-13 15:33:14 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-06-13 15:33:14 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-13 15:33:14 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-06-13 15:33:14 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-13 15:33:14 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-13 15:33:15 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2025-07-02 18:04:22 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 31420 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
+2025-07-02 18:04:22 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
+2025-07-02 18:04:22 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-02 18:04:22 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-02 18:04:22 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-02 18:04:23 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-02 18:04:23 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 76 ms. Found 3 JPA repository interfaces.
+2025-07-02 18:04:24 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-07-02 18:04:24 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-02 18:04:24 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-07-02 18:04:24 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-02 18:04:24 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2238 ms
+2025-07-02 18:04:24 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-02 18:04:25 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3eeca828
+2025-07-02 18:04:25 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-02 18:04:25 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-02 18:04:25 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-07-02 18:04:25 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-02 18:04:26 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-02 18:04:26 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 17.4
@@ -25,175 +25,159 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-06-13 15:33:16 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-13 15:33:16 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:33:16 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-06-13 15:33:16 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-13 15:33:16 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-06-13 15:33:16 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-13 15:33:16 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-13 15:33:16 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 6.441 seconds (process running for 7.671)
-2025-06-13 15:33:36 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-06-13 15:33:36 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-06-13 15:33:36 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-2025-06-13 15:34:30 WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type 'text/plain;charset=UTF-8' is not supported]
-2025-06-13 15:34:42 WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type 'text/plain;charset=UTF-8' is not supported]
-2025-06-13 15:34:57 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-13 15:34:58 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-13 15:34:58 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:34:58 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-06-13 15:34:58 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2025-06-13 15:35:55 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 26316 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
-2025-06-13 15:35:55 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
-2025-06-13 15:35:55 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-13 15:35:55 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-06-13 15:35:55 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-06-13 15:35:56 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-13 15:35:56 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 59 ms. Found 1 JPA repository interface.
-2025-06-13 15:35:57 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-13 15:35:57 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-13 15:35:57 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-13 15:35:57 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-13 15:35:57 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1536 ms
-2025-06-13 15:35:57 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-06-13 15:35:57 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@19d0d8bf
-2025-06-13 15:35:57 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-06-13 15:35:57 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-13 15:35:57 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-06-13 15:35:57 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-13 15:35:57 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-13 15:35:58 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 17.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-06-13 15:35:58 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-13 15:35:58 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:35:59 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-06-13 15:35:59 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-13 15:35:59 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-06-13 15:35:59 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-13 15:35:59 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-13 15:35:59 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 5.002 seconds (process running for 5.969)
-2025-06-13 15:36:12 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-06-13 15:36:12 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-06-13 15:36:12 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2025-06-13 15:36:12 WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type 'text/plain;charset=UTF-8' is not supported]
-2025-06-13 15:37:39 WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<org.allen.erpoor.util.CommonResponse<org.allen.erpoor.account.entity.LoginResponse>> org.allen.erpoor.account.AuthenticationController.login(org.allen.erpoor.account.entity.LoginRequest)]
-2025-06-13 15:37:51 WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<org.allen.erpoor.util.CommonResponse<org.allen.erpoor.account.entity.LoginResponse>> org.allen.erpoor.account.AuthenticationController.login(org.allen.erpoor.account.entity.LoginRequest)]
-2025-06-13 15:38:08 WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<org.allen.erpoor.util.CommonResponse<org.allen.erpoor.account.entity.LoginResponse>> org.allen.erpoor.account.AuthenticationController.login(org.allen.erpoor.account.entity.LoginRequest)]
-2025-06-13 15:40:02 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-13 15:40:02 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-13 15:40:02 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:40:02 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-06-13 15:40:02 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2025-06-13 15:40:09 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 23280 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
-2025-06-13 15:40:09 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
-2025-06-13 15:40:09 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-13 15:40:09 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-06-13 15:40:09 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-06-13 15:40:10 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-13 15:40:10 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 51 ms. Found 1 JPA repository interface.
-2025-06-13 15:40:11 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-13 15:40:11 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-13 15:40:11 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-13 15:40:11 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-13 15:40:11 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1647 ms
-2025-06-13 15:40:11 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-06-13 15:40:11 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3765d2f7
-2025-06-13 15:40:11 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-06-13 15:40:11 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-13 15:40:11 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-06-13 15:40:11 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-13 15:40:11 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-13 15:40:11 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 17.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-06-13 15:40:12 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-13 15:40:12 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:40:13 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-06-13 15:40:13 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-13 15:40:13 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-06-13 15:40:13 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-13 15:40:13 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-13 15:40:13 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 5.425 seconds (process running for 6.587)
-2025-06-13 15:40:14 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-06-13 15:40:14 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-06-13 15:40:14 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-2025-06-13 15:44:16 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-13 15:44:17 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-13 15:44:17 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:44:17 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-06-13 15:44:17 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2025-06-13 15:44:35 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 26872 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
-2025-06-13 15:44:35 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
-2025-06-13 15:44:35 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-13 15:44:35 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-06-13 15:44:35 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-06-13 15:44:36 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-13 15:44:36 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 51 ms. Found 1 JPA repository interface.
-2025-06-13 15:44:37 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-13 15:44:37 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-13 15:44:37 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-13 15:44:37 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-13 15:44:37 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1458 ms
-2025-06-13 15:44:37 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-06-13 15:44:37 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4f11fecc
-2025-06-13 15:44:37 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-06-13 15:44:37 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-13 15:44:37 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-06-13 15:44:37 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-13 15:44:38 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-13 15:44:38 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 17.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-06-13 15:44:39 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-13 15:44:39 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:44:39 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-06-13 15:44:39 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-13 15:44:39 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-06-13 15:44:40 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-13 15:44:40 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-13 15:44:40 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 4.812 seconds (process running for 5.689)
-2025-06-13 15:44:50 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-06-13 15:44:50 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-06-13 15:44:50 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2025-06-13 15:45:53 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
-2025-06-13 15:45:53 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-13 15:45:54 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-13 15:45:54 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:45:54 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-06-13 15:45:54 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2025-06-13 15:45:54 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 26872 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
-2025-06-13 15:45:54 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
-2025-06-13 15:45:54 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-13 15:45:54 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-13 15:45:54 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 1 JPA repository interface.
-2025-06-13 15:45:55 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-13 15:45:55 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-13 15:45:55 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-13 15:45:55 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-13 15:45:55 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 402 ms
-2025-06-13 15:45:55 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
-2025-06-13 15:45:55 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@5b6e1099
-2025-06-13 15:45:55 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
-2025-06-13 15:45:55 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-13 15:45:55 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-13 15:45:55 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-13 15:45:55 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2025-07-02 18:04:27 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-02 18:04:27 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-02 18:04:28 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-07-02 18:04:28 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-02 18:04:28 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2025-07-02 18:04:28 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-07-02 18:04:28 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-07-02 18:04:28 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 7.285 seconds (process running for 8.773)
+2025-07-02 18:06:28 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-02 18:06:28 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-02 18:06:28 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-07-02 18:07:32 DEBUG o.a.e.a.AuthenticationController - 收到登入請求，username=root
+2025-07-02 18:07:32 WARN  o.a.e.a.AuthenticationController - 用戶登入失敗，username=root, 原因: Cannot invoke "org.allen.erpoor.account.entity.AccountEntity.getPassword()" because "account" is null
+2025-07-02 18:07:58 DEBUG o.a.e.a.AuthenticationController - 收到登入請求，username=admin
+2025-07-02 18:07:58 INFO  o.a.e.a.RefreshTokenServiceImpl - userId LmDmPV2h5roZS/iAWrv4wp/AgTmDK1F8DA7BSkeoHhU 建立 refreshToken 成功
+2025-07-02 18:07:58 INFO  o.a.e.a.AuthenticationController - 用戶登入成功，username=admin
+2025-07-02 18:08:13 INFO  o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MTQ1MTc3OCwiaWF0IjoxNzUxNDUwODc4fQ.VrOWzOPTz4opWU9Eiii0XZXf590Z-2TVa4OjWd4_Cmw"
+2025-07-02 18:08:13 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Wed Jul 02 18:22:58 CST 2025
+2025-07-02 18:08:13 ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [No adapter for handler [org.allen.erpoor.inventory.InventoryController@3ceb952c]: The DispatcherServlet configuration needs to include a HandlerAdapter that supports this handler] with root cause
+jakarta.servlet.ServletException: No adapter for handler [org.allen.erpoor.inventory.InventoryController@3ceb952c]: The DispatcherServlet configuration needs to include a HandlerAdapter that supports this handler
+	at org.springframework.web.servlet.DispatcherServlet.getHandlerAdapter(DispatcherServlet.java:1325)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.allen.erpoor.account.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:68)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-07-02 18:08:50 INFO  o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MTQ1MTc3OCwiaWF0IjoxNzUxNDUwODc4fQ.VrOWzOPTz4opWU9Eiii0XZXf590Z-2TVa4OjWd4_Cmw"
+2025-07-02 18:08:50 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Wed Jul 02 18:22:58 CST 2025
+2025-07-02 18:09:50 INFO  o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MTQ1MTc3OCwiaWF0IjoxNzUxNDUwODc4fQ.VrOWzOPTz4opWU9Eiii0XZXf590Z-2TVa4OjWd4_Cmw"
+2025-07-02 18:09:50 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Wed Jul 02 18:22:58 CST 2025
+2025-07-02 18:10:01 INFO  o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MTQ1MTc3OCwiaWF0IjoxNzUxNDUwODc4fQ.VrOWzOPTz4opWU9Eiii0XZXf590Z-2TVa4OjWd4_Cmw"
+2025-07-02 18:10:01 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Wed Jul 02 18:22:58 CST 2025
+2025-07-02 18:10:42 INFO  o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MTQ1MTc3OCwiaWF0IjoxNzUxNDUwODc4fQ.VrOWzOPTz4opWU9Eiii0XZXf590Z-2TVa4OjWd4_Cmw"
+2025-07-02 18:10:42 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Wed Jul 02 18:22:58 CST 2025
+2025-07-02 18:11:12 INFO  o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MTQ1MTc3OCwiaWF0IjoxNzUxNDUwODc4fQ.VrOWzOPTz4opWU9Eiii0XZXf590Z-2TVa4OjWd4_Cmw"
+2025-07-02 18:11:12 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Wed Jul 02 18:22:58 CST 2025
+2025-07-02 18:11:19 INFO  o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MTQ1MTc3OCwiaWF0IjoxNzUxNDUwODc4fQ.VrOWzOPTz4opWU9Eiii0XZXf590Z-2TVa4OjWd4_Cmw"
+2025-07-02 18:11:19 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Wed Jul 02 18:22:58 CST 2025
+2025-07-02 18:14:08 INFO  o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MTQ1MTc3OCwiaWF0IjoxNzUxNDUwODc4fQ.VrOWzOPTz4opWU9Eiii0XZXf590Z-2TVa4OjWd4_Cmw"
+2025-07-02 18:14:08 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Wed Jul 02 18:22:58 CST 2025
+2025-07-02 18:18:31 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2025-07-02 18:18:31 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-02 18:18:32 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-07-02 18:18:32 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-02 18:18:32 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-02 18:18:32 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-02 18:18:32 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 31420 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
+2025-07-02 18:18:32 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
+2025-07-02 18:18:32 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-02 18:18:33 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-02 18:18:33 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 26 ms. Found 3 JPA repository interfaces.
+2025-07-02 18:18:33 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-07-02 18:18:33 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-02 18:18:33 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-07-02 18:18:33 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-02 18:18:33 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 631 ms
+2025-07-02 18:18:33 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-07-02 18:18:33 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@ec2eab1
+2025-07-02 18:18:33 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-07-02 18:18:33 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-02 18:18:33 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-02 18:18:33 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-02 18:18:33 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
 	Database driver: undefined/unknown
 	Database version: 17.4
@@ -201,38 +185,38 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-06-13 15:45:55 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-13 15:45:55 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:45:55 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-06-13 15:45:55 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-13 15:45:55 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-06-13 15:45:55 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-13 15:45:55 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-13 15:45:55 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 0.795 seconds (process running for 81.086)
-2025-06-13 15:45:55 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
-2025-06-13 15:45:56 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
-2025-06-13 15:45:56 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-13 15:45:57 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-13 15:45:57 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:45:57 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
-2025-06-13 15:45:57 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
-2025-06-13 15:45:57 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 26872 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
-2025-06-13 15:45:57 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
-2025-06-13 15:45:57 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-13 15:45:57 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-13 15:45:57 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 1 JPA repository interface.
-2025-06-13 15:45:57 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-13 15:45:57 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-13 15:45:57 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-13 15:45:57 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-13 15:45:57 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 257 ms
-2025-06-13 15:45:57 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
-2025-06-13 15:45:57 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@46f30331
-2025-06-13 15:45:57 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
-2025-06-13 15:45:57 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-13 15:45:57 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-13 15:45:57 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-13 15:45:57 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2025-07-02 18:18:33 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-02 18:18:33 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-02 18:18:34 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-07-02 18:18:34 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-02 18:18:34 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2025-07-02 18:18:34 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-07-02 18:18:34 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-07-02 18:18:34 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 1.596 seconds (process running for 854.404)
+2025-07-02 18:18:34 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-07-02 18:18:35 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2025-07-02 18:18:35 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-02 18:18:36 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-07-02 18:18:36 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-02 18:18:36 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-07-02 18:18:36 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-07-02 18:18:36 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 31420 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
+2025-07-02 18:18:36 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
+2025-07-02 18:18:36 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-02 18:18:36 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-02 18:18:36 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 19 ms. Found 3 JPA repository interfaces.
+2025-07-02 18:18:36 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-07-02 18:18:36 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-02 18:18:36 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-07-02 18:18:36 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-02 18:18:36 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 380 ms
+2025-07-02 18:18:36 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2025-07-02 18:18:36 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@2d751328
+2025-07-02 18:18:36 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2025-07-02 18:18:36 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-02 18:18:36 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-02 18:18:36 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-02 18:18:37 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-3)']
 	Database driver: undefined/unknown
 	Database version: 17.4
@@ -240,235 +224,40 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-06-13 15:45:57 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-13 15:45:57 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:45:58 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-06-13 15:45:58 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-13 15:45:58 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-06-13 15:45:58 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-13 15:45:58 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-13 15:45:58 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 0.671 seconds (process running for 83.833)
-2025-06-13 15:45:58 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
-2025-06-13 15:47:49 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
-2025-06-13 15:47:49 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-13 15:47:50 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-13 15:47:50 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:47:50 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
-2025-06-13 15:47:50 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
-2025-06-13 15:47:50 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 26872 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
-2025-06-13 15:47:50 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
-2025-06-13 15:47:50 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-13 15:47:50 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-13 15:47:50 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 1 JPA repository interface.
-2025-06-13 15:47:50 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-13 15:47:50 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-13 15:47:50 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-13 15:47:50 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-13 15:47:50 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 350 ms
-2025-06-13 15:47:50 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
-2025-06-13 15:47:51 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-4 - Added connection org.postgresql.jdbc.PgConnection@8d8b401
-2025-06-13 15:47:51 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
-2025-06-13 15:47:51 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-13 15:47:51 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-13 15:47:51 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-13 15:47:51 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-4)']
-	Database driver: undefined/unknown
-	Database version: 17.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-06-13 15:47:51 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-13 15:47:51 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:47:51 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-06-13 15:47:51 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-13 15:47:51 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-06-13 15:47:51 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-13 15:47:51 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-13 15:47:51 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 0.946 seconds (process running for 197.042)
-2025-06-13 15:47:51 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
-2025-06-13 15:47:52 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
-2025-06-13 15:47:52 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-13 15:47:53 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-13 15:47:53 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:47:53 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
-2025-06-13 15:47:53 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
-2025-06-13 15:47:53 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 26872 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
-2025-06-13 15:47:53 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
-2025-06-13 15:47:53 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-13 15:47:53 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-13 15:47:53 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 1 JPA repository interface.
-2025-06-13 15:47:53 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-13 15:47:53 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-13 15:47:53 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-13 15:47:53 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-13 15:47:53 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 246 ms
-2025-06-13 15:47:53 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Starting...
-2025-06-13 15:47:53 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-5 - Added connection org.postgresql.jdbc.PgConnection@57d96f46
-2025-06-13 15:47:53 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Start completed.
-2025-06-13 15:47:53 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-13 15:47:53 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-13 15:47:53 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-13 15:47:53 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-5)']
-	Database driver: undefined/unknown
-	Database version: 17.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-06-13 15:47:53 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-13 15:47:53 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:47:53 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-06-13 15:47:53 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-13 15:47:54 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-06-13 15:47:54 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-13 15:47:54 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-13 15:47:54 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 0.613 seconds (process running for 199.726)
-2025-06-13 15:47:54 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
-2025-06-13 15:48:55 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 2 class path changes (0 additions, 2 deletions, 0 modifications)
-2025-06-13 15:48:55 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-13 15:48:57 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-13 15:48:57 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:48:57 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown initiated...
-2025-06-13 15:48:57 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown completed.
-2025-06-13 15:48:57 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 26872 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
-2025-06-13 15:48:57 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
-2025-06-13 15:48:57 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-13 15:48:58 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-13 15:48:58 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21 ms. Found 1 JPA repository interface.
-2025-06-13 15:48:58 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-13 15:48:58 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-13 15:48:58 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-13 15:48:58 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-13 15:48:58 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 821 ms
-2025-06-13 15:48:58 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Starting...
-2025-06-13 15:48:58 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-6 - Added connection org.postgresql.jdbc.PgConnection@4a4efa43
-2025-06-13 15:48:58 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Start completed.
-2025-06-13 15:48:58 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-13 15:48:58 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-13 15:48:58 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-13 15:48:58 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-6)']
-	Database driver: undefined/unknown
-	Database version: 17.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-06-13 15:48:58 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-13 15:48:58 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:48:59 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-06-13 15:48:59 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-13 15:48:59 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-06-13 15:48:59 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-13 15:48:59 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-13 15:48:59 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 1.744 seconds (process running for 265.028)
-2025-06-13 15:48:59 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
-2025-06-13 15:49:00 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 2 class path changes (2 additions, 0 deletions, 0 modifications)
-2025-06-13 15:49:00 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-13 15:49:02 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-13 15:49:02 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:49:02 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown initiated...
-2025-06-13 15:49:02 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown completed.
-2025-06-13 15:49:02 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 26872 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
-2025-06-13 15:49:02 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
-2025-06-13 15:49:02 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-13 15:49:03 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-13 15:49:03 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21 ms. Found 1 JPA repository interface.
-2025-06-13 15:49:03 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-13 15:49:03 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-13 15:49:03 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-13 15:49:03 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-13 15:49:03 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 702 ms
-2025-06-13 15:49:03 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Starting...
-2025-06-13 15:49:03 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-7 - Added connection org.postgresql.jdbc.PgConnection@62dbb933
-2025-06-13 15:49:03 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Start completed.
-2025-06-13 15:49:03 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-13 15:49:03 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-13 15:49:03 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-13 15:49:03 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-7)']
-	Database driver: undefined/unknown
-	Database version: 17.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-06-13 15:49:03 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-13 15:49:03 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:49:03 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-06-13 15:49:03 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authenticationController' defined in file [C:\Users\Admin\Desktop\ERPoor\target\classes\org\allen\erpoor\account\AuthenticationController.class]: null
-2025-06-13 15:49:03 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:49:03 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Shutdown initiated...
-2025-06-13 15:49:04 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Shutdown completed.
-2025-06-13 15:49:04 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
-2025-06-13 15:49:04 INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-06-13 15:49:04 ERROR o.s.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authenticationController' defined in file [C:\Users\Admin\Desktop\ERPoor\target\classes\org\allen\erpoor\account\AuthenticationController.class]: null
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:321) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:309) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1222) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1188) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1123) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987) ~[spring-context-6.2.7.jar:6.2.7]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.7.jar:6.2.7]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.0-20250522.200025-499.jar:3.5.0-SNAPSHOT]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753) ~[spring-boot-3.5.0-20250522.200025-499.jar:3.5.0-SNAPSHOT]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.0-20250522.200025-499.jar:3.5.0-SNAPSHOT]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.0-20250522.200025-499.jar:3.5.0-SNAPSHOT]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1362) ~[spring-boot-3.5.0-20250522.200025-499.jar:3.5.0-SNAPSHOT]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1351) ~[spring-boot-3.5.0-20250522.200025-499.jar:3.5.0-SNAPSHOT]
-	at org.allen.erpoor.ErPoorApplication.main(ErPoorApplication.java:12) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.5.0-20250522.200025-499.jar:3.5.0-SNAPSHOT]
-Caused by: java.lang.ExceptionInInitializerError: null
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[na:na]
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[na:na]
-	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:209) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:145) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:318) ~[spring-beans-6.2.7.jar:6.2.7]
-	... 26 common frames omitted
-Caused by: java.lang.ClassCastException: class org.apache.logging.slf4j.SLF4JLogger cannot be cast to class org.slf4j.Logger (org.apache.logging.slf4j.SLF4JLogger and org.slf4j.Logger are in unnamed module of loader 'app')
-	at org.allen.erpoor.account.AuthenticationController.<clinit>(AuthenticationController.java:17) ~[classes/:na]
-	... 34 common frames omitted
-2025-06-13 15:49:53 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 13932 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
-2025-06-13 15:49:53 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
-2025-06-13 15:49:53 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-13 15:49:53 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-06-13 15:49:53 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-06-13 15:49:54 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-13 15:49:54 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 52 ms. Found 1 JPA repository interface.
-2025-06-13 15:49:54 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-13 15:49:54 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-13 15:49:54 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-13 15:49:54 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-13 15:49:54 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1649 ms
-2025-06-13 15:49:55 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-06-13 15:49:55 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@aa7450f
-2025-06-13 15:49:55 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-06-13 15:49:55 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-13 15:49:55 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-06-13 15:49:55 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-13 15:49:55 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-13 15:49:55 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2025-07-02 18:18:37 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-02 18:18:37 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-02 18:18:37 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-07-02 18:18:37 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-02 18:18:37 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2025-07-02 18:18:37 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-07-02 18:18:37 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-07-02 18:18:37 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 0.935 seconds (process running for 857.266)
+2025-07-02 18:18:37 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-07-02 18:27:31 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-02 18:27:31 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-07-02 18:27:31 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-02 18:27:31 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2025-07-02 18:27:31 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2025-07-02 18:35:34 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 19204 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
+2025-07-02 18:35:34 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
+2025-07-02 18:35:34 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-02 18:35:34 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-02 18:35:34 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-02 18:35:35 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-02 18:35:35 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 79 ms. Found 3 JPA repository interfaces.
+2025-07-02 18:35:36 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-07-02 18:35:36 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-02 18:35:36 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-07-02 18:35:36 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-02 18:35:36 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2469 ms
+2025-07-02 18:35:36 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-02 18:35:37 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@784fa40e
+2025-07-02 18:35:37 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-02 18:35:37 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-02 18:35:37 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-07-02 18:35:37 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-02 18:35:37 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-02 18:35:37 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 17.4
@@ -476,654 +265,180 @@ Caused by: java.lang.ClassCastException: class org.apache.logging.slf4j.SLF4JLog
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-06-13 15:49:56 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-13 15:49:56 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:49:56 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-06-13 15:49:57 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-13 15:49:57 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-06-13 15:49:57 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-13 15:49:57 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-13 15:49:57 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 5.264 seconds (process running for 6.554)
-2025-06-13 15:50:17 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-06-13 15:50:17 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-06-13 15:50:17 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2025-06-13 15:50:58 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-13 15:50:58 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-13 15:50:58 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:50:58 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-06-13 15:50:59 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2025-06-13 15:51:03 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 15300 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
-2025-06-13 15:51:03 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
-2025-06-13 15:51:03 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-13 15:51:03 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-06-13 15:51:03 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-06-13 15:51:04 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-13 15:51:04 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 41 ms. Found 1 JPA repository interface.
-2025-06-13 15:51:04 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-13 15:51:04 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-13 15:51:04 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-13 15:51:04 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-13 15:51:04 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1350 ms
-2025-06-13 15:51:04 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-06-13 15:51:05 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3c505a24
-2025-06-13 15:51:05 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-06-13 15:51:05 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-13 15:51:05 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-06-13 15:51:05 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-13 15:51:05 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-13 15:51:05 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 17.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-06-13 15:51:06 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-13 15:51:06 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:51:06 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-06-13 15:51:06 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-13 15:51:06 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-06-13 15:51:07 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-13 15:51:07 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-13 15:51:07 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 4.532 seconds (process running for 5.424)
-2025-06-13 15:51:12 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-06-13 15:51:12 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-06-13 15:51:12 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2025-06-13 15:54:24 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
-2025-06-13 15:54:24 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-13 15:54:25 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-13 15:54:25 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:54:25 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-06-13 15:54:25 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2025-06-13 15:54:25 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 15300 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
-2025-06-13 15:54:25 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
-2025-06-13 15:54:25 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-13 15:54:25 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-13 15:54:25 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15 ms. Found 1 JPA repository interface.
-2025-06-13 15:54:25 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-13 15:54:25 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-13 15:54:25 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-13 15:54:26 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-13 15:54:26 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 423 ms
-2025-06-13 15:54:26 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
-2025-06-13 15:54:26 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@556e1520
-2025-06-13 15:54:26 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
-2025-06-13 15:54:26 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-13 15:54:26 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-13 15:54:26 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-13 15:54:26 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
-	Database driver: undefined/unknown
-	Database version: 17.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-06-13 15:54:26 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-13 15:54:26 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:54:26 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-06-13 15:54:26 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authenticationController': Resolution of declared constructors on bean Class [org.allen.erpoor.account.AuthenticationController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@54b25a95] failed
-2025-06-13 15:54:26 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:54:26 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
-2025-06-13 15:54:26 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
-2025-06-13 15:54:26 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
-2025-06-13 15:54:26 INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-06-13 15:54:26 ERROR o.s.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authenticationController': Resolution of declared constructors on bean Class [org.allen.erpoor.account.AuthenticationController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@54b25a95] failed
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:384) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1334) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1229) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1222) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1188) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1123) ~[spring-beans-6.2.7.jar:6.2.7]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987) ~[spring-context-6.2.7.jar:6.2.7]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.7.jar:6.2.7]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.0-20250522.200025-499.jar:3.5.0-SNAPSHOT]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753) ~[spring-boot-3.5.0-20250522.200025-499.jar:3.5.0-SNAPSHOT]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.0-20250522.200025-499.jar:3.5.0-SNAPSHOT]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.0-20250522.200025-499.jar:3.5.0-SNAPSHOT]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1362) ~[spring-boot-3.5.0-20250522.200025-499.jar:3.5.0-SNAPSHOT]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1351) ~[spring-boot-3.5.0-20250522.200025-499.jar:3.5.0-SNAPSHOT]
-	at org.allen.erpoor.ErPoorApplication.main(ErPoorApplication.java:12) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.5.0-20250522.200025-499.jar:3.5.0-SNAPSHOT]
-Caused by: java.lang.NoClassDefFoundError: org/allen/erpoor/account/AuthenticationService
-	at java.base/java.lang.Class.getDeclaredConstructors0(Native Method) ~[na:na]
-	at java.base/java.lang.Class.privateGetDeclaredConstructors(Class.java:3373) ~[na:na]
-	at java.base/java.lang.Class.getDeclaredConstructors(Class.java:2555) ~[na:na]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:379) ~[spring-beans-6.2.7.jar:6.2.7]
-	... 25 common frames omitted
-Caused by: java.lang.ClassNotFoundException: org.allen.erpoor.account.AuthenticationService
-	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
-	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525) ~[na:na]
-	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
-	at java.base/java.lang.Class.forName(Class.java:467) ~[na:na]
-	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.5.0-20250522.200025-499.jar:3.5.0-SNAPSHOT]
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525) ~[na:na]
-	... 29 common frames omitted
-2025-06-13 15:55:32 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 3048 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
-2025-06-13 15:55:32 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
-2025-06-13 15:55:32 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-13 15:55:32 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-06-13 15:55:32 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-06-13 15:55:33 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-13 15:55:33 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 57 ms. Found 1 JPA repository interface.
-2025-06-13 15:55:33 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-13 15:55:33 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-13 15:55:33 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-13 15:55:33 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-13 15:55:33 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1843 ms
-2025-06-13 15:55:34 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-06-13 15:55:34 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6ae490cb
-2025-06-13 15:55:34 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-06-13 15:55:34 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-13 15:55:34 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-06-13 15:55:34 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-13 15:55:35 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-13 15:55:35 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 17.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-06-13 15:55:36 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-13 15:55:36 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:55:36 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-06-13 15:55:37 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-13 15:55:37 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-06-13 15:55:37 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-13 15:55:37 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-13 15:55:37 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 6.836 seconds (process running for 8.298)
-2025-06-13 15:56:03 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-13 15:56:03 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-13 15:56:03 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:56:03 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-06-13 15:56:03 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2025-06-13 15:56:09 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 20712 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
-2025-06-13 15:56:09 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
-2025-06-13 15:56:09 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-13 15:56:09 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-06-13 15:56:09 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-06-13 15:56:10 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-13 15:56:10 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 49 ms. Found 1 JPA repository interface.
-2025-06-13 15:56:11 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-13 15:56:11 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-13 15:56:11 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-13 15:56:11 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-13 15:56:11 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1632 ms
-2025-06-13 15:56:11 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-06-13 15:56:11 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@63cf43fe
-2025-06-13 15:56:11 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-06-13 15:56:11 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-13 15:56:11 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-06-13 15:56:11 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-13 15:56:12 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-13 15:56:12 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 17.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-06-13 15:56:13 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-13 15:56:13 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 15:56:13 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-06-13 15:56:13 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-13 15:56:13 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-06-13 15:56:14 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-13 15:56:14 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-13 15:56:14 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 5.331 seconds (process running for 6.405)
-2025-06-13 15:56:21 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-06-13 15:56:21 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-06-13 15:56:21 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2025-06-13 16:03:06 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-13 16:03:07 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-13 16:03:07 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 16:03:07 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-06-13 16:03:07 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2025-06-13 16:03:13 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 27344 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
-2025-06-13 16:03:13 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
-2025-06-13 16:03:13 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-13 16:03:13 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-06-13 16:03:13 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-06-13 16:03:14 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-13 16:03:14 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 42 ms. Found 1 JPA repository interface.
-2025-06-13 16:03:14 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-13 16:03:14 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-13 16:03:14 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-13 16:03:14 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-13 16:03:14 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1279 ms
-2025-06-13 16:03:15 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-06-13 16:03:15 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@42dbe7ac
-2025-06-13 16:03:15 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-06-13 16:03:15 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-13 16:03:15 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-06-13 16:03:15 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-13 16:03:15 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-13 16:03:15 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 17.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-06-13 16:03:16 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-13 16:03:16 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 16:03:16 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-06-13 16:03:16 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-13 16:03:16 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-06-13 16:03:17 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-13 16:03:17 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-13 16:03:17 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 4.407 seconds (process running for 5.367)
-2025-06-13 16:03:27 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-06-13 16:03:27 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-06-13 16:03:27 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2025-06-13 16:05:40 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-13 16:05:41 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-13 16:05:41 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 16:05:41 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-06-13 16:05:41 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2025-06-13 16:05:46 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 22928 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
-2025-06-13 16:05:46 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
-2025-06-13 16:05:46 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-13 16:05:46 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-06-13 16:05:46 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-06-13 16:05:47 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-13 16:05:47 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 52 ms. Found 1 JPA repository interface.
-2025-06-13 16:05:48 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-13 16:05:48 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-13 16:05:48 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-13 16:05:48 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-13 16:05:48 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1462 ms
-2025-06-13 16:05:48 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-06-13 16:05:48 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@61a0873c
-2025-06-13 16:05:48 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-06-13 16:05:48 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-13 16:05:48 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-06-13 16:05:48 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-13 16:05:48 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-13 16:05:49 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 17.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-06-13 16:05:50 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-13 16:05:50 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 16:05:50 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-06-13 16:05:50 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-13 16:05:51 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-06-13 16:05:51 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-13 16:05:51 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-13 16:05:51 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 5.898 seconds (process running for 7.056)
-2025-06-13 16:05:52 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-06-13 16:05:52 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-06-13 16:05:52 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2025-06-13 16:08:54 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 2 class path changes (0 additions, 2 deletions, 0 modifications)
-2025-06-13 16:08:54 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-13 16:08:56 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-13 16:08:56 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 16:08:56 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-06-13 16:08:56 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2025-06-13 16:08:56 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 22928 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
-2025-06-13 16:08:56 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
-2025-06-13 16:08:56 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-13 16:08:57 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-13 16:08:57 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15 ms. Found 1 JPA repository interface.
-2025-06-13 16:08:57 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-13 16:08:57 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-13 16:08:57 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-13 16:08:57 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-13 16:08:57 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 668 ms
-2025-06-13 16:08:57 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
-2025-06-13 16:08:57 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@38a45280
-2025-06-13 16:08:57 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
-2025-06-13 16:08:57 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-13 16:08:57 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-13 16:08:57 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-13 16:08:57 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
-	Database driver: undefined/unknown
-	Database version: 17.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-06-13 16:08:57 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-13 16:08:57 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 16:08:57 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-06-13 16:08:57 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-13 16:08:57 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-06-13 16:08:58 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-13 16:08:58 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-13 16:08:58 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 1.563 seconds (process running for 193.458)
-2025-06-13 16:08:58 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
-2025-06-13 16:08:59 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 2 class path changes (2 additions, 0 deletions, 0 modifications)
-2025-06-13 16:08:59 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-13 16:09:00 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-13 16:09:00 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 16:09:00 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
-2025-06-13 16:09:00 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
-2025-06-13 16:09:01 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 22928 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
-2025-06-13 16:09:01 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
-2025-06-13 16:09:01 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-13 16:09:01 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-13 16:09:01 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 1 JPA repository interface.
-2025-06-13 16:09:01 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-13 16:09:01 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-13 16:09:01 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-13 16:09:01 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-13 16:09:01 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 323 ms
-2025-06-13 16:09:01 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
-2025-06-13 16:09:01 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@38ab2dd5
-2025-06-13 16:09:01 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
-2025-06-13 16:09:01 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-13 16:09:01 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-13 16:09:01 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-13 16:09:01 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-3)']
-	Database driver: undefined/unknown
-	Database version: 17.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-06-13 16:09:01 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-13 16:09:01 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 16:09:01 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-06-13 16:09:01 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-13 16:09:01 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-06-13 16:09:01 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-13 16:09:01 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-13 16:09:01 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 0.711 seconds (process running for 196.999)
-2025-06-13 16:09:01 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
-2025-06-13 16:12:03 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
-2025-06-13 16:12:03 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-13 16:12:04 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-13 16:12:04 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 16:12:04 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
-2025-06-13 16:12:04 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
-2025-06-13 16:12:04 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 22928 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
-2025-06-13 16:12:04 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
-2025-06-13 16:12:04 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-13 16:12:04 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-13 16:12:04 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 1 JPA repository interface.
-2025-06-13 16:12:04 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-13 16:12:04 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-13 16:12:04 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-13 16:12:04 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-13 16:12:04 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 314 ms
-2025-06-13 16:12:04 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
-2025-06-13 16:12:04 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-4 - Added connection org.postgresql.jdbc.PgConnection@618e4295
-2025-06-13 16:12:04 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
-2025-06-13 16:12:04 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-13 16:12:04 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-13 16:12:05 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-13 16:12:05 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-4)']
-	Database driver: undefined/unknown
-	Database version: 17.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-06-13 16:12:05 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-13 16:12:05 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 16:12:05 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-06-13 16:12:05 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-13 16:12:05 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-06-13 16:12:05 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-13 16:12:05 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-13 16:12:05 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 0.643 seconds (process running for 380.518)
-2025-06-13 16:12:05 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
-2025-06-13 16:12:38 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
-2025-06-13 16:12:38 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-13 16:12:39 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-13 16:12:39 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 16:12:39 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
-2025-06-13 16:12:39 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
-2025-06-13 16:12:40 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 22928 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
-2025-06-13 16:12:40 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
-2025-06-13 16:12:40 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-13 16:12:40 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-13 16:12:40 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17 ms. Found 1 JPA repository interface.
-2025-06-13 16:12:40 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-13 16:12:40 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-13 16:12:40 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-13 16:12:40 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-13 16:12:40 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 603 ms
-2025-06-13 16:12:40 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Starting...
-2025-06-13 16:12:40 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-5 - Added connection org.postgresql.jdbc.PgConnection@2639cdde
-2025-06-13 16:12:40 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Start completed.
-2025-06-13 16:12:40 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-13 16:12:40 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-13 16:12:41 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-13 16:12:41 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-5)']
-	Database driver: undefined/unknown
-	Database version: 17.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-06-13 16:12:41 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-13 16:12:41 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 16:12:41 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-06-13 16:12:41 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-13 16:12:41 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-06-13 16:12:41 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-13 16:12:41 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-13 16:12:41 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 1.551 seconds (process running for 416.898)
-2025-06-13 16:12:41 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
-2025-06-13 16:13:43 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-13 16:13:45 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-13 16:13:45 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 16:13:45 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown initiated...
-2025-06-13 16:13:45 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown completed.
-2025-06-13 16:17:10 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 23612 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
-2025-06-13 16:17:10 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
-2025-06-13 16:17:10 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-13 16:17:10 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-06-13 16:17:10 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-06-13 16:17:11 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-13 16:17:11 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 44 ms. Found 1 JPA repository interface.
-2025-06-13 16:17:11 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-13 16:17:11 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-13 16:17:11 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-13 16:17:11 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-13 16:17:11 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1268 ms
-2025-06-13 16:17:11 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-06-13 16:17:12 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7fae430b
-2025-06-13 16:17:12 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-06-13 16:17:12 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-13 16:17:12 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-06-13 16:17:12 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-13 16:17:12 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-13 16:17:12 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 17.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-06-13 16:17:13 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-13 16:17:13 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 16:17:13 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-06-13 16:17:13 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-13 16:17:13 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-06-13 16:17:14 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-13 16:17:14 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-13 16:17:14 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 4.302 seconds (process running for 5.185)
-2025-06-13 16:17:28 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-06-13 16:17:28 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-06-13 16:17:28 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2025-06-13 16:17:28 DEBUG o.a.e.a.AuthenticationController - 收到登入請求，username=admi3
-2025-06-13 16:17:28 WARN  o.a.e.a.AuthenticationController - 用戶登入失敗，username=admi3, 原因: Cannot invoke "org.allen.erpoor.account.entity.AccountEntity.getPassword()" because "account" is null
-2025-06-13 16:17:54 DEBUG o.a.e.a.AuthenticationController - 收到登入請求，username=user3
-2025-06-13 16:17:54 INFO  o.a.e.a.AuthenticationController - 用戶登入成功，username=user3
-2025-06-13 16:21:38 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-13 16:21:39 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-13 16:21:39 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 16:21:39 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-06-13 16:21:39 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2025-06-13 16:22:48 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 5172 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
-2025-06-13 16:22:48 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
-2025-06-13 16:22:48 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-13 16:22:48 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-06-13 16:22:48 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-06-13 16:22:49 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-13 16:22:49 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 42 ms. Found 1 JPA repository interface.
-2025-06-13 16:22:49 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-13 16:22:49 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-13 16:22:49 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-13 16:22:49 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-13 16:22:49 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1297 ms
-2025-06-13 16:22:49 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-06-13 16:22:50 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@24d60d96
-2025-06-13 16:22:50 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-06-13 16:22:50 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-13 16:22:50 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-06-13 16:22:50 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-13 16:22:50 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-13 16:22:50 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 17.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-06-13 16:22:51 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-13 16:22:51 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 16:22:51 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-06-13 16:22:51 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-13 16:22:51 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-06-13 16:22:52 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-13 16:22:52 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-13 16:22:52 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 4.273 seconds (process running for 5.146)
-2025-06-13 16:22:57 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-06-13 16:22:57 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-06-13 16:22:57 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2025-06-13 16:24:27 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-13 16:24:28 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-13 16:24:28 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 16:24:28 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-06-13 16:24:28 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2025-06-13 16:24:33 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 23324 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
-2025-06-13 16:24:33 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
-2025-06-13 16:24:33 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-13 16:24:34 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-06-13 16:24:34 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-06-13 16:24:35 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-13 16:24:35 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 50 ms. Found 1 JPA repository interface.
-2025-06-13 16:24:35 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-13 16:24:35 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-13 16:24:35 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-13 16:24:35 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-13 16:24:35 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1682 ms
-2025-06-13 16:24:35 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-06-13 16:24:35 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@44451422
-2025-06-13 16:24:35 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-06-13 16:24:35 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-13 16:24:36 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-06-13 16:24:36 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-13 16:24:36 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-13 16:24:36 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 17.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-06-13 16:24:37 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-13 16:24:37 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 16:24:37 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-06-13 16:24:37 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-13 16:24:37 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-06-13 16:24:37 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-13 16:24:37 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-13 16:24:37 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 4.725 seconds (process running for 5.828)
-2025-06-13 16:24:41 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-06-13 16:24:41 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-06-13 16:24:41 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2025-06-13 16:25:20 DEBUG o.a.e.a.AuthenticationController - 收到註冊請求，username=user3
-2025-06-13 16:25:20 WARN  o.a.e.a.AuthenticationController - 用戶註冊失敗，username=user3, 原因: not-null property references a null or transient value: org.allen.erpoor.account.entity.AccountEntity.nickname
-2025-06-13 16:27:56 DEBUG o.a.e.a.AuthenticationController - 收到註冊請求，username=user3
-2025-06-13 16:27:56 WARN  o.a.e.a.AuthenticationController - 用戶註冊失敗，username=user3, 原因: not-null property references a null or transient value: org.allen.erpoor.account.entity.AccountEntity.nickname
-2025-06-13 17:06:57 DEBUG o.a.e.a.AuthenticationController - 收到註冊請求，username=user4
-2025-06-13 17:06:57 WARN  o.a.e.a.AuthenticationController - 用戶註冊失敗，username=user4, 原因: not-null property references a null or transient value: org.allen.erpoor.account.entity.AccountEntity.nickname
-2025-06-13 17:08:06 DEBUG o.a.e.a.AuthenticationController - 收到註冊請求，username=user4
-2025-06-13 17:08:06 WARN  o.a.e.a.AuthenticationController - 用戶註冊失敗，username=user4, 原因: not-null property references a null or transient value: org.allen.erpoor.account.entity.AccountEntity.nickname
-2025-06-13 17:08:32 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-13 17:08:33 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-13 17:08:33 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 17:08:33 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-06-13 17:08:33 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2025-06-13 17:09:07 INFO  org.allen.erpoor.ErPoorApplication - Starting ErPoorApplication using Java 17.0.13 with PID 2404 (C:\Users\Admin\Desktop\ERPoor\target\classes started by Admin in C:\Users\Admin\Desktop\ERPoor)
-2025-06-13 17:09:07 DEBUG org.allen.erpoor.ErPoorApplication - Running with Spring Boot v3.5.0-SNAPSHOT, Spring v6.2.7
-2025-06-13 17:09:07 INFO  org.allen.erpoor.ErPoorApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-13 17:09:07 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-06-13 17:09:07 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-06-13 17:09:07 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-13 17:09:07 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 43 ms. Found 1 JPA repository interface.
-2025-06-13 17:09:08 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-13 17:09:08 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-13 17:09:08 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-13 17:09:08 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-13 17:09:08 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1282 ms
-2025-06-13 17:09:08 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-06-13 17:09:08 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@485ca0ea
-2025-06-13 17:09:08 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-06-13 17:09:08 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-13 17:09:08 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-06-13 17:09:08 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-13 17:09:09 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-13 17:09:09 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 17.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-06-13 17:09:10 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-13 17:09:10 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 17:09:10 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-06-13 17:09:10 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-13 17:09:10 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-06-13 17:09:10 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-13 17:09:10 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-13 17:09:11 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 4.453 seconds (process running for 5.344)
-2025-06-13 17:10:32 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-06-13 17:10:32 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-06-13 17:10:32 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-2025-06-13 17:10:32 DEBUG o.a.e.a.AuthenticationController - 收到註冊請求，username=user4
-2025-06-13 17:10:32 INFO  o.a.e.a.AuthenticationController - 用戶註冊成功，username=user4
-2025-06-13 17:10:54 DEBUG o.a.e.a.AuthenticationController - 收到登入請求，username=user4
-2025-06-13 17:10:54 INFO  o.a.e.a.AuthenticationController - 用戶登入成功，username=user4
-2025-06-13 17:12:43 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-13 17:12:43 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-13 17:12:43 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-13 17:12:43 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-06-13 17:12:43 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-02 18:35:38 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-02 18:35:38 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-02 18:35:39 DEBUG o.a.e.a.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-07-02 18:35:39 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-02 18:35:39 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2025-07-02 18:35:40 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-07-02 18:35:40 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-07-02 18:35:40 INFO  org.allen.erpoor.ErPoorApplication - Started ErPoorApplication in 7.061 seconds (process running for 8.309)
+2025-07-02 18:35:45 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-02 18:35:45 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-02 18:35:45 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-07-02 18:35:45 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MTQ1MTc3OCwiaWF0IjoxNzUxNDUwODc4fQ.VrOWzOPTz4opWU9Eiii0XZXf590Z-2TVa4OjWd4_Cmw"
+2025-07-02 18:35:45 ERROR o.a.erpoor.account.JWTServiceImpl - JWT 解析失敗: JWT expired 767711 milliseconds ago at 2025-07-02T10:22:58.000Z. Current time: 2025-07-02T10:35:45.711Z. Allowed clock skew: 0 milliseconds.
+2025-07-02 18:35:45 ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+io.jsonwebtoken.JwtException: 無效的 JWT Token: JWT expired 767711 milliseconds ago at 2025-07-02T10:22:58.000Z. Current time: 2025-07-02T10:35:45.711Z. Allowed clock skew: 0 milliseconds.
+	at org.allen.erpoor.account.JWTServiceImpl.extractAllClaims(JWTServiceImpl.java:67)
+	at org.allen.erpoor.account.JWTServiceImpl.getUsernameFromToken(JWTServiceImpl.java:44)
+	at org.allen.erpoor.account.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:60)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: io.jsonwebtoken.ExpiredJwtException: JWT expired 767711 milliseconds ago at 2025-07-02T10:22:58.000Z. Current time: 2025-07-02T10:35:45.711Z. Allowed clock skew: 0 milliseconds.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:691)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:364)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:94)
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:36)
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:29)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseSignedClaims(DefaultJwtParser.java:830)
+	at org.allen.erpoor.account.JWTServiceImpl.extractAllClaims(JWTServiceImpl.java:53)
+	... 63 common frames omitted
+2025-07-02 18:35:47 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MTQ1MTc3OCwiaWF0IjoxNzUxNDUwODc4fQ.VrOWzOPTz4opWU9Eiii0XZXf590Z-2TVa4OjWd4_Cmw"
+2025-07-02 18:35:47 ERROR o.a.erpoor.account.JWTServiceImpl - JWT 解析失敗: JWT expired 769615 milliseconds ago at 2025-07-02T10:22:58.000Z. Current time: 2025-07-02T10:35:47.615Z. Allowed clock skew: 0 milliseconds.
+2025-07-02 18:35:47 ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+io.jsonwebtoken.JwtException: 無效的 JWT Token: JWT expired 769615 milliseconds ago at 2025-07-02T10:22:58.000Z. Current time: 2025-07-02T10:35:47.615Z. Allowed clock skew: 0 milliseconds.
+	at org.allen.erpoor.account.JWTServiceImpl.extractAllClaims(JWTServiceImpl.java:67)
+	at org.allen.erpoor.account.JWTServiceImpl.getUsernameFromToken(JWTServiceImpl.java:44)
+	at org.allen.erpoor.account.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:60)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: io.jsonwebtoken.ExpiredJwtException: JWT expired 769615 milliseconds ago at 2025-07-02T10:22:58.000Z. Current time: 2025-07-02T10:35:47.615Z. Allowed clock skew: 0 milliseconds.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:691)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:364)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:94)
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:36)
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:29)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseSignedClaims(DefaultJwtParser.java:830)
+	at org.allen.erpoor.account.JWTServiceImpl.extractAllClaims(JWTServiceImpl.java:53)
+	... 63 common frames omitted
+2025-07-02 18:35:58 DEBUG o.a.e.a.AuthenticationController - 收到登入請求，username=admin
+2025-07-02 18:35:58 INFO  o.a.e.a.RefreshTokenServiceImpl - userId KvqiY/wXelgqpOEg32KanlqgtjzK/IrUHkYh7I/rU68 建立 refreshToken 成功
+2025-07-02 18:35:58 INFO  o.a.e.a.AuthenticationController - 用戶登入成功，username=admin
+2025-07-02 18:36:30 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MTQ1MzQ1OCwiaWF0IjoxNzUxNDUyNTU4fQ.kC3FJ5mDLvncg5_5CLu5jZZr6-ys53ikvElO8aXtzK4
+2025-07-02 18:36:30 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Wed Jul 02 18:50:58 CST 2025
+2025-07-02 18:36:30 DEBUG o.a.e.inventory.InventoryController - 收到商品庫存狀態查詢請求
+2025-07-02 18:36:30 INFO  o.a.e.inventory.InventoryController - 成功查詢商品庫存狀態，共 15 筆記錄
+2025-07-02 18:36:41 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-02 18:36:42 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-07-02 18:36:42 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-02 18:36:42 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-02 18:36:42 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

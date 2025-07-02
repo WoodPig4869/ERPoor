@@ -9,18 +9,21 @@ import org.allen.erpoor.util.TokenGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
+@Service
 public class RefreshTokenServiceImpl implements RefreshTokenService {
 
     private static final Logger logger = LoggerFactory.getLogger(RefreshTokenServiceImpl.class);
     private final RefreshTokenRepository refreshTokenRepository;
 
-    public RefreshTokenServiceImpl(RefreshTokenRepository refreshTokenRepository, TokenGenerator tokenGenerator) {
-        this.refreshTokenRepository = refreshTokenRepository;
-    }
 
     @Value("${refreshTokenValidityDays}")
     private int refreshTokenValidityDays;
+
+    public RefreshTokenServiceImpl(RefreshTokenRepository refreshTokenRepository) {
+        this.refreshTokenRepository = refreshTokenRepository;
+    }
 
     @Override
     public RefreshTokenEntity createTokenByUserId(Integer userId) {
@@ -41,12 +44,11 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
     }
 
     @Override
-    public String renewRefreshToken(String token) {
+    public Integer ValidateRefreshTokenAndGetUserId(String token) {
         if (token == null || token.isBlank()) {
             logger.warn("接收到無效的 refresh token（為 null 或空字串）");
             return null;
         }
-
         try {
             return refreshTokenRepository.findByToken(token)
                     .filter(t -> !t.getRevoked())
@@ -56,12 +58,8 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
                         int userId = oldToken.getUserId();
                         oldToken.setRevoked(true);
                         refreshTokenRepository.save(oldToken);
-
-                        // 建立新的 refresh token
-                        RefreshTokenEntity newToken = createTokenByUserId(userId); ;
-
-                        logger.info("成功更新 refresh token，UserId: {}", newToken.getUserId());
-                        return newToken.getToken();
+                        logger.info("撤銷舊的 refresh token 成功，UserId: {}", userId);
+                        return userId;
                     })
                     .orElseGet(() -> {
                         logger.warn("refreshToken 驗證失敗：無效、已撤銷或已過期");

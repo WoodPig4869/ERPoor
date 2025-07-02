@@ -39,12 +39,12 @@ ON CONFLICT (username) DO NOTHING;
 -- 初始化 refresh_token 資料表，儲存使用者的 refresh token 與相關資訊
 DROP TABLE IF EXISTS refresh_token;
 CREATE TABLE refresh_token (
-  token_id BIGSERIAL PRIMARY KEY,                    -- refresh_token 唯一識別碼，自動遞增
-  user_id INTEGER NOT NULL,                     -- 對應使用者帳號 id
-  token VARCHAR(512) NOT NULL UNIQUE,           -- refresh token 字串，唯一且長度限制512字元
-  expires_at TIMESTAMP NOT NULL,                 -- refresh token 到期時間
-  revoked BOOLEAN NOT NULL DEFAULT FALSE,        -- 是否已被撤銷
-  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP  -- 產生時間
+  token_id BIGSERIAL PRIMARY KEY,        
+  user_id INTEGER NOT NULL,                 
+  token VARCHAR(512) NOT NULL UNIQUE,       
+  expires_at TIMESTAMP NOT NULL,     
+  revoked BOOLEAN NOT NULL DEFAULT FALSE, 
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 -- 🔍 加入 user_id 及 token 的搜尋索引（token 已 UNIQUE）
@@ -62,12 +62,15 @@ COMMENT ON COLUMN refresh_token.revoked IS '標記 token 是否已撤銷';
 COMMENT ON COLUMN refresh_token.created_at IS 'refresh token 產生時間';
 
 -- 初始化 product 商品主檔
-DROP TABLE IF EXISTS product;
+DROP TABLE IF EXISTS product CASCADE;
 CREATE TABLE product (
   product_id SERIAL PRIMARY KEY,                       
   name VARCHAR(100) NOT NULL,                          
   category VARCHAR(50),                                
-  unit VARCHAR(20) NOT NULL DEFAULT '件',              
+  unit VARCHAR(20) NOT NULL DEFAULT '件',
+  description TEXT,
+  enabled BOOLEAN NOT NULL DEFAULT TRUE,
+  price DECIMAL(10,2) NOT NULL DEFAULT 0,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP  
 );
 
@@ -79,11 +82,14 @@ COMMENT ON COLUMN product.product_id IS '商品唯一識別碼，自動遞增';
 COMMENT ON COLUMN product.name IS '商品名稱';
 COMMENT ON COLUMN product.category IS '商品分類';
 COMMENT ON COLUMN product.unit IS '計量單位';
+COMMENT ON COLUMN product.description IS '商品簡述';
+COMMENT ON COLUMN product.enabled IS '是否啟用（上架）';
+COMMENT ON COLUMN product.price IS '商品單價';
 COMMENT ON COLUMN product.created_at IS '商品建立時間';
 
 
 -- 初始化 supplier 供應商資料表
-DROP TABLE IF EXISTS supplier;
+DROP TABLE IF EXISTS supplier CASCADE;
 CREATE TABLE supplier (
   supplier_id SERIAL PRIMARY KEY,                      
   name VARCHAR(100) NOT NULL,                          
@@ -100,35 +106,32 @@ COMMENT ON COLUMN supplier.name IS '供應商名稱';
 COMMENT ON COLUMN supplier.contact_info IS '聯絡資訊';
 COMMENT ON COLUMN supplier.created_at IS '供應商建立時間';
 
--- 第一筆供應商資料
-INSERT INTO supplier(name)VALUES('凱亞良品');
-
 
 -- 初始化 product_batch 商品批次資料表
-DROP TABLE IF EXISTS product_batch;
+DROP TABLE IF EXISTS product_batch CASCADE;
 CREATE TABLE product_batch (
   batch_id SERIAL PRIMARY KEY,                         
   product_id INT NOT NULL REFERENCES product(product_id) ON DELETE CASCADE,  
   batch_code VARCHAR(50),                              
   quantity INT NOT NULL CHECK (quantity >= 0),        
-  remaining_quantity INT NOT NULL CHECK (remaining_quantity >= 0), 
   expiration_date DATE NOT NULL,                       
   purchase_price DECIMAL(10,2) NOT NULL DEFAULT 0,    
   received_date DATE NOT NULL,                         
   supplier_id INT REFERENCES supplier(supplier_id) ON DELETE SET NULL, 
-  supplier_name VARCHAR(100),                           -- 加入 supplier_name
+  supplier_name VARCHAR(100) NOT NULL,                           -- 加入 supplier_name
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP             
 );
 
 DROP INDEX IF EXISTS idx_product_batch_product_id_expiration_date;
 CREATE INDEX idx_product_batch_product_id_expiration_date ON product_batch(product_id, expiration_date);
+CREATE INDEX idx_product_batch_product_id_expiry ON product_batch(product_id, expiration_date);
+CREATE INDEX idx_product_batch_product_id_received ON product_batch(product_id, received_date);
 
 COMMENT ON TABLE product_batch IS '商品批次資料表，紀錄每批進貨數量與有效日期';
 COMMENT ON COLUMN product_batch.batch_id IS '批次唯一識別碼，自動遞增';
 COMMENT ON COLUMN product_batch.product_id IS '對應商品 ID';
 COMMENT ON COLUMN product_batch.batch_code IS '批號';
 COMMENT ON COLUMN product_batch.quantity IS '進貨數量';
-COMMENT ON COLUMN product_batch.remaining_quantity IS '剩餘庫存數量';
 COMMENT ON COLUMN product_batch.expiration_date IS '有效日期';
 COMMENT ON COLUMN product_batch.purchase_price IS '進貨單價';
 COMMENT ON COLUMN product_batch.received_date IS '進貨日期';
@@ -136,9 +139,9 @@ COMMENT ON COLUMN product_batch.supplier_id IS '供應商 ID';
 COMMENT ON COLUMN product_batch.supplier_name IS '供應商名稱，方便查詢';
 COMMENT ON COLUMN product_batch.created_at IS '資料建立時間';
 
--- 初始化 order 訂單資料表
-DROP TABLE IF EXISTS "order";  -- order 是保留字，加雙引號
-CREATE TABLE "order" (
+-- 初始化 sale_order 訂單資料表
+DROP TABLE IF EXISTS sale_order CASCADE;
+CREATE TABLE sale_order (
   order_id SERIAL PRIMARY KEY,                          
   order_date DATE NOT NULL,                             
   customer_name VARCHAR(100),                          
@@ -147,27 +150,27 @@ CREATE TABLE "order" (
 );
 
 DROP INDEX IF EXISTS idx_order_order_date;
-CREATE INDEX idx_order_order_date ON "order"(order_date);
+CREATE INDEX idx_order_order_date ON sale_order(order_date);
 
-COMMENT ON TABLE "order" IS '訂單資料表，紀錄客戶訂單資訊';
-COMMENT ON COLUMN "order".order_id IS '訂單唯一識別碼，自動遞增';
-COMMENT ON COLUMN "order".order_date IS '訂單日期';
-COMMENT ON COLUMN "order".customer_name IS '客戶名稱';
-COMMENT ON COLUMN "order".total_amount IS '訂單總金額';
-COMMENT ON COLUMN "order".created_at IS '資料建立時間';
+COMMENT ON TABLE sale_order IS '訂單資料表，紀錄客戶訂單資訊';
+COMMENT ON COLUMN sale_order.order_id IS '訂單唯一識別碼，自動遞增';
+COMMENT ON COLUMN sale_order.order_date IS '訂單日期';
+COMMENT ON COLUMN sale_order.customer_name IS '客戶名稱';
+COMMENT ON COLUMN sale_order.total_amount IS '訂單總金額';
+COMMENT ON COLUMN sale_order.created_at IS '資料建立時間';
 
 
 -- 初始化 order_item 訂單明細資料表
-DROP TABLE IF EXISTS order_item;
+DROP TABLE IF EXISTS order_item CASCADE;
 CREATE TABLE order_item (
   order_item_id SERIAL PRIMARY KEY,
-  order_id INT NOT NULL REFERENCES "order"(order_id) ON DELETE CASCADE,
+  order_id INT NOT NULL REFERENCES sale_order(order_id) ON DELETE CASCADE,
   product_id INT NOT NULL REFERENCES product(product_id),
   product_name VARCHAR(100) NOT NULL,  -- 當下訂單的商品名稱備份，避免商品改名影響歷史訂單
-  batch_id INT NOT NULL REFERENCES product_batch(batch_id),
   quantity INT NOT NULL CHECK (quantity > 0),
   sale_price DECIMAL(10,2) NOT NULL,
-  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  total_price DECIMAL(12,2) GENERATED ALWAYS AS (quantity * sale_price) STORED
 );
 
 CREATE INDEX idx_order_item_order_id ON order_item(order_id);
@@ -177,49 +180,102 @@ COMMENT ON COLUMN order_item.order_item_id IS '訂單明細唯一識別碼';
 COMMENT ON COLUMN order_item.order_id IS '所屬訂單 ID';
 COMMENT ON COLUMN order_item.product_id IS '商品 ID';
 COMMENT ON COLUMN order_item.product_name IS '商品名稱備份';
-COMMENT ON COLUMN order_item.batch_id IS '所使用的商品批次 ID';
 COMMENT ON COLUMN order_item.quantity IS '商品數量';
-COMMENT ON COLUMN order_item.sale_price IS '銷售單價';
+COMMENT ON COLUMN order_item.sale_price IS '銷售單價備份';
 COMMENT ON COLUMN order_item.created_at IS '建立時間';
+COMMENT ON COLUMN order_item.total_price IS '總價格';
+
+-- 初始化【庫存管理】視圖
+DROP VIEW IF EXISTS product_inventory_status;
+CREATE OR REPLACE VIEW product_inventory_status AS
+SELECT 
+  p.product_id,
+  p.name AS product_name,
+  p.unit,
+  p.description,
+  p.price,
+  p.enabled,
+  COALESCE(
+    (SELECT SUM(pb.quantity) 
+     FROM product_batch pb 
+     WHERE pb.product_id = p.product_id 
+     AND pb.expiration_date >= CURRENT_DATE),
+    0
+  ) AS total_available_quantity,
+  (SELECT MAX(pb.received_date) 
+   FROM product_batch pb 
+   WHERE pb.product_id = p.product_id) AS latest_received_date,
+  (SELECT MIN(pb.expiration_date) 
+   FROM product_batch pb 
+   WHERE pb.product_id = p.product_id 
+   AND pb.expiration_date >= CURRENT_DATE) AS nearest_expiry_date,
+  (SELECT pb.supplier_name 
+   FROM product_batch pb 
+   WHERE pb.product_id = p.product_id 
+   AND pb.expiration_date = (
+     SELECT MIN(pb2.expiration_date) 
+     FROM product_batch pb2 
+     WHERE pb2.product_id = p.product_id 
+     AND pb2.expiration_date >= CURRENT_DATE
+   ) LIMIT 1) AS supplier_for_nearest_expiry
+FROM 
+  product p;
+
+COMMENT ON VIEW product_inventory_status IS '商品庫存狀態視圖，包含商品基本資訊及庫存彙總數據';
+
+COMMENT ON COLUMN product_inventory_status.product_id IS '商品唯一識別碼';
+COMMENT ON COLUMN product_inventory_status.product_name IS '商品名稱';
+COMMENT ON COLUMN product_inventory_status.unit IS '計量單位';
+COMMENT ON COLUMN product_inventory_status.description IS '商品描述';
+COMMENT ON COLUMN product_inventory_status.price IS '商品銷售單價';
+COMMENT ON COLUMN product_inventory_status.enabled IS '是否啟用(上架)';
+COMMENT ON COLUMN product_inventory_status.total_available_quantity IS '未過期庫存總量';
+COMMENT ON COLUMN product_inventory_status.latest_received_date IS '最新進貨日期';
+COMMENT ON COLUMN product_inventory_status.nearest_expiry_date IS '最近到期日期';
+COMMENT ON COLUMN product_inventory_status.supplier_for_nearest_expiry IS '最近到期批次的供應商名稱';
 --------------
 --------------
 --------------
 --------------
 -- 建立測試資料
-INSERT INTO product (name, category, unit) VALUES
-('鮭魚切片', '魚類', '公斤'),
-('鱈魚排', '魚類', '公斤'),
-('虱目魚肚', '魚類', '片'),
-('白帶魚', '魚類', '尾'),
-('秋刀魚', '魚類', '尾'),
-('鯛魚片', '魚類', '公斤'),
-('鯖魚一夜干', '魚類', '包'),
-('柳葉魚', '魚類', '包'),
-('竹筴魚', '魚類', '尾'),
-('午仔魚', '魚類', '尾'),
+INSERT INTO supplier(name)VALUES('凱亞良品');
+INSERT INTO product (name, category, unit,price) VALUES
+('虱目魚肚/130-150g', '虱目魚系列', '片',148),
+('虱目魚肚(小)/150-170g', '虱目魚系列', '片',158),
+('虱目魚肚(中)/170-200g', '虱目魚系列', '片',178),
+('虱目魚皮', '虱目魚系列', '包',118),
 
-('草蝦', '甲殼類', '盒'),
-('白蝦', '甲殼類', '公斤'),
-('泰國蝦', '甲殼類', '公斤'),
-('龍蝦', '甲殼類', '隻'),
-('藍鑽蝦', '甲殼類', '盒'),
+('金目鱸魚排/250-300g', '金目鱸系列', '片',238),
+('金目鱸魚排/300-350g', '金目鱸系列', '片',268),
+('金目鱸魚下巴', '金目鱸系列', '包',98),
 
-('花枝圈', '軟體類', '包'),
-('透抽', '軟體類', '尾'),
-('小卷', '軟體類', '尾'),
-('章魚腳', '軟體類', '包'),
-('魷魚乾', '軟體類', '隻'),
+('100%純烏魚鬆120g', '休閒食品(常溫)', '罐',370),
+('頂級烏魚子醬', '休閒食品(常溫)', '瓶',750),
+('乾燥魚鱗', '休閒食品(常溫)', '包',268),
 
-('干貝', '貝類', '顆'),
-('生蠔', '貝類', '顆'),
-('鮑魚', '貝類', '顆'),
-('文蛤', '貝類', '斤'),
-('赤嘴蛤', '貝類', '斤'),
+('安心鮮撥白蝦仁', '達人鮮蝦系列', '包',258),
+('達人白蝦', '達人鮮蝦系列', '包',368),
 
-('海帶芽', '海藻類', '包'),
-('紫菜', '海藻類', '包');
+('原味烏魚排/300-400g', '烏魚系列', '片',268),
+('原味烏魚排/400-500g', '烏魚系列', '片',298),
+('烏魚腱/300g', '烏魚系列', '片',588);
 
-
+INSERT INTO product_batch (
+  product_id, batch_code, quantity, 
+  expiration_date, purchase_price, received_date, 
+  supplier_id, supplier_name
+)
+SELECT 
+  (floor(random() * 15)::int + 1),  -- 隨機 product_id (1-15)
+  'BATCH-TEST-' || i,
+  (random() * 200)::int + 50,  -- 數量 50-250
+  CURRENT_DATE + (random() * 19)::int,  -- 0-19天內到期
+  (random() * 888)::numeric(10,2) + 112,  -- 價格 128-888
+  CURRENT_DATE - (random() * 180 + 30)::int,  -- 30-210天前收到
+  1,  -- 供應商ID 1
+  	(SELECT name FROM supplier WHERE supplier_id = 1)
+  END
+FROM generate_series(1, 500) AS i;  -- 創建500筆測試資料
 --------------
 --------------
 --------------
@@ -229,4 +285,3 @@ SELECT table_schema, table_name
 FROM information_schema.tables
 WHERE table_type = 'BASE TABLE'
   AND table_schema NOT IN ('pg_catalog', 'information_schema');
-

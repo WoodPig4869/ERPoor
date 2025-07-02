@@ -1,8 +1,13 @@
 package org.allen.erpoor.account.entity;
 
 import jakarta.persistence.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.List;
 
 /**
      * AccountEntity 類別，映射到資料庫中的 'account' 資料表。
@@ -12,7 +17,7 @@ import java.time.LocalDateTime;
     @Table(name = "account",indexes = {
             @Index(name = "idx_account_username", columnList = "username")
     }) // 映射到資料庫中名為 'account' 的資料表
-    public class AccountEntity {
+    public class AccountEntity implements UserDetails {
 
         @Id // 標記此欄位為主鍵
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -58,7 +63,43 @@ import java.time.LocalDateTime;
             this.registrationDate = LocalDateTime.now(); // 設定建立時間為當前時間
         }
 
-        // --- Getter 和 Setter 方法 ---
+    // --- UserDetails 接口方法 ---
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(role));
+    }
+
+    @Override
+    public String getPassword() {
+        return this.password;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.username;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+        // ---其他 Getter 和 Setter 方法 ---
 
         public Integer getUserId() {
             return userId;
@@ -68,18 +109,9 @@ import java.time.LocalDateTime;
             this.userId = userId;
         }
 
-        public String getUsername() {
-            return username;
-        }
-
         public void setUsername(String username) {
             this.username = username;
         }
-
-        public String getPassword() {
-            return password;
-        }
-
         public void setPassword(String password) {
             this.password = password;
         }

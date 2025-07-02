@@ -33,8 +33,12 @@ const handleLogout = async () => {
     localStorage.removeItem('role');
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
+  }
+  try {
     // 重新導向到首頁
-    router.push('/');
+    await router.push('/');
+  } catch (error: unknown) {
+    console.error('重新導向失敗', error);
   }
 };
 </script>

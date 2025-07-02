@@ -13,9 +13,13 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
+
+    private static final Logger logger = LoggerFactory.getLogger(JwtAuthenticationFilter.class);
 
     private final JWTService jwtService;
     private final UserDetailsService userDetailsService;
@@ -35,9 +39,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         String requestPath = request.getServletPath();
 
-        // 跳過 "/updateToken","/register" 請求的 JWT 驗證
+        // 跳過 "/login","/register","/revokeRefreshToken","/renewRefreshToken","/user" 請求的 JWT 驗證
         System.out.println(requestPath);
-        if ("/updateToken".equals(requestPath)|| "/register".equals(requestPath)) {
+        if ("/login".equals(requestPath) ||"/renewRefreshToken".equals(requestPath) || "/register".equals(requestPath) || "/revokeRefreshToken".equals(requestPath)) {
             filterChain.doFilter(request, response);
             return;
         }
@@ -52,6 +56,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         String token = authHeader.substring(7);
 
             // 驗證 JWT 並解析出 username
+        logger.debug("驗證 JWT : {}", token);
         String username = jwtService.getUsernameFromToken(token);
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = userDetailsService.loadUserByUsername(username);

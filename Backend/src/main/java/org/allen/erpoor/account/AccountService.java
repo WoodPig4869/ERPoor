@@ -38,4 +38,12 @@ public interface AccountService {
      * @param password 新帳號的密碼
      */
     void createAccount(String username, String password);
+
+    /**
+     * 根據使用者 ID 查詢帳號資料。
+     *
+     * @param userId 使用者 ID
+     * @return 回傳對應的 {@link AccountEntity}，若查無帳號則回傳 null
+     */
+    AccountEntity findAccountByUserId(Integer userId);
 }

@@ -686,7 +686,7 @@ const toggleTheme = () => {
   }
 
   .modern-page-container {
-    background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
+    background: linear-gradient(180deg, #29435c 0%, #202831 100%);
   }
 }
 
