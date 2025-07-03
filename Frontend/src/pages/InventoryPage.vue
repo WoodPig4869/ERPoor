@@ -1,27 +1,38 @@
 <template>
   <div class="q-pa-md">
-    <q-input
-      filled
-      v-model="search"
-      label="搜尋庫存"
-      class="q-mb-md"
-      debounce="300"
-      placeholder="輸入品名或庫別..."
-      clearable
-      dense
-    >
-      <template #append>
-        <q-icon name="search" />
-      </template>
-    </q-input>
+    <div class="row justify-between items-center q-mb-md">
+      <q-input
+        filled
+        v-model="search"
+        label="搜尋庫存"
+        class="col-grow q-mr-md"
+        debounce="300"
+        placeholder="輸入品名或庫別..."
+        clearable
+        dense
+      >
+        <template #append>
+          <q-icon name="search" />
+        </template>
+      </q-input>
+
+      <q-btn
+        color="primary"
+        icon="add"
+        label="加入新商品"
+        class="self-center"
+        @click="addNewProduct"
+      />
+    </div>
 
     <q-table
       title="📦 庫存清單"
       :rows="rows"
       :columns="columns"
-      row-key="id"
+      row-key="productId"
+      :loading="loading"
       :filter="search"
-      :rows-per-page-options="[10, 30, 50, 0]"
+      :rows-per-page-options="[20, 35, 50, 0]"
       table-header-class="bg-light-blue-2 text-weight-bold"
       table-header-style="color: #5a6c7d"
       flat
@@ -30,7 +41,7 @@
       class="rounded-borders"
     >
       <template #body="props">
-        <q-tr :props="props" @click="onRowClick(props.row.id)" class="cursor-pointer">
+        <q-tr :props="props" @click="onRowClick(props.row.productId)" class="cursor-pointer">
           <q-td v-for="col in props.cols" :key="col.name" :props="props">
             <template v-if="col.name === 'productName'">
               <q-chip
@@ -51,10 +62,10 @@
                 {{ props.row.stock }}
               </q-chip>
             </template>
-            <template v-else-if="col.name === 'expiryDate'">
-              {{ props.row.expiryDate }}
+            <template v-else-if="col.name === 'nearestExpiryDate'">
+              {{ props.row.nearestExpiryDate }}
               <q-chip
-                v-if="isNearingExpiry(props.row.expiryDate)"
+                v-if="isNearingExpiry(props.row.nearestExpiryDate)"
                 color="orange-5"
                 text-color="white"
                 icon="warning"
@@ -81,28 +92,70 @@
       </template>
     </q-table>
   </div>
+  <addNewProductForm v-model="showAddNewProductForm" />
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useQuasar } from 'quasar';
+import { api } from 'boot/axios';
+import addNewProductForm from '../components/addNewProductForm.vue';
 
 const $q = useQuasar();
 
 const search = ref('');
 
-// Function to handle product click, can be expanded to show product details
-function onRowClick(productId: number) {
-  $q.notify({
-    color: 'primary',
-    message: '點擊品項ID:' + productId.toString(),
-    icon: 'info',
-    position: 'top',
-    timeout: 1000,
-  });
-  // In a real application, you might open a dialog or navigate to a detail page
-  console.log(`Product with ID ${productId} clicked.`);
+const rows = ref<InventoryItem[]>([]);
+const loading = ref(false);
+const showAddNewProductForm = ref(false);
+
+function addNewProduct() {
+  showAddNewProductForm.value = true;
 }
+function onRowClick(productId: number) {
+  console.log('Row clicked with productId:', productId);
+}
+export interface InventoryItem {
+  productId: number;
+  productName: string;
+  unit: string;
+  category: string;
+  description: string | null;
+  price: number;
+  enabled: boolean;
+  totalAvailableQuantity: number;
+  latestReceivedDate: string; // 或使用 Date 類型，取決於你的處理方式
+  nearestExpiryDate: string; // 同上
+  supplierForNearestExpiry: string;
+  lowStock: boolean;
+  nearExpiry: boolean; // 這是前端計算的屬性，API可能不返回
+}
+
+async function fetchInventoryData() {
+  try {
+    loading.value = true;
+    const response = await api.get<InventoryItem[]>('/inventory/status');
+    rows.value = response.data.map((item) => ({
+      ...item,
+      nearExpiry: isNearingExpiry(item.nearestExpiryDate),
+    }));
+  } catch (error) {
+    $q.notify({
+      color: 'negative',
+      message: '獲取庫存資料失敗',
+      icon: 'report_problem',
+      position: 'top',
+    });
+    console.error('Error fetching inventory data:', error);
+  } finally {
+    loading.value = false;
+  }
+}
+
+// 在組件掛載時獲取資料
+onMounted(() => {
+  void fetchInventoryData();
+});
 
 // Function to check if expiry date is within 7 days
 function isNearingExpiry(expiryDate: string): boolean {
@@ -122,121 +175,27 @@ const columns = [
     sortable: true,
   },
   {
-    name: 'stock',
+    name: 'totalAvailableQuantity',
     label: '現有庫存',
-    field: 'stock',
+    field: 'totalAvailableQuantity',
     align: 'right' as const,
     sortable: true,
   },
   { name: 'unit', label: '單位', field: 'unit', align: 'left' as const }, // 例如公斤、箱、包
-  { name: 'location', label: '庫別', field: 'location', align: 'left' as const }, // 例如：冷藏庫、冷凍庫、常溫區
+  { name: 'category', label: '庫別', field: 'category', align: 'left' as const }, // 例如：冷藏庫、冷凍庫、常溫區
   {
-    name: 'expiryDate',
-    label: '有效期限',
-    field: 'expiryDate',
+    name: 'nearestExpiryDate',
+    label: '最近到期日',
+    field: 'nearestExpiryDate',
     align: 'left' as const,
     sortable: true,
   },
   {
-    name: 'updatedAt',
+    name: 'latestReceivedDate',
     label: '最後進貨',
-    field: 'updatedAt',
+    field: 'latestReceivedDate',
     align: 'left' as const,
     sortable: true,
-  },
-];
-
-// Mock data for the table rows
-const rows = [
-  {
-    id: 1,
-    productName: '活龍蝦',
-    stock: 15,
-    unit: '隻',
-    location: '冷藏庫',
-    expiryDate: '2025-07-05', // Nearing expiry for demonstration
-    updatedAt: '2025-07-01 10:00',
-  },
-  {
-    id: 2,
-    productName: '鮮活花蟹',
-    stock: 30,
-    unit: '隻',
-    location: '冷藏庫',
-    expiryDate: '2025-07-20',
-    updatedAt: '2025-07-01 09:30',
-  },
-  {
-    id: 3,
-    productName: '美國牛小排',
-    stock: 5, // Low stock for demonstration
-    unit: '公斤',
-    location: '冷凍庫',
-    expiryDate: '2025-12-01',
-    updatedAt: '2025-06-30 14:00',
-  },
-  {
-    id: 4,
-    productName: '國產豬五花',
-    stock: 22,
-    unit: '公斤',
-    location: '冷凍庫',
-    expiryDate: '2025-11-15',
-    updatedAt: '2025-06-30 13:00',
-  },
-  {
-    id: 5,
-    productName: '新鮮鮭魚片',
-    stock: 8, // Low stock for demonstration
-    unit: '片',
-    location: '冷藏庫',
-    expiryDate: '2025-07-03', // Nearing expiry
-    updatedAt: '2025-07-02 08:00',
-  },
-  {
-    id: 6,
-    productName: '有機雞蛋',
-    stock: 120,
-    unit: '顆',
-    location: '常溫區',
-    expiryDate: '2025-07-25',
-    updatedAt: '2025-07-01 11:00',
-  },
-  {
-    id: 7,
-    productName: '進口橄欖油',
-    stock: 50,
-    unit: '瓶',
-    location: '常溫區',
-    expiryDate: '2026-06-30',
-    updatedAt: '2025-06-29 16:00',
-  },
-  {
-    id: 8,
-    productName: '台灣鯛魚',
-    stock: 18,
-    unit: '條',
-    location: '冷凍庫',
-    expiryDate: '2025-10-10',
-    updatedAt: '2025-06-28 10:30',
-  },
-  {
-    id: 9,
-    productName: '北海道生食級干貝',
-    stock: 7, // Low stock
-    unit: '顆',
-    location: '冷凍庫',
-    expiryDate: '2025-07-06', // Nearing expiry
-    updatedAt: '2025-07-02 09:00',
-  },
-  {
-    id: 10,
-    productName: '阿拉斯加鱈魚',
-    stock: 25,
-    unit: '片',
-    location: '冷凍庫',
-    expiryDate: '2025-11-20',
-    updatedAt: '2025-06-27 15:00',
   },
 ];
 </script>
@@ -261,12 +220,28 @@ const rows = [
 
 /* Enhancements for table rows on hover */
 .q-table tbody tr:hover {
-  background-color: lighten($primary, 40%); /* Light highlight on hover */
+  background-color: lighten($primary, 30%); /* Light highlight on hover */
   cursor: pointer;
 }
 
 /* Optional: Add a subtle border radius to the table for a softer look */
 .rounded-borders {
   border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+  .row.justify-between {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .q-input {
+    margin-right: 0 !important;
+    margin-bottom: 12px;
+  }
+
+  .q-btn {
+    align-self: flex-end;
+  }
 }
 </style>

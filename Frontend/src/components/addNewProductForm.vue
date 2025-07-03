@@ -9,52 +9,45 @@
 
       <q-card-section>
         <q-form @submit.prevent="submitForm" class="q-gutter-sm" ref="formRef" :loading="loading">
-          <q-select
+          <q-input
             v-model="formData.name"
             label="商品名稱"
-            :options="productNameOptions"
+            type="text"
             dense
             filled
             :rules="[(val) => !!val || '必填']"
           />
           <q-input
-            v-model="formData.quantity"
-            label="進貨數量"
-            type="number"
+            v-model="formData.category"
+            label="分類（如：虱目魚系列）"
+            type="text"
             dense
             filled
-            :rules="[(val) => val >= 0 || '必須大於等於 0']"
+            :rules="[(val) => !!val || '必填']"
           />
           <q-input
             v-model="formData.price"
-            label="進貨單價"
+            label="單價"
             type="number"
             dense
             filled
-            :rules="[(val) => val >= 0 || '必須大於等於 0']"
+            :rules="[(val) => val > 0 || '必須大於 0']"
           />
           <q-input
-            v-model="formData.supplierName"
-            label="供應商名稱"
+            v-model="formData.unit"
+            label="計量單位(如：箱、包)"
+            type="text"
             dense
             filled
             :rules="[(val) => !!val || '必填']"
           />
           <q-input
-            v-model="formData.receivedDate"
-            label="進貨日期"
-            type="date"
+            v-model="formData.description"
+            label="簡述"
+            type="textarea"
             dense
             filled
-            :rules="[(val) => !!val || '必填']"
-          />
-          <q-input
-            v-model="formData.expirationDate"
-            label="有效期限"
-            type="date"
-            dense
-            filled
-            :rules="[(val) => !!val || '必填']"
+            :rules="[(val) => val >= 0 || '不得為負數']"
           />
         </q-form>
       </q-card-section>
@@ -68,36 +61,22 @@
 </template>
 
 <script setup lang="ts">
-import { ref, nextTick, onMounted } from 'vue';
+import { ref, nextTick } from 'vue';
 import { api } from 'boot/axios';
+import { usePurchaseStore } from '../stores/newProduct-store';
 
+const store = usePurchaseStore();
 const formData = ref({
   name: '',
-  quantity: '',
-  price: '',
-  receivedDate: new Date().toISOString().split('T')[0],
-  expirationDate: '',
-  supplierName: '凱亞良品',
+  category: '',
+  price: 0,
+  unit: '',
+  description: '',
 });
 
-const productNameOptions = ref<string[]>([]);
 const formRef = ref();
 const loading = ref(false);
 const dialogOpen = ref(false);
-
-onMounted(async () => {
-  await getProductNameOptions(); // 使用 await 確保 Promise 被處理
-  resetForm();
-});
-
-async function getProductNameOptions() {
-  try {
-    const { data } = await api.get('/inventory/getProductNameOptions');
-    productNameOptions.value = data;
-  } catch (error) {
-    console.log('獲取商品名稱失敗', error);
-  }
-}
 
 async function submitForm() {
   const valid = await formRef.value?.validate?.();
@@ -106,7 +85,7 @@ async function submitForm() {
   loading.value = true;
   console.log(formData.value);
   try {
-    const { data } = await api.post('/inventory/purchase', formData.value);
+    const { data } = await api.post('/inventory/addProduct', formData.value);
     console.log('送出成功', data);
     dialogOpen.value = false;
     resetForm();
@@ -118,14 +97,7 @@ async function submitForm() {
 }
 
 function resetForm() {
-  formData.value = {
-    name: '',
-    quantity: '',
-    price: '',
-    receivedDate: new Date().toISOString().split('T')[0],
-    expirationDate: '',
-    supplierName: '凱亞良品',
-  };
+  void store.resetForm?.(); // 明確標記忽略 Promise
   void nextTick(() => {
     formRef.value?.resetValidation();
   });

@@ -11,6 +11,10 @@ declare module 'vue' {
   }
 }
 
+interface RefreshTokenResponse {
+  accessToken: string;
+  refreshToken: string;
+}
 // Be careful when using SSR for cross-request state pollution
 // due to creating a Singleton instance here;
 // If any client changes this (global) instance, it might be a
@@ -19,6 +23,9 @@ declare module 'vue' {
 // for each client)
 const api = axios.create({
   baseURL: 'http://localhost:8080',
+  headers: {
+    'Content-Type': 'application/json',
+  },
   timeout: 5000,
 });
 
@@ -57,10 +64,7 @@ api.interceptors.response.use(
 
     if (typeof code === 'number') {
       if (code >= 200 && code < 300) {
-        Notify.create({
-          type: 'positive',
-          message: message || '操作成功',
-        });
+        return res;
       } else {
         Notify.create({
           type: 'negative',
@@ -100,12 +104,13 @@ api.interceptors.response.use(
       isRefreshing = true;
 
       try {
-        const res = await axios.post('/renewRefreshToken', {
+        const { data } = await api.post<RefreshTokenResponse>('/renewRefreshToken', {
           refreshToken: localStorage.getItem('refreshToken'),
         });
 
-        const newAccessToken = res.data.accessToken;
+        const newAccessToken = data.accessToken;
         localStorage.setItem('accessToken', newAccessToken);
+        localStorage.setItem('refreshToken', data.refreshToken);
         api.defaults.headers.common['Authorization'] = `Bearer ${newAccessToken}`;
         onRefreshed(newAccessToken);
 

@@ -123,7 +123,7 @@
           <q-card class="loading-card">
             <q-card-section class="row items-center">
               <q-spinner-cube color="primary" size="2em" />
-              <span class="q-ml-sm">正在登入中...</span>
+              <span class="q-ml-sm" black>正在登入中...</span>
             </q-card-section>
           </q-card>
         </q-dialog>
@@ -250,7 +250,7 @@ const handleForgotPassword = () => {
 // 生命週期
 onMounted(() => {
   // 匯入測試帳號
-  loginForm.value.username = 'user3';
+  loginForm.value.username = 'admin';
   loginForm.value.password = '123456';
   // 檢查是否有記住的使用者名稱
   const rememberedUsername = localStorage.getItem('rememberedUsername');

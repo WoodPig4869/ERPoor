@@ -33,6 +33,12 @@ const handleLogout = async () => {
     localStorage.removeItem('role');
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
+
+    // 設定 API 預設標頭
+    api.defaults.headers.common.Authorization = '';
+
+    // 重新整理
+    location.reload();
   }
   try {
     // 重新導向到首頁
