@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("/inventory")
+@RequestMapping("/api/inventory")
 public class InventoryController {
     private static final Logger logger = LoggerFactory.getLogger(InventoryController.class);
     private final ProductInventoryStatusRepository productInventoryStatusRepository;

@@ -46,9 +46,9 @@ public class SpringSecurityConfig {
                 .headers(AbstractHttpConfigurer::disable)
 
                 .authorizeHttpRequests(
-                        req->req.requestMatchers("/login","/register","/renewRefreshToken","/revokeRefreshToken")
+                        req->req.requestMatchers("/api/login","/api/register","/api/renewRefreshToken","/api/revokeRefreshToken","/","/index.html","/assets/**","/icons/**","/favicon.ico")
                                 .permitAll()
-                                .requestMatchers("/**").hasAnyAuthority("USER","ADMIN")
+                                .requestMatchers("api/**").hasAnyAuthority("USER","ADMIN")
 //                                .requestMatchers("/admin/**").hasAnyAuthority("admin")
                                 .anyRequest()
                                 .authenticated()
@@ -75,7 +75,7 @@ public class SpringSecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:9000")); // 你前端的網址
+        config.setAllowedOrigins(List.of("http://betallrare.ddns.net")); // 你前端的網址
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true); // 如果要傳 cookie 或 Authorization
