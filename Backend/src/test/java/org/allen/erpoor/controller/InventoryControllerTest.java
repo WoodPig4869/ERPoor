@@ -3,6 +3,8 @@ package org.allen.erpoor.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.allen.erpoor.inventory.InventoryController;
 import org.allen.erpoor.inventory.ProductInventoryStatusRepository;
+import org.allen.erpoor.inventory.ProductRepository;
+import org.allen.erpoor.inventory.entity.Product;
 import org.allen.erpoor.inventory.entity.ProductInventoryStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -22,6 +24,7 @@ import java.util.Collections;
 
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -31,6 +34,9 @@ public class InventoryControllerTest {
 
     @Mock
     private ProductInventoryStatusRepository productInventoryStatusRepository;
+
+    @Mock
+    private ProductRepository productRepository;
 
     @InjectMocks
     private InventoryController inventoryController;
@@ -42,6 +48,7 @@ public class InventoryControllerTest {
         mockMvc = MockMvcBuilders.standaloneSetup(inventoryController).build();
         objectMapper = new ObjectMapper();
     }
+
     @Test
     @DisplayName("查询库存状态 - 成功返回数据")
     void findAll_WithData() throws Exception {
@@ -50,6 +57,7 @@ public class InventoryControllerTest {
                 8,
                 "100%純烏魚鬆120g",
                 "罐",
+                "烏魚系列",
                 "", // 空描述
                 new BigDecimal("370.00"),
                 true,
@@ -62,6 +70,7 @@ public class InventoryControllerTest {
                 9,
                 "頂級烏魚子醬",
                 "瓶",
+                "烏魚系列",
                 "", // 空描述
                 new BigDecimal("750.00"),
                 true,
@@ -115,5 +124,30 @@ public class InventoryControllerTest {
                 .andExpect(jsonPath("$.data").doesNotExist());
 
         verify(productInventoryStatusRepository, times(1)).findAll();
+    }
+
+    @Test
+    @DisplayName("新增商品 - 成功")
+    void addProduct_Success() throws Exception {
+        // Arrange 測試輸入資料
+        Product mockProduct = new Product();
+        mockProduct.setName("測試商品");
+        mockProduct.setCategory("飲料");
+        mockProduct.setUnit("瓶");
+        mockProduct.setDescription("這是一個測試商品");
+        mockProduct.setEnabled(true);
+        mockProduct.setPrice(new BigDecimal("25.50"));
+
+        // 模擬儲存成功
+        Product savedProduct = new Product();
+        savedProduct.setName("測試商品");
+        when(productRepository.save(any(Product.class))).thenReturn(savedProduct);
+
+        // Act & Assert 驗證只看狀態與 code 欄位
+        mockMvc.perform(post("/inventory/addProduct")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(mockProduct)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.code").value(200));
     }
 }

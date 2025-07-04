@@ -75,7 +75,7 @@ public class SpringSecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:9000")); // 你前端的網址
+        config.setAllowedOrigins(List.of("http://localhost")); // 你前端的網址
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true); // 如果要傳 cookie 或 Authorization

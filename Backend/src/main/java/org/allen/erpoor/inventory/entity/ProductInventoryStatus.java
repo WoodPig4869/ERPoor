@@ -24,6 +24,9 @@ public class ProductInventoryStatus {
     @Column(name = "unit", nullable = false)
     private final String unit;
 
+    @Column(name = "category", nullable = false)
+    private final String category;
+
     @Column(name = "description")
     private final String description;
 
@@ -50,6 +53,7 @@ public class ProductInventoryStatus {
             Integer productId,
             String productName,
             String unit,
+            String category,
             String description,
             BigDecimal price,
             Boolean enabled,
@@ -61,6 +65,7 @@ public class ProductInventoryStatus {
         this.productId = productId;
         this.productName = productName;
         this.unit = unit;
+        this.category = category;
         this.description = description;
         this.price = price;
         this.enabled = enabled;
@@ -75,6 +80,7 @@ public class ProductInventoryStatus {
         this.productId = null;
         this.productName = null;
         this.unit = null;
+        this.category = null;
         this.description = null;
         this.price = null;
         this.enabled = null;
@@ -95,6 +101,10 @@ public class ProductInventoryStatus {
 
     public String getUnit() {
         return unit;
+    }
+
+    public String getCategory() {
+        return category;
     }
 
     public String getDescription() {
