@@ -46,9 +46,9 @@ public class SpringSecurityConfig {
                 .headers(AbstractHttpConfigurer::disable)
 
                 .authorizeHttpRequests(
-                        req->req.requestMatchers("/login","/register","/renewRefreshToken","/revokeRefreshToken")
+                        req->req.requestMatchers("/api/login","/api/register","/api/renewRefreshToken","/api/revokeRefreshToken")
                                 .permitAll()
-                                .requestMatchers("/**").hasAnyAuthority("USER","ADMIN")
+                                .requestMatchers("/api/**").hasAnyAuthority("USER","ADMIN")
 //                                .requestMatchers("/admin/**").hasAnyAuthority("admin")
                                 .anyRequest()
                                 .authenticated()

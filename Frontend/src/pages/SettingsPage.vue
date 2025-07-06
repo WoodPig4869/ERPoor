@@ -7,6 +7,7 @@
 <script setup lang="ts">
 import { api } from 'boot/axios';
 import { useRouter } from 'vue-router';
+import { Notify } from 'quasar';
 
 const router = useRouter();
 
@@ -36,13 +37,15 @@ const handleLogout = async () => {
 
     // 設定 API 預設標頭
     api.defaults.headers.common.Authorization = '';
-
-    // 重新整理
-    location.reload();
   }
   try {
     // 重新導向到首頁
+    window.dispatchEvent(new Event('logout'));
     await router.push('/');
+    Notify.create({
+      message: '登出成功',
+      color: 'positive',
+    });
   } catch (error: unknown) {
     console.error('重新導向失敗', error);
   }

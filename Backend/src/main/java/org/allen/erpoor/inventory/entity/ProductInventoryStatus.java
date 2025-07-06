@@ -24,6 +24,9 @@ public class ProductInventoryStatus {
     @Column(name = "unit", nullable = false)
     private final String unit;
 
+    @Column(name = "expiry_alert_days",nullable = false)
+    private final Integer expiry_alert_days;
+
     @Column(name = "category", nullable = false)
     private final String category;
 
@@ -53,6 +56,7 @@ public class ProductInventoryStatus {
             Integer productId,
             String productName,
             String unit,
+            Integer expiry_alert_days,
             String category,
             String description,
             BigDecimal price,
@@ -65,6 +69,7 @@ public class ProductInventoryStatus {
         this.productId = productId;
         this.productName = productName;
         this.unit = unit;
+        this.expiry_alert_days = expiry_alert_days;
         this.category = category;
         this.description = description;
         this.price = price;
@@ -80,6 +85,7 @@ public class ProductInventoryStatus {
         this.productId = null;
         this.productName = null;
         this.unit = null;
+        this.expiry_alert_days = null;
         this.category = null;
         this.description = null;
         this.price = null;
@@ -102,6 +108,8 @@ public class ProductInventoryStatus {
     public String getUnit() {
         return unit;
     }
+
+    public Integer getExpiry_alert_days(){return expiry_alert_days;}
 
     public String getCategory() {
         return category;

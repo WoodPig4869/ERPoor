@@ -57,6 +57,7 @@ public class InventoryControllerTest {
                 8,
                 "100%純烏魚鬆120g",
                 "罐",
+                7,
                 "烏魚系列",
                 "", // 空描述
                 new BigDecimal("370.00"),
@@ -70,6 +71,7 @@ public class InventoryControllerTest {
                 9,
                 "頂級烏魚子醬",
                 "瓶",
+                7,
                 "烏魚系列",
                 "", // 空描述
                 new BigDecimal("750.00"),

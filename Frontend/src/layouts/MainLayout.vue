@@ -197,7 +197,7 @@ import PurchaseForm from 'src/components/PurchaseForm.vue';
 import ShippingForm from 'src/components/ShippingForm.vue';
 import InventoryForm from 'src/components/InventoryForm.vue';
 import { useQuasar } from 'quasar';
-import { ref, watch, onMounted } from 'vue';
+import { ref, watch, onMounted, onUnmounted } from 'vue';
 
 const $q = useQuasar();
 const showPurchaseForm = ref(false);
@@ -273,6 +273,42 @@ const linksList: EssentialLinkProps[] = [
   },
 ];
 
+const initLocalStorage = () => {
+  const storedUsername = localStorage.getItem('username');
+  const storedNickname = localStorage.getItem('nickname');
+
+  if (storedUsername) {
+    username.value = storedUsername;
+  } else {
+    localStorage.setItem('username', '未登入');
+    username.value = '未登入';
+  }
+
+  if (storedNickname) {
+    nickname.value = storedNickname;
+  } else {
+    localStorage.setItem('nickname', '訪客');
+    nickname.value = '訪客';
+  }
+};
+
+const onStorageChange = (event: StorageEvent) => {
+  if (event.key === 'username' && event.newValue === null) {
+    localStorage.setItem('username', '未登入');
+    username.value = '未登入';
+  }
+
+  if (event.key === 'nickname' && event.newValue === null) {
+    localStorage.setItem('nickname', '訪客');
+    nickname.value = '訪客';
+  }
+};
+
+onUnmounted(() => {
+  window.removeEventListener('storage', onStorageChange);
+  window.removeEventListener('logout', initLocalStorage);
+});
+
 // 初始化
 onMounted(() => {
   // 讀取主題
@@ -286,21 +322,9 @@ onMounted(() => {
     $q.dark.set(false);
   }
 
-  // 讀取用戶資訊
-  const storedUsername = localStorage.getItem('username');
-  const storedNickname = localStorage.getItem('nickname');
-
-  if (storedUsername) {
-    username.value = storedUsername;
-  } else {
-    localStorage.setItem('username', '未登入');
-  }
-
-  if (storedNickname) {
-    nickname.value = storedNickname;
-  } else {
-    localStorage.setItem('nickname', '訪客');
-  }
+  initLocalStorage(); // 初始設定
+  // 新增監聽 logout 事件
+  window.addEventListener('logout', initLocalStorage);
 });
 
 // 監聽主題變化

@@ -4,7 +4,7 @@
       <!-- 統計卡片區 -->
       <div class="row q-col-gutter-md">
         <div class="col-xs-12 col-sm-6 col-md-3">
-          <q-card class="stat-card bg-blue-1" flat bordered>
+          <q-card class="stat-card bg-blue-2" flat bordered>
             <q-card-section>
               <div class="row items-center q-gutter-md">
                 <q-icon name="trending_up" size="md" class="text-blue-7" />
@@ -20,7 +20,7 @@
         </div>
 
         <div class="col-xs-12 col-sm-6 col-md-3">
-          <q-card class="stat-card bg-red-1" flat bordered>
+          <q-card class="stat-card bg-red-2" flat bordered>
             <q-card-section>
               <div class="row items-center q-gutter-md">
                 <q-icon name="inventory_2" size="md" class="text-red-7" />
@@ -36,10 +36,10 @@
         </div>
 
         <div class="col-xs-12 col-sm-6 col-md-3">
-          <q-card class="stat-card bg-yellow-1" flat bordered>
+          <q-card class="stat-card bg-yellow-2" flat bordered>
             <q-card-section>
               <div class="row items-center q-gutter-md">
-                <q-icon name="schedule" size="md" class="text-yellow-8" />
+                <q-icon name="schedule" size="md" class="text-yellow-6" />
                 <div>
                   <div class="text-subtitle2 text-grey-7">即將過期</div>
                   <div class="stat-value text-yellow-9 q-mt-xs">
@@ -69,7 +69,7 @@
       </div>
 
       <!-- 快速操作按鈕 -->
-      <div class="row q-col-gutter-md q-mt-md">
+      <!-- <div class="row q-col-gutter-md q-mt-md">
         <div class="col-12">
           <q-card flat bordered class="bg-grey-1">
             <q-card-section>
@@ -118,7 +118,7 @@
             </q-card-section>
           </q-card>
         </div>
-      </div>
+      </div> -->
 
       <!-- 即將過期商品表格 -->
       <q-card class="q-mt-md bg-yellow-1" flat bordered>
@@ -253,13 +253,19 @@
 <script setup lang="ts">
 import { ref, onMounted, reactive } from 'vue';
 import type { QTableColumn } from 'quasar';
+import { api } from 'boot/axios';
+import { useQuasar } from 'quasar';
 
+const $q = useQuasar();
+
+// 即將過期商品數據
 interface ExpiringBatch {
-  batch_id: number;
+  batchId: number;
   product: string;
-  expiration_date: string;
+  expirationDate: string;
   quantity: number;
 }
+const expiringBatches = ref<ExpiringBatch[]>([]);
 
 interface LowStockItem {
   product_id: number;
@@ -325,8 +331,35 @@ const formatNumber = (num: number): string => {
   return Math.floor(num).toLocaleString();
 };
 
+async function fetchExpiringData() {
+  try {
+    const response = await api.get<ExpiringBatch[]>('/expiringBatch');
+    expiringBatches.value = response.data.map((item) => ({
+      ...item,
+    }));
+  } catch (error) {
+    $q.notify({
+      color: 'negative',
+      message: '獲取即將過期批次資料失敗',
+      icon: 'report_problem',
+      position: 'top',
+    });
+    console.error('Error fetching inventory data:', error);
+  }
+}
+
 // 頁面載入時開始動畫
 onMounted(() => {
+  fetchExpiringData().catch((error) => {
+    $q.notify({
+      color: 'negative',
+      message: '獲取即將過期批次資料失敗',
+      icon: 'report_problem',
+      position: 'top',
+    });
+    console.error('Error fetching inventory data:', error);
+  });
+
   // 延遲一點開始動畫，讓頁面先渲染
   setTimeout(() => {
     // 銷售總額動畫 - 較長時間因為數字大
@@ -351,18 +384,9 @@ onMounted(() => {
   }, 300);
 });
 
-// 即將過期商品數據
-const expiringBatches = ref<ExpiringBatch[]>([
-  { batch_id: 1, product: '雞蛋', expiration_date: '2025-07-06', quantity: 20 },
-  { batch_id: 2, product: '牛奶', expiration_date: '2025-07-07', quantity: 10 },
-  { batch_id: 3, product: '火腿', expiration_date: '2025-07-05', quantity: 8 },
-  { batch_id: 4, product: '麵包', expiration_date: '2025-07-08', quantity: 15 },
-  { batch_id: 5, product: '優格', expiration_date: '2025-07-09', quantity: 12 },
-]);
-
 const expiringColumns = ref<QTableColumn<ExpiringBatch>[]>([
   { name: 'product', label: '商品名稱', field: 'product', align: 'left' },
-  { name: 'expiration_date', label: '效期', field: 'expiration_date', align: 'center' },
+  { name: 'expiration_date', label: '效期', field: 'expirationDate', align: 'center' },
   { name: 'quantity', label: '剩餘數量', field: 'quantity', align: 'right' },
 ]);
 
@@ -422,11 +446,6 @@ const quickRestock = (item: LowStockItem) => {
 </script>
 
 <style scoped lang="scss">
-.dashboard-page {
-  background: #fafafa;
-  min-height: 100vh;
-}
-
 .stat-card {
   border-radius: 12px;
   transition: all 0.3s ease;

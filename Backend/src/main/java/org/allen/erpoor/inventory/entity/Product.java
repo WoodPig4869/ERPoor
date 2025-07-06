@@ -29,6 +29,9 @@ public class Product {
     @Column(name = "unit", length = 20)
     private String unit; // 單位
 
+    @Column(name = "expiry_alert_days", nullable = false)
+    private Integer expiry_alert_days; //到期的預警天數
+
     @Column(name = "description", columnDefinition = "TEXT")
     private String description; // 商品描述
 
@@ -87,8 +90,16 @@ public class Product {
         return unit;
     }
 
+    public Integer getExpiry_alert_days(){return expiry_alert_days;}
+
     public void setUnit(String unit) {
         this.unit = unit;
+    }
+
+    public void setExpiry_alert_days(Integer expiry_alert_days){this.expiry_alert_days=expiry_alert_days;}
+
+    {
+        this.expiry_alert_days = expiry_alert_days;
     }
 
     public String getDescription() {
@@ -130,6 +141,7 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", category='" + category + '\'' +
                 ", unit='" + unit + '\'' +
+                ", expiry_alert_days='" + expiry_alert_days + '\'' +
                 ", description='" + description + '\'' +
                 ", enabled=" + enabled +
                 ", price=" + price +

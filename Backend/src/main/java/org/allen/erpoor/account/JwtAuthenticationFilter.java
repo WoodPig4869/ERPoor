@@ -39,9 +39,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         String requestPath = request.getServletPath();
 
-        // 跳過 "/login","/register","/revokeRefreshToken","/renewRefreshToken","/user" 請求的 JWT 驗證
+        // 跳過 "/api/login","/api/register","/api/revokeRefreshToken","/api/renewRefreshToken" 請求的 JWT 驗證
         System.out.println(requestPath);
-        if ("/login".equals(requestPath) ||"/renewRefreshToken".equals(requestPath) || "/register".equals(requestPath) || "/revokeRefreshToken".equals(requestPath)) {
+        if ("/api/login".equals(requestPath) ||"/api/renewRefreshToken".equals(requestPath) || "/api/register".equals(requestPath) || "/api/revokeRefreshToken".equals(requestPath)) {
             filterChain.doFilter(request, response);
             return;
         }
