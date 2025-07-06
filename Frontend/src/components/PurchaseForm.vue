@@ -1,5 +1,5 @@
 <template>
-  <q-dialog v-model="dialogOpen">
+  <q-dialog v-model="dialogModel">
     <q-card class="q-pa-md shadow-4" style="min-width: 400px; max-width: 90vw">
       <q-card-section>
         <div class="text-h6">加入新商品</div>
@@ -10,11 +10,15 @@
       <q-card-section>
         <q-form @submit.prevent="submitForm" class="q-gutter-sm" ref="formRef" :loading="loading">
           <q-select
-            v-model="formData.name"
+            v-model="formData.productId"
             label="商品名稱"
-            :options="productNameOptions"
+            :options="productOptions"
+            option-value="productId"
+            option-label="name"
             dense
             filled
+            emit-value
+            map-options
             :rules="[(val) => !!val || '必填']"
           />
           <q-input
@@ -70,20 +74,29 @@
 <script setup lang="ts">
 import { ref, nextTick, onMounted } from 'vue';
 import { api } from 'boot/axios';
+import { useQuasar } from 'quasar';
+
+const $q = useQuasar();
 
 const formData = ref({
-  name: '',
+  productId: '',
   quantity: '',
   price: '',
   receivedDate: new Date().toISOString().split('T')[0],
   expirationDate: '',
   supplierName: '凱亞良品',
+  supplierId: 1,
 });
 
-const productNameOptions = ref<string[]>([]);
+interface ProductOption {
+  productId: number;
+  name: string;
+}
+
+const productOptions = ref<ProductOption[]>([]);
 const formRef = ref();
 const loading = ref(false);
-const dialogOpen = ref(false);
+const dialogModel = defineModel<boolean | null>({ default: false });
 
 onMounted(async () => {
   await getProductNameOptions(); // 使用 await 確保 Promise 被處理
@@ -93,9 +106,9 @@ onMounted(async () => {
 async function getProductNameOptions() {
   try {
     const { data } = await api.get('/inventory/getProductNameOptions');
-    productNameOptions.value = data;
+    productOptions.value = data;
   } catch (error) {
-    console.log('獲取商品名稱失敗', error);
+    console.log('獲取商品列表失敗', error);
   }
 }
 
@@ -106,10 +119,15 @@ async function submitForm() {
   loading.value = true;
   console.log(formData.value);
   try {
-    const { data } = await api.post('/inventory/purchase', formData.value);
-    console.log('送出成功', data);
-    dialogOpen.value = false;
-    resetForm();
+    await api.post('/inventory/purchase', formData.value);
+    $q.notify({
+      color: 'positive',
+      message: '已新增進貨單',
+      icon: 'done',
+      position: 'top',
+    });
+    dialogModel.value = false;
+    location.reload();
   } catch (error) {
     console.error('送出失敗', error);
   } finally {
@@ -119,12 +137,15 @@ async function submitForm() {
 
 function resetForm() {
   formData.value = {
-    name: '',
+    productId: '',
     quantity: '',
     price: '',
-    receivedDate: new Date().toISOString().split('T')[0],
+    receivedDate: new Date().toLocaleDateString('en-CA', {
+      timeZone: 'Asia/Taipei',
+    }),
     expirationDate: '',
     supplierName: '凱亞良品',
+    supplierId: 1,
   };
   void nextTick(() => {
     formRef.value?.resetValidation();

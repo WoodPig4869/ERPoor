@@ -259,19 +259,21 @@ import { useQuasar } from 'quasar';
 const $q = useQuasar();
 
 // 即將過期商品數據
+const expiringBatches = ref<ExpiringBatch[]>([]);
 interface ExpiringBatch {
   batchId: number;
   product: string;
   expirationDate: string;
   quantity: number;
 }
-const expiringBatches = ref<ExpiringBatch[]>([]);
 
+// 低庫存商品數據
+const lowStockItems = ref<LowStockItem[]>([]);
 interface LowStockItem {
-  product_id: number;
-  product_name: string;
-  current_stock: number;
-  min_stock: number;
+  productId: number;
+  productName: string;
+  currentStock: number;
+  minStock: number;
   unit: string;
 }
 
@@ -348,17 +350,27 @@ async function fetchExpiringData() {
   }
 }
 
-// 頁面載入時開始動畫
-onMounted(() => {
-  fetchExpiringData().catch((error) => {
+async function fetchLowStockItems() {
+  try {
+    const response = await api.get<LowStockItem[]>('/lowStockItems');
+    lowStockItems.value = response.data.map((item) => ({
+      ...item,
+    }));
+  } catch (error) {
     $q.notify({
       color: 'negative',
-      message: '獲取即將過期批次資料失敗',
+      message: '獲取低庫存商品資料失敗',
       icon: 'report_problem',
       position: 'top',
     });
-    console.error('Error fetching inventory data:', error);
-  });
+    console.error('Error fetching low stock items:', error);
+  }
+}
+
+// 頁面載入時開始動畫
+onMounted(async () => {
+  await fetchExpiringData();
+  await fetchLowStockItems();
 
   // 延遲一點開始動畫，讓頁面先渲染
   setTimeout(() => {
@@ -390,17 +402,10 @@ const expiringColumns = ref<QTableColumn<ExpiringBatch>[]>([
   { name: 'quantity', label: '剩餘數量', field: 'quantity', align: 'right' },
 ]);
 
-// 低庫存商品數據
-const lowStockItems = ref<LowStockItem[]>([
-  { product_id: 1, product_name: '衛生紙', current_stock: 5, min_stock: 20, unit: '包' },
-  { product_id: 2, product_name: '洗髮精', current_stock: 3, min_stock: 15, unit: '瓶' },
-  { product_id: 3, product_name: '牙刷', current_stock: 8, min_stock: 25, unit: '支' },
-]);
-
 const lowStockColumns = ref<QTableColumn<LowStockItem>[]>([
-  { name: 'product_name', label: '商品名稱', field: 'product_name', align: 'left' },
-  { name: 'current_stock', label: '目前庫存', field: 'current_stock', align: 'center' },
-  { name: 'min_stock', label: '最低庫存', field: 'min_stock', align: 'center' },
+  { name: 'product_name', label: '商品名稱', field: 'productName', align: 'left' },
+  { name: 'current_stock', label: '目前庫存', field: 'currentStock', align: 'center' },
+  { name: 'min_stock', label: '最低庫存', field: 'minStock', align: 'center' },
   { name: 'unit', label: '單位', field: 'unit', align: 'center' },
   { name: 'actions', label: '操作', field: () => '', align: 'center' },
 ]);
@@ -440,7 +445,7 @@ const getRankColor = (rank: number): string => {
 };
 
 const quickRestock = (item: LowStockItem) => {
-  console.log('快速補貨:', item.product_name);
+  console.log('快速補貨:', item.productName);
   // 這裡可以加入補貨邏輯
 };
 </script>

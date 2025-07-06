@@ -2,6 +2,7 @@ package org.allen.erpoor.dashboard;
 
 
 import org.allen.erpoor.dashboard.entity.ExpiringBatch;
+import org.allen.erpoor.dashboard.entity.LowStockItem;
 
 import java.util.List;
 
@@ -17,13 +18,13 @@ public interface DashboardService {
      */
     List<ExpiringBatch> getExpiringBatche();
 
-//    /**
-//     * 查詢低庫存商品清單。
-//     *
-//     * @return 回傳 {@link LowStockItem} 清單，若無資料則為空列表。
-//     */
-//    List<LowStockItem> getLowStockItems();
-//
+    /**
+     * 查詢低庫存商品清單。
+     *
+     * @return 回傳 {@link LowStockItem} 清單，若無資料則為空列表。
+     */
+    List<LowStockItem> getLowStockItems();
+
 //    /**
 //     * 查詢熱銷商品排行。
 //     *

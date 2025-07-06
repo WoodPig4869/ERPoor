@@ -41,7 +41,7 @@ const handleLogout = async () => {
   try {
     // 重新導向到首頁
     window.dispatchEvent(new Event('logout'));
-    await router.push('/');
+    await router.push('/login');
     Notify.create({
       message: '登出成功',
       color: 'positive',

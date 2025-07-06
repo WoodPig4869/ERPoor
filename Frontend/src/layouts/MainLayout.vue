@@ -40,7 +40,7 @@
               transition-show="scale"
               transition-hide="scale"
             >
-              進貨管理
+              新增進貨單
             </q-tooltip>
           </q-btn>
 
@@ -49,7 +49,7 @@
             round
             icon="local_shipping"
             size="md"
-            @click="showShippingForm = true"
+            @click="showShippingFormMethod"
             class="action-btn shipping-btn"
           >
             <q-tooltip
@@ -58,7 +58,7 @@
               transition-show="scale"
               transition-hide="scale"
             >
-              出貨管理
+              新增出貨單
             </q-tooltip>
           </q-btn>
 
@@ -67,7 +67,7 @@
             round
             icon="checklist"
             size="md"
-            @click="showInventoryForm = true"
+            @click="showInventoryFormMethod"
             class="action-btn inventory-btn"
           >
             <q-tooltip
@@ -149,14 +149,14 @@
         </q-item-label>
 
         <div class="quick-action-grid">
-          <q-btn flat class="quick-action-btn" @click="showPurchaseForm = true">
+          <q-btn flat class="quick-action-btn" @click="showPurchaseFormMethod">
             <div class="quick-action-content">
               <q-icon name="add_shopping_cart" size="md" />
               <span>進貨</span>
             </div>
           </q-btn>
 
-          <q-btn flat class="quick-action-btn" @click="showShippingForm = true">
+          <q-btn flat class="quick-action-btn" @click="showShippingFormMethod">
             <div class="quick-action-content">
               <q-icon name="local_shipping" size="md" />
               <span>出貨</span>
@@ -209,6 +209,17 @@ const theme = ref('light_mode');
 // 分離 nickname 和 username
 const nickname = ref('訪客');
 const username = ref('未登入');
+
+// 開啟表單方法
+function showPurchaseFormMethod() {
+  showPurchaseForm.value = true;
+}
+function showShippingFormMethod() {
+  showShippingForm.value = true;
+}
+function showInventoryFormMethod() {
+  showInventoryForm.value = true;
+}
 
 interface MenuItem {
   to: string;

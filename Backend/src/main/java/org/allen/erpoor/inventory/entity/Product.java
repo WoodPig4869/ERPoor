@@ -1,6 +1,7 @@
 package org.allen.erpoor.inventory.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -9,6 +10,7 @@ import java.sql.Timestamp;
  * Product 類別，映射到資料庫中的 'product' 資料表。
  * 用於表示商品基本資訊。
  */
+@Data
 @Entity // 標記此類別為 JPA 實體
 @Table(name = "product", indexes = {
         @Index(name = "idx_product_name", columnList = "name")
@@ -32,6 +34,9 @@ public class Product {
     @Column(name = "expiry_alert_days", nullable = false)
     private Integer expiry_alert_days; //到期的預警天數
 
+    @Column(name="min_stock",nullable = false)
+    private Integer min_stock;
+
     @Column(name = "description", columnDefinition = "TEXT")
     private String description; // 商品描述
 
@@ -43,15 +48,6 @@ public class Product {
 
     @Column(name = "created_at")
     private Timestamp createdAt; // 建立時間
-
-    /**
-     * 預設建構子。
-     * 設定 enabled 預設為 true。
-     */
-    public Product() {
-        this.enabled = true; // 預設為啟用狀態
-    }
-
     /**
      * 在實體持久化之前設定建立時間。
      */
@@ -60,92 +56,4 @@ public class Product {
         this.createdAt = new Timestamp(System.currentTimeMillis());
     }
 
-    // --- Getter 和 Setter 方法 ---
-
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public String getUnit() {
-        return unit;
-    }
-
-    public Integer getExpiry_alert_days(){return expiry_alert_days;}
-
-    public void setUnit(String unit) {
-        this.unit = unit;
-    }
-
-    public void setExpiry_alert_days(Integer expiry_alert_days){this.expiry_alert_days=expiry_alert_days;}
-
-    {
-        this.expiry_alert_days = expiry_alert_days;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Boolean getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    public Timestamp getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Timestamp createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "productId=" + productId +
-                ", name='" + name + '\'' +
-                ", category='" + category + '\'' +
-                ", unit='" + unit + '\'' +
-                ", expiry_alert_days='" + expiry_alert_days + '\'' +
-                ", description='" + description + '\'' +
-                ", enabled=" + enabled +
-                ", price=" + price +
-                ", createdAt=" + createdAt +
-                '}';
-    }
 }

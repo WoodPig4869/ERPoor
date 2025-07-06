@@ -1,6 +1,7 @@
 package org.allen.erpoor.dashboard;
 
 import org.allen.erpoor.dashboard.entity.ExpiringBatch;
+import org.allen.erpoor.dashboard.entity.LowStockItem;
 import org.allen.erpoor.inventory.InventoryController;
 import org.allen.erpoor.util.CommonResponse;
 import org.springframework.http.HttpStatus;
@@ -45,4 +46,28 @@ public class DashboardController {
                     .body(CommonResponse.error(500, "查詢即將過期商品失敗"));
         }
     }
+
+    @GetMapping("/lowStockItems")
+    public ResponseEntity<CommonResponse<List<LowStockItem>>> getLowStockItems() {
+        logger.debug("收到低庫存商品查詢請求");
+
+        try {
+            List<LowStockItem> lowStockItems = dashboardService.getLowStockItems();
+
+            if (lowStockItems == null || lowStockItems.isEmpty()) {
+                logger.info("查無低庫存商品");
+                return ResponseEntity.ok(new CommonResponse<>(200, "目前無低庫存商品", lowStockItems));
+            }
+
+            logger.info("成功查詢低庫存商品，共 {} 筆記錄", lowStockItems.size());
+            return ResponseEntity.ok(new CommonResponse<>(200, "查詢成功", lowStockItems));
+
+        } catch (Exception e) {
+            logger.error("查詢低庫存商品時發生錯誤: {}", e.getMessage(), e);
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(CommonResponse.error(500, "查詢低庫存商品失敗"));
+        }
+    }
+
 }

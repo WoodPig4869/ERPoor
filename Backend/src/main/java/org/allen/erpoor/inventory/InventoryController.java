@@ -1,7 +1,9 @@
 package org.allen.erpoor.inventory;
 
 import org.allen.erpoor.inventory.entity.Product;
+import org.allen.erpoor.inventory.entity.ProductBatch;
 import org.allen.erpoor.inventory.entity.ProductInventoryStatus;
+import org.allen.erpoor.inventory.entity.ProductOption;
 import org.allen.erpoor.util.CommonResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,10 +19,12 @@ public class InventoryController {
     private static final Logger logger = LoggerFactory.getLogger(InventoryController.class);
     private final ProductInventoryStatusRepository productInventoryStatusRepository;
     private final ProductRepository productRepository;
+    private final ProductBatchRepository productBatchRepository;
 
-    public InventoryController(ProductInventoryStatusRepository productInventoryStatusRepository, ProductRepository productRepository) {
+    public InventoryController(ProductInventoryStatusRepository productInventoryStatusRepository, ProductRepository productRepository, ProductBatchRepository productBatchRepository) {
         this.productInventoryStatusRepository = productInventoryStatusRepository;
         this.productRepository = productRepository;
+        this.productBatchRepository = productBatchRepository;
     }
 
     @GetMapping("/status")
@@ -67,10 +71,10 @@ public class InventoryController {
     }
 
     @GetMapping("/getProductNameOptions")
-    public ResponseEntity<CommonResponse<Iterable<String>>> getProductNameOptions() {
+    public ResponseEntity<CommonResponse<Iterable<ProductOption>>> getProductNameOptions() {
         logger.debug("收到商品名稱選項查詢請求");
         try {
-            Iterable<String> productNames = productRepository.showAllProductName();
+            Iterable<ProductOption> productNames = productRepository.findAllProductOptions();
             logger.info("成功查詢商品名稱選項");
             return ResponseEntity.ok(new CommonResponse<>(200, "查詢成功", productNames));
         } catch (Exception e) {
@@ -79,5 +83,36 @@ public class InventoryController {
                     .status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(CommonResponse.error(500, "查詢商品名稱選項失敗"));
         }
+    }
+
+    @PostMapping("/purchase")
+    public ResponseEntity<CommonResponse<String>> addPurchase(@RequestBody ProductBatch batch) {
+        logger.debug("收到新增進貨請求: {}", batch);
+        try {
+            ProductBatch newBatch = getProductBatch(batch);
+
+            productBatchRepository.save(newBatch);
+
+            logger.info("新增進貨成功，商品 ID: {}", newBatch.getProductId());
+            return ResponseEntity.ok(new CommonResponse<>(200, "新增進貨成功", "商品 ID: " + newBatch.getProductId()));
+        } catch (Exception e) {
+            logger.error("新增進貨時發生錯誤: {}", e.getMessage(), e);
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(CommonResponse.error(500, "新增進貨失敗"));
+        }
+    }
+
+    private static ProductBatch getProductBatch(ProductBatch batch) {
+        ProductBatch newBatch = new ProductBatch();
+        newBatch.setProductId(batch.getProductId());
+        newBatch.setBatchCode(batch.getBatchCode());
+        newBatch.setQuantity(batch.getQuantity());
+        newBatch.setExpirationDate(batch.getExpirationDate());
+        newBatch.setPurchasePrice(batch.getPurchasePrice());
+        newBatch.setReceivedDate(batch.getReceivedDate());
+        newBatch.setSupplierId(batch.getSupplierId());
+        newBatch.setSupplierName(batch.getSupplierName());
+        return newBatch;
     }
 }

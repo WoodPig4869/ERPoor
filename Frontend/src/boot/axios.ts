@@ -1,9 +1,8 @@
 import { defineBoot } from '#q-app/wrappers';
 import axios, { type AxiosInstance } from 'axios';
 import { Notify } from 'quasar';
-import { useRouter } from 'vue-router';
+import type { Router } from 'vue-router';
 
-const router = useRouter();
 declare module 'vue' {
   interface ComponentCustomProperties {
     $axios: AxiosInstance;
@@ -15,6 +14,7 @@ interface RefreshTokenResponse {
   accessToken: string;
   refreshToken: string;
 }
+
 // Be careful when using SSR for cross-request state pollution
 // due to creating a Singleton instance here;
 // If any client changes this (global) instance, it might be a
@@ -28,6 +28,9 @@ const api = axios.create({
   },
   timeout: 5000,
 });
+
+// 👉 Vue Router 實例，在 boot 函數中設定
+let vueRouter: Router;
 
 // 👉 是否正在刷新中，避免多次呼叫 /renewRefreshToken
 let isRefreshing = false;
@@ -124,7 +127,12 @@ api.interceptors.response.use(
         // 清除 token 並導向登入或首頁
         localStorage.removeItem('accessToken');
         localStorage.removeItem('refreshToken');
-        await router.push('/login');
+
+        // 檢查 vueRouter 是否已初始化
+        if (vueRouter) {
+          await vueRouter.push('/login');
+        }
+
         return Promise.reject(new Error(refreshError as string));
       } finally {
         isRefreshing = false;
@@ -140,9 +148,11 @@ api.interceptors.response.use(
   },
 );
 
-export default defineBoot(({ app }) => {
-  // for use inside Vue files (Options API) through this.$axios and this.$api
+export default defineBoot(({ app, router }) => {
+  // 設定 vueRouter 實例
+  vueRouter = router;
 
+  // for use inside Vue files (Options API) through this.$axios and this.$api
   app.config.globalProperties.$axios = axios;
   // ^ ^ ^ this will allow you to use this.$axios (for Vue Options API form)
   //       so you won't necessarily have to import axios in each vue file

@@ -20,16 +20,5 @@ export default defineRouter(function (/* { store, ssrContext } */) {
     history: createHistory(process.env.VUE_ROUTER_BASE),
   });
 
-  // ✅ 路由守衛：未登入跳轉至 login
-  Router.beforeEach((to, from, next) => {
-    const token = localStorage.getItem('accessToken');
-
-    if (to.meta.requiresAuth && !token) {
-      next('/login');
-    } else {
-      next();
-    }
-  });
-
   return Router;
 });

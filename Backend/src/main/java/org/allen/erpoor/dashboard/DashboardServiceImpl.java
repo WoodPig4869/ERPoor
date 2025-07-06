@@ -1,6 +1,7 @@
 package org.allen.erpoor.dashboard;
 
 import org.allen.erpoor.dashboard.entity.ExpiringBatch;
+import org.allen.erpoor.dashboard.entity.LowStockItem;
 import org.allen.erpoor.inventory.ProductBatchRepository;
 import org.springframework.stereotype.Service;
 
@@ -19,4 +20,11 @@ public class DashboardServiceImpl implements DashboardService{
     public List<ExpiringBatch> getExpiringBatche() {
         return productBatchRepository.getExpiringBatch();
     }
+
+    @Override
+    public List<LowStockItem> getLowStockItems() {
+        return productBatchRepository.getLowStockItems();
+    }
+
+
 }
