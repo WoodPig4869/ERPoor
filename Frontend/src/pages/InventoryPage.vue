@@ -117,24 +117,24 @@ function onRowClick(productId: number) {
 }
 export interface InventoryItem {
   productId: number;
-  productName: string;
-  unit: string;
+  name: string;
   category: string;
-  description: string | null;
+  unit: string;
   price: number;
-  enabled: boolean;
-  totalAvailableQuantity: number;
-  latestReceivedDate: string; // 或使用 Date 類型，取決於你的處理方式
-  nearestExpiryDate: string; // 同上
-  supplierForNearestExpiry: string;
-  lowStock: boolean;
-  nearExpiry: boolean; // 這是前端計算的屬性，API可能不返回
+
+  totalStock: number;
+  availableStock: number;
+  expiredStock: number;
+  nearestExpiryDate: string;
+
+  // 前端自行補充邏輯判斷欄位（非後端返回）
+  nearExpiry?: boolean;
 }
 
 async function fetchInventoryData() {
   try {
     loading.value = true;
-    const response = await api.get<InventoryItem[]>('/inventory/status');
+    const response = await api.get<InventoryItem[]>('/inventory/productInventoryView');
     rows.value = response.data.map((item) => ({
       ...item,
       nearExpiry: isNearingExpiry(item.nearestExpiryDate),
@@ -168,21 +168,31 @@ function isNearingExpiry(expiryDate: string): boolean {
 
 const columns = [
   {
-    name: 'productName',
+    name: 'name',
     label: '品名',
-    field: 'productName',
+    field: 'name',
     align: 'left' as const,
     sortable: true,
   },
   {
-    name: 'totalAvailableQuantity',
-    label: '現有庫存',
-    field: 'totalAvailableQuantity',
+    name: 'availableStock',
+    label: '有效庫存',
+    field: 'availableStock',
     align: 'right' as const,
     sortable: true,
   },
-  { name: 'unit', label: '單位', field: 'unit', align: 'left' as const }, // 例如公斤、箱、包
-  { name: 'category', label: '庫別', field: 'category', align: 'left' as const }, // 例如：冷藏庫、冷凍庫、常溫區
+  {
+    name: 'unit',
+    label: '單位',
+    field: 'unit',
+    align: 'left' as const,
+  },
+  {
+    name: 'category',
+    label: '類別',
+    field: 'category',
+    align: 'left' as const,
+  },
   {
     name: 'nearestExpiryDate',
     label: '最近到期日',
@@ -190,13 +200,20 @@ const columns = [
     align: 'left' as const,
     sortable: true,
   },
-  {
-    name: 'latestReceivedDate',
-    label: '最後進貨',
-    field: 'latestReceivedDate',
-    align: 'left' as const,
-    sortable: true,
-  },
+  // {
+  //   name: 'expiredStock',
+  //   label: '過期數量',
+  //   field: 'expiredStock',
+  //   align: 'right' as const,
+  //   sortable: true,
+  // },
+  // {
+  //   name: 'totalStock',
+  //   label: '總庫存',
+  //   field: 'totalStock',
+  //   align: 'right' as const,
+  //   sortable: true,
+  // },
 ];
 </script>
 

@@ -292,7 +292,7 @@ const animatedValues = reactive({
   orders: 0,
 });
 
-// 目標數值
+// 目標數值(用於數字動畫，目前為模擬數據)
 const targetValues = {
   sales: 120000,
   lowStock: 3,
@@ -372,6 +372,11 @@ onMounted(async () => {
   await fetchExpiringData();
   await fetchLowStockItems();
 
+  targetValues.sales = 120000;
+  targetValues.lowStock = lowStockItems.value.length;
+  targetValues.expiring = expiringBatches.value.length;
+  targetValues.orders = 42;
+
   // 延遲一點開始動畫，讓頁面先渲染
   setTimeout(() => {
     // 銷售總額動畫 - 較長時間因為數字大
@@ -399,15 +404,15 @@ onMounted(async () => {
 const expiringColumns = ref<QTableColumn<ExpiringBatch>[]>([
   { name: 'product', label: '商品名稱', field: 'product', align: 'left' },
   { name: 'expiration_date', label: '效期', field: 'expirationDate', align: 'center' },
-  { name: 'quantity', label: '剩餘數量', field: 'quantity', align: 'right' },
+  { name: 'quantity', label: '剩餘數量', field: 'quantity', align: 'center' },
 ]);
 
 const lowStockColumns = ref<QTableColumn<LowStockItem>[]>([
   { name: 'product_name', label: '商品名稱', field: 'productName', align: 'left' },
   { name: 'current_stock', label: '目前庫存', field: 'currentStock', align: 'center' },
-  { name: 'min_stock', label: '最低庫存', field: 'minStock', align: 'center' },
-  { name: 'unit', label: '單位', field: 'unit', align: 'center' },
-  { name: 'actions', label: '操作', field: () => '', align: 'center' },
+  { name: 'min_stock', label: '最低庫存', field: 'minStock', align: 'right' },
+  { name: 'unit', label: '單位', field: 'unit', align: 'left' },
+  { name: 'actions', label: '操作', field: () => '', align: 'left' },
 ]);
 
 // 熱銷商品數據
@@ -420,9 +425,9 @@ const hotItems = ref<HotItem[]>([
 ]);
 
 const hotItemColumns = ref<QTableColumn<HotItem>[]>([
-  { name: 'rank', label: '排名', field: 'rank', align: 'center' },
+  { name: 'rank', label: '排名', field: 'rank', align: 'left' },
   { name: 'product_name', label: '商品名稱', field: 'product_name', align: 'left' },
-  { name: 'total_quantity', label: '銷售數量', field: 'total_quantity', align: 'right' },
+  { name: 'total_quantity', label: '銷售數量', field: 'total_quantity', align: 'center' },
 ]);
 
 // 工具函數

@@ -2,7 +2,7 @@ package org.allen.erpoor.inventory;
 
 import org.allen.erpoor.inventory.entity.Product;
 import org.allen.erpoor.inventory.entity.ProductBatch;
-import org.allen.erpoor.inventory.entity.ProductInventoryStatus;
+import org.allen.erpoor.inventory.entity.ProductInventoryView;
 import org.allen.erpoor.inventory.entity.ProductOption;
 import org.allen.erpoor.util.CommonResponse;
 import org.springframework.http.HttpStatus;
@@ -17,21 +17,21 @@ import java.util.Collection;
 @RequestMapping("/api/inventory")
 public class InventoryController {
     private static final Logger logger = LoggerFactory.getLogger(InventoryController.class);
-    private final ProductInventoryStatusRepository productInventoryStatusRepository;
+    private final ProductInventoryViewRepository productInventoryViewRepository;
     private final ProductRepository productRepository;
     private final ProductBatchRepository productBatchRepository;
 
-    public InventoryController(ProductInventoryStatusRepository productInventoryStatusRepository, ProductRepository productRepository, ProductBatchRepository productBatchRepository) {
-        this.productInventoryStatusRepository = productInventoryStatusRepository;
+    public InventoryController(ProductInventoryViewRepository productInventoryViewRepository, ProductRepository productRepository, ProductBatchRepository productBatchRepository) {
+        this.productInventoryViewRepository = productInventoryViewRepository;
         this.productRepository = productRepository;
         this.productBatchRepository = productBatchRepository;
     }
 
-    @GetMapping("/status")
-    public ResponseEntity<CommonResponse<Iterable<ProductInventoryStatus>>> findAll() {
+    @GetMapping("/productInventoryView")
+    public ResponseEntity<CommonResponse<Iterable<ProductInventoryView>>> findAll() {
         logger.debug("收到商品庫存狀態查詢請求");
         try {
-            Iterable<ProductInventoryStatus> inventoryStatus = productInventoryStatusRepository.findAll();
+            Iterable<ProductInventoryView> inventoryStatus = productInventoryViewRepository.findAll();
 
             if (!inventoryStatus.iterator().hasNext()) {
                 logger.info("未找到任何商品庫存記錄");

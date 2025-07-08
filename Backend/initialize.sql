@@ -36,6 +36,24 @@ INSERT INTO account (username, password, role,nickname,phone)VALUES
 ('user3', '$2a$10$.UAoeaAVeH8vhPsxHaw1I.teyo3iBunZllqraM1EmHQJwk1CkwD8u', 'USER','孫七','0933333333')
 ON CONFLICT (username) DO NOTHING;
 
+-- 初始化 supplier 供應商資料表
+DROP TABLE IF EXISTS supplier CASCADE;
+CREATE TABLE supplier (
+  supplier_id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  contact_info TEXT,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+DROP INDEX IF EXISTS idx_supplier_name;
+CREATE INDEX idx_supplier_name ON supplier(name);
+
+COMMENT ON TABLE supplier IS '供應商資料表，紀錄供應商基本聯絡資訊';
+COMMENT ON COLUMN supplier.supplier_id IS '供應商唯一識別碼，自動遞增';
+COMMENT ON COLUMN supplier.name IS '供應商名稱';
+COMMENT ON COLUMN supplier.contact_info IS '聯絡資訊';
+COMMENT ON COLUMN supplier.created_at IS '供應商建立時間';
+
 -- 初始化 refresh_token 資料表，儲存使用者的 refresh token 與相關資訊
 DROP TABLE IF EXISTS refresh_token;
 CREATE TABLE refresh_token (
@@ -90,26 +108,6 @@ COMMENT ON COLUMN product.description IS '商品簡述';
 COMMENT ON COLUMN product.enabled IS '是否啟用（上架）';
 COMMENT ON COLUMN product.price IS '商品單價';
 COMMENT ON COLUMN product.created_at IS '商品建立時間';
-
-
--- 初始化 supplier 供應商資料表
-DROP TABLE IF EXISTS supplier CASCADE;
-CREATE TABLE supplier (
-  supplier_id SERIAL PRIMARY KEY,
-  name VARCHAR(100) NOT NULL,
-  contact_info TEXT,
-  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-);
-
-DROP INDEX IF EXISTS idx_supplier_name;
-CREATE INDEX idx_supplier_name ON supplier(name);
-
-COMMENT ON TABLE supplier IS '供應商資料表，紀錄供應商基本聯絡資訊';
-COMMENT ON COLUMN supplier.supplier_id IS '供應商唯一識別碼，自動遞增';
-COMMENT ON COLUMN supplier.name IS '供應商名稱';
-COMMENT ON COLUMN supplier.contact_info IS '聯絡資訊';
-COMMENT ON COLUMN supplier.created_at IS '供應商建立時間';
-
 
 -- 初始化 product_batch 商品批次資料表
 DROP TABLE IF EXISTS product_batch CASCADE;
@@ -189,58 +187,36 @@ COMMENT ON COLUMN order_item.sale_price IS '銷售單價備份';
 COMMENT ON COLUMN order_item.created_at IS '建立時間';
 COMMENT ON COLUMN order_item.total_price IS '總價格';
 
--- 初始化【庫存管理】視圖
-DROP VIEW IF EXISTS product_inventory_status;
-CREATE OR REPLACE VIEW product_inventory_status AS
-SELECT
-  p.product_id,
-  p.name AS product_name,
-  p.unit,
-  p.expiry_alert_days,
-  p.category,
-  p.description,
-  p.price,
-  p.enabled,
-  COALESCE(
-    (SELECT SUM(pb.quantity)
-     FROM product_batch pb
-     WHERE pb.product_id = p.product_id
-     AND pb.expiration_date >= CURRENT_DATE),
-    0
-  ) AS total_available_quantity,
-  (SELECT MAX(pb.received_date)
-   FROM product_batch pb
-   WHERE pb.product_id = p.product_id) AS latest_received_date,
-  (SELECT MIN(pb.expiration_date)
-   FROM product_batch pb
-   WHERE pb.product_id = p.product_id
-   AND pb.expiration_date >= CURRENT_DATE) AS nearest_expiry_date,
-  (SELECT pb.supplier_name
-   FROM product_batch pb
-   WHERE pb.product_id = p.product_id
-   AND pb.expiration_date = (
-     SELECT MIN(pb2.expiration_date)
-     FROM product_batch pb2
-     WHERE pb2.product_id = p.product_id
-     AND pb2.expiration_date >= CURRENT_DATE
-   ) LIMIT 1) AS supplier_for_nearest_expiry
-FROM
-  product p;
+-- 初始化建立庫存查詢視圖
+CREATE OR REPLACE VIEW product_inventory_view AS
+SELECT 
+    p.product_id,
+    p.name,
+    p.category,
+    p.unit,
+    p.price,
+    COALESCE(SUM(pb.quantity), 0) as total_stock,
+    COALESCE(SUM(CASE WHEN pb.expiration_date > CURRENT_DATE THEN pb.quantity ELSE 0 END), 0) as available_stock,
+    COALESCE(SUM(CASE WHEN pb.expiration_date <= CURRENT_DATE THEN pb.quantity ELSE 0 END), 0) as expired_stock,
+    MIN(CASE WHEN pb.quantity > 0 AND pb.expiration_date > CURRENT_DATE THEN pb.expiration_date END) as nearest_expiry_date
+FROM product p
+LEFT JOIN product_batch pb ON p.product_id = pb.product_id
+WHERE p.enabled = TRUE
+GROUP BY p.product_id, p.name, p.category, p.unit, p.price;
 
-COMMENT ON VIEW product_inventory_status IS '商品庫存狀態視圖，包含商品基本資訊及庫存彙總數據';
+COMMENT ON VIEW product_inventory_view IS '商品庫存彙總檢視表，提供每個商品的總庫存、可用庫存、已過期庫存與最接近的有效期限';
 
-COMMENT ON COLUMN product_inventory_status.product_id IS '商品唯一識別碼';
-COMMENT ON COLUMN product_inventory_status.product_name IS '商品名稱';
-COMMENT ON COLUMN product_inventory_status.unit IS '計量單位';
-COMMENT ON COLUMN product_inventory_status.expiry_alert_days IS '即將到期的預警天數';
-COMMENT ON COLUMN product_inventory_status.category IS '商品分類';
-COMMENT ON COLUMN product_inventory_status.description IS '商品描述';
-COMMENT ON COLUMN product_inventory_status.price IS '商品銷售單價';
-COMMENT ON COLUMN product_inventory_status.enabled IS '是否啟用(上架)';
-COMMENT ON COLUMN product_inventory_status.total_available_quantity IS '未過期庫存總量';
-COMMENT ON COLUMN product_inventory_status.latest_received_date IS '最新進貨日期';
-COMMENT ON COLUMN product_inventory_status.nearest_expiry_date IS '最近到期日期';
-COMMENT ON COLUMN product_inventory_status.supplier_for_nearest_expiry IS '最近到期批次的供應商名稱';
+COMMENT ON COLUMN product_inventory_view.product_id IS '商品唯一識別碼';
+COMMENT ON COLUMN product_inventory_view.name IS '商品名稱';
+COMMENT ON COLUMN product_inventory_view.category IS '商品分類';
+COMMENT ON COLUMN product_inventory_view.unit IS '商品單位';
+COMMENT ON COLUMN product_inventory_view.price IS '商品單價';
+
+COMMENT ON COLUMN product_inventory_view.total_stock IS '總庫存數量，包含所有批次的商品數量';
+COMMENT ON COLUMN product_inventory_view.available_stock IS '可用庫存數量，僅包含尚未過期的商品批次';
+COMMENT ON COLUMN product_inventory_view.expired_stock IS '已過期庫存數量，包含所有已過期的商品批次數量';
+COMMENT ON COLUMN product_inventory_view.nearest_expiry_date IS '最近一筆尚未過期庫存的到期日，用於提示即將過期商品';
+
 --------------
 --------------
 --------------
@@ -277,7 +253,7 @@ SELECT
   (floor(random() * 15)::int + 1),  -- 隨機 product_id (1-15)
   'BATCH-TEST-' || i,
   (random() * 50)::int + 20,  -- 數量 20-70
-  CURRENT_DATE + (random() * 20 +3)::int,  -- 3-20天內到期
+  CURRENT_DATE + (random() * 20 +5)::int,  -- 5-20天內到期
   (random() * 888)::numeric(10,2) + 112,  -- 價格 128-888
   CURRENT_DATE - (random() * 180 + 30)::int,  -- 30-210天前收到
   1,  -- 供應商ID 1
@@ -294,4 +270,4 @@ FROM information_schema.tables
 WHERE table_type = 'BASE TABLE'
   AND table_schema NOT IN ('pg_catalog', 'information_schema');
 
-SELECT * FROM product_batch
+SELECT * FROM product_inventory_view

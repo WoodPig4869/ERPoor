@@ -2,7 +2,7 @@
   <q-dialog v-model="dialogModel">
     <q-card class="q-pa-md shadow-4" style="min-width: 400px; max-width: 90vw">
       <q-card-section>
-        <div class="text-h6">加入新商品</div>
+        <div class="text-h6">新進貨單</div>
       </q-card-section>
 
       <q-separator />
