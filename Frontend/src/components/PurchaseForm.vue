@@ -75,6 +75,7 @@
 import { ref, nextTick, onMounted } from 'vue';
 import { api } from 'boot/axios';
 import { useQuasar } from 'quasar';
+import { eventBus } from 'src/utils/eventBus';
 
 const $q = useQuasar();
 
@@ -101,6 +102,9 @@ const dialogModel = defineModel<boolean | null>({ default: false });
 onMounted(async () => {
   await getProductNameOptions(); // 使用 await 確保 Promise 被處理
   resetForm();
+  eventBus.on('product-added', () => {
+    void getProductNameOptions();
+  });
 });
 
 async function getProductNameOptions() {
@@ -127,7 +131,8 @@ async function submitForm() {
       position: 'top',
     });
     dialogModel.value = false;
-    location.reload();
+    resetForm();
+    eventBus.emit('productBatch-added');
   } catch (error) {
     console.error('送出失敗', error);
   } finally {

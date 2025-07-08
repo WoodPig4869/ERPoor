@@ -92,13 +92,14 @@
       </template>
     </q-table>
   </div>
-  <addNewProductForm v-model="showAddNewProductForm" />
+  <addNewProductForm v-model="showAddNewProductForm" @product-added="fetchInventoryData" />
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { useQuasar } from 'quasar';
 import { api } from 'boot/axios';
+import { eventBus } from 'src/utils/eventBus';
 import addNewProductForm from '../components/addNewProductForm.vue';
 
 const $q = useQuasar();
@@ -154,6 +155,12 @@ async function fetchInventoryData() {
 
 // 在組件掛載時獲取資料
 onMounted(() => {
+  eventBus.on('productBatch-added', () => {
+    void fetchInventoryData();
+  });
+  eventBus.on('product-added', () => {
+    void fetchInventoryData();
+  });
   void fetchInventoryData();
 });
 

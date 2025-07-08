@@ -1,0 +1,2 @@
+package org.allen.erpoor.dashboard.entity;public class LowStockAlertView {
+}

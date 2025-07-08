@@ -81,7 +81,6 @@
                     class="modern-checkbox"
                   />
                 </div>
-
                 <!-- 登入按鈕 -->
                 <div class="button-section">
                   <q-btn
@@ -89,7 +88,7 @@
                     label="登入"
                     color="primary"
                     size="lg"
-                    class="login-btn"
+                    class="login-btn modern-sleek-btn"
                     :loading="isLoading"
                     :disable="!isFormValid"
                     no-caps
@@ -97,8 +96,11 @@
                     unelevated
                   >
                     <template v-slot:loading>
-                      <q-spinner-hourglass />
+                      <q-spinner-dots color="white" size="18px" />
                     </template>
+
+                    <!-- 現代幾何裝飾 -->
+                    <div class="btn-accent"></div>
                   </q-btn>
                 </div>
 
@@ -239,7 +241,7 @@ const handleLogin = async () => {
 const handleForgotPassword = () => {
   $q.dialog({
     title: '忘記密碼',
-    message: '請聯繫系統管理員重設密碼',
+    message: '此功能尚未實裝，請聯繫系統管理員重設密碼',
     ok: {
       label: '確定',
       color: 'primary',
@@ -247,7 +249,6 @@ const handleForgotPassword = () => {
   });
 };
 
-// 生命週期
 onMounted(() => {
   // 匯入測試帳號
   loginForm.value.username = 'admin';
@@ -523,6 +524,152 @@ onMounted(() => {
     :deep(.q-field__control) {
       background: rgba(255, 255, 255, 0.05);
     }
+  }
+}
+// 登入按鈕強化
+.button-section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.modern-sleek-btn {
+  position: relative;
+  min-width: 200px;
+  height: 56px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.15),
+    0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.3px;
+  color: white;
+  backdrop-filter: blur(20px);
+}
+
+.modern-sleek-btn:hover {
+  transform: translateY(-1px);
+  background: linear-gradient(135deg, #2d2d2d 0%, #404040 100%);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.2),
+    0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.modern-sleek-btn:active {
+  transform: translateY(0);
+  box-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.15),
+    0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.modern-sleek-btn:disabled {
+  opacity: 0.5;
+  transform: none;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+/* 現代幾何裝飾 */
+.btn-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-accent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.modern-sleek-btn:hover .btn-accent {
+  opacity: 1;
+}
+
+.modern-sleek-btn:hover .btn-accent::before {
+  left: 100%;
+}
+
+/* 載入狀態美化 */
+.modern-sleek-btn .q-spinner-dots {
+  opacity: 0.9;
+}
+
+/* 光滑表面效果 */
+.modern-sleek-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), transparent);
+  pointer-events: none;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .modern-sleek-btn {
+    min-width: 180px;
+    height: 52px;
+    font-size: 15px;
+  }
+}
+
+/* 深色主題變體 */
+@media (prefers-color-scheme: dark) {
+  .modern-sleek-btn {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .modern-sleek-btn:hover {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* 淺色主題變體 */
+@media (prefers-color-scheme: light) {
+  .modern-sleek-btn {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    color: #1a1a1a;
+    box-shadow:
+      0 4px 20px rgba(0, 0, 0, 0.08),
+      0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+
+  .modern-sleek-btn:hover {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-color: rgba(0, 0, 0, 0.12);
+    box-shadow:
+      0 8px 30px rgba(0, 0, 0, 0.12),
+      0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .modern-sleek-btn::after {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), transparent);
+  }
+
+  .btn-accent::before {
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent);
   }
 }
 </style>

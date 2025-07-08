@@ -1,7 +1,7 @@
 package org.allen.erpoor.dashboard;
 
-import org.allen.erpoor.dashboard.entity.ExpiringBatch;
-import org.allen.erpoor.dashboard.entity.LowStockItem;
+import org.allen.erpoor.dashboard.entity.ExpiryAlertView;
+import org.allen.erpoor.dashboard.entity.LowStockAlertView;
 import org.allen.erpoor.inventory.ProductBatchRepository;
 import org.springframework.stereotype.Service;
 
@@ -10,20 +10,22 @@ import java.util.List;
 @Service
 public class DashboardServiceImpl implements DashboardService{
 
-    private final ProductBatchRepository productBatchRepository;
+    private final ExpiryAlertViewRepository expiryAlertViewRepository;
+    private final LowStockAlertViewRepository lowStockAlertViewRepository;
 
-    public DashboardServiceImpl(ProductBatchRepository productBatchRepository) {
-        this.productBatchRepository = productBatchRepository;
+    public DashboardServiceImpl(ExpiryAlertViewRepository expiryAlertViewRepository, LowStockAlertViewRepository lowStockAlertViewRepository) {
+        this.expiryAlertViewRepository = expiryAlertViewRepository;
+        this.lowStockAlertViewRepository = lowStockAlertViewRepository;
     }
 
     @Override
-    public List<ExpiringBatch> getExpiringBatche() {
-        return productBatchRepository.getExpiringBatch();
+    public List<ExpiryAlertView> getExpiringBatches() {
+        return expiryAlertViewRepository.findAll();
     }
 
     @Override
-    public List<LowStockItem> getLowStockItems() {
-        return productBatchRepository.getLowStockItems();
+    public List<LowStockAlertView> getLowStockItems() {
+        return lowStockAlertViewRepository.findAll();
     }
 
 

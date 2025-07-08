@@ -1,8 +1,8 @@
 package org.allen.erpoor.dashboard;
 
-import org.allen.erpoor.dashboard.entity.ExpiringBatch;
-import org.allen.erpoor.dashboard.entity.LowStockItem;
-import org.allen.erpoor.inventory.InventoryController;
+import lombok.Data;
+import org.allen.erpoor.dashboard.entity.ExpiryAlertView;
+import org.allen.erpoor.dashboard.entity.LowStockAlertView;
 import org.allen.erpoor.util.CommonResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/dashboard")
 public class DashboardController {
     private static final Logger logger = LoggerFactory.getLogger(DashboardController.class);
     private final DashboardService dashboardService;
@@ -25,11 +25,11 @@ public class DashboardController {
     }
 
     @GetMapping("/expiringBatch")
-    public ResponseEntity<CommonResponse<List<ExpiringBatch>>> getExpiringBatches() {
+    public ResponseEntity<CommonResponse<List<ExpiryAlertView>>> getExpiringBatches() {
         logger.debug("收到即將過期商品批次查詢請求");
 
         try {
-            List<ExpiringBatch> expiringBatches = dashboardService.getExpiringBatche();
+            List<ExpiryAlertView> expiringBatches = dashboardService.getExpiringBatches();
 
             if (expiringBatches == null || expiringBatches.isEmpty()) {
                 logger.info("查無即將過期商品批次");
@@ -48,11 +48,11 @@ public class DashboardController {
     }
 
     @GetMapping("/lowStockItems")
-    public ResponseEntity<CommonResponse<List<LowStockItem>>> getLowStockItems() {
+    public ResponseEntity<CommonResponse<List<LowStockAlertView>>> getLowStockItems() {
         logger.debug("收到低庫存商品查詢請求");
 
         try {
-            List<LowStockItem> lowStockItems = dashboardService.getLowStockItems();
+            List<LowStockAlertView> lowStockItems = dashboardService.getLowStockItems();
 
             if (lowStockItems == null || lowStockItems.isEmpty()) {
                 logger.info("查無低庫存商品");
@@ -70,4 +70,35 @@ public class DashboardController {
         }
     }
 
+    @GetMapping("/overview")
+    public ResponseEntity<CommonResponse<Overview>> getOverview() {
+        logger.debug("收到儀表板概覽資料查詢請求");
+
+        try {
+            List<LowStockAlertView> lowStockItems = dashboardService.getLowStockItems();
+            List<ExpiryAlertView> expiringBatches = dashboardService.getExpiringBatches();
+
+            Overview overview = new Overview();
+            overview.setLowStockItems(lowStockItems);
+            overview.setExpiringBatches(expiringBatches);
+
+            logger.info("儀表板資料查詢成功：低庫存 {} 筆、即將過期 {} 筆",
+                    lowStockItems.size(), expiringBatches.size());
+
+            return ResponseEntity.ok(new CommonResponse<>(200, "查詢成功", overview));
+
+        } catch (Exception e) {
+            logger.error("查詢儀表板資料時發生錯誤: {}", e.getMessage(), e);
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(CommonResponse.error(500, "查詢儀表板資料失敗"));
+        }
+    }
+
+
+}
+@Data
+class Overview {
+    private List<LowStockAlertView> lowStockItems;
+    private List<ExpiryAlertView> expiringBatches;
 }

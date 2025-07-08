@@ -1,8 +1,8 @@
 package org.allen.erpoor.dashboard;
 
 
-import org.allen.erpoor.dashboard.entity.ExpiringBatch;
-import org.allen.erpoor.dashboard.entity.LowStockItem;
+import org.allen.erpoor.dashboard.entity.ExpiryAlertView;
+import org.allen.erpoor.dashboard.entity.LowStockAlertView;
 
 import java.util.List;
 
@@ -14,16 +14,16 @@ public interface DashboardService {
     /**
      * 查詢即將過期的商品批次清單。
      *
-     * @return 回傳 {@link ExpiringBatch} 清單，若無資料則為空列表。
+     * @return 回傳 {@link ExpiryAlertView} 清單，若無資料則為空列表。
      */
-    List<ExpiringBatch> getExpiringBatche();
+    List<ExpiryAlertView> getExpiringBatches();
 
     /**
      * 查詢低庫存商品清單。
      *
-     * @return 回傳 {@link LowStockItem} 清單，若無資料則為空列表。
+     * @return 回傳 {@link LowStockAlertView} 清單，若無資料則為空列表。
      */
-    List<LowStockItem> getLowStockItems();
+    List<LowStockAlertView> getLowStockItems();
 
 //    /**
 //     * 查詢熱銷商品排行。

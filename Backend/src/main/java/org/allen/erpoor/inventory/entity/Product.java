@@ -35,7 +35,7 @@ public class Product {
     private Integer expiry_alert_days; //到期的預警天數
 
     @Column(name="min_stock",nullable = false)
-    private Integer min_stock;
+    private Integer min_stock; //最小庫存/
 
     @Column(name = "description", columnDefinition = "TEXT")
     private String description; // 商品描述

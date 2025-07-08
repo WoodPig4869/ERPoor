@@ -39,7 +39,7 @@
           <q-card class="stat-card bg-yellow-2" flat bordered>
             <q-card-section>
               <div class="row items-center q-gutter-md">
-                <q-icon name="schedule" size="md" class="text-yellow-6" />
+                <q-icon name="schedule" size="md" class="text-yellow-9" />
                 <div>
                   <div class="text-subtitle2 text-grey-7">即將過期</div>
                   <div class="stat-value text-yellow-9 q-mt-xs">
@@ -126,6 +126,13 @@
           <div class="text-h6 text-yellow-9 row items-center">
             <q-icon name="warning" class="q-mr-sm" />
             即將過期商品批次
+            <q-space />
+            <q-chip
+              color="yellow-8"
+              text-color="white"
+              :label="`${expiringBatches.length} 批次`"
+              dense
+            />
           </div>
         </q-card-section>
         <q-separator />
@@ -134,27 +141,69 @@
           dense
           :rows="expiringBatches"
           :columns="expiringColumns"
-          row-key="batch_id"
+          row-key="batchCode"
           class="expiring-table"
           :rows-per-page-options="[5, 10, 20]"
           :pagination="{ rowsPerPage: 5 }"
+          no-data-label="暫無即將過期商品"
+          :loading="loading"
         >
-          <template v-slot:body-cell-expiration_date="props">
+          <template v-slot:body-cell-expirationDate="props">
             <q-td :props="props">
               <q-chip
                 :color="getExpirationColor(props.value)"
                 text-color="white"
                 dense
-                :label="props.value"
+                :label="formatDate(props.value)"
+                :icon="props.row.daysToExpiry <= 3 ? 'priority_high' : 'schedule'"
               />
             </q-td>
           </template>
+
           <template v-slot:body-cell-quantity="props">
             <q-td :props="props">
               <q-badge
-                :color="props.value < 10 ? 'red' : 'orange'"
-                :label="props.value"
+                :color="props.value < 10 ? 'red' : props.value < 50 ? 'orange' : 'green'"
+                :label="`${props.value} 件`"
                 class="q-px-sm"
+              />
+            </q-td>
+          </template>
+
+          <template v-slot:body-cell-daysToExpiry="props">
+            <q-td :props="props">
+              <q-chip
+                :color="props.value <= 3 ? 'red' : props.value <= 7 ? 'orange' : 'yellow'"
+                text-color="white"
+                dense
+                :label="`${props.value} 天`"
+                :icon="props.value <= 3 ? 'error' : 'schedule'"
+              />
+            </q-td>
+          </template>
+
+          <template v-slot:body-cell-name="props">
+            <q-td :props="props">
+              <div class="row items-center">
+                <q-avatar size="sm" color="grey-3" text-color="grey-8" class="q-mr-sm">
+                  <q-icon name="inventory" />
+                </q-avatar>
+                <div>
+                  <div class="text-weight-medium">{{ props.value }}</div>
+                  <div class="text-caption text-grey-6">批次: {{ props.row.batchCode }}</div>
+                </div>
+              </div>
+            </q-td>
+          </template>
+
+          <template v-slot:body-cell-supplierName="props">
+            <q-td :props="props">
+              <q-chip
+                color="grey-3"
+                text-color="grey-8"
+                dense
+                :label="props.value"
+                icon="business"
               />
             </q-td>
           </template>
@@ -167,6 +216,13 @@
           <div class="text-h6 text-red-9 row items-center">
             <q-icon name="inventory_2" class="q-mr-sm" />
             低庫存商品警示
+            <q-space />
+            <q-chip
+              color="red-8"
+              text-color="white"
+              :label="`${lowStockItems.length} 項商品`"
+              dense
+            />
           </div>
         </q-card-section>
         <q-separator />
@@ -175,28 +231,21 @@
           dense
           :rows="lowStockItems"
           :columns="lowStockColumns"
-          row-key="product_id"
+          row-key="name"
           class="low-stock-table"
           :rows-per-page-options="[5, 10, 20]"
           :pagination="{ rowsPerPage: 5 }"
+          no-data-label="暫無低庫存商品"
+          :loading="loading"
         >
-          <template v-slot:body-cell-current_stock="props">
+          <template v-slot:body-cell-name="props">
             <q-td :props="props">
-              <q-badge color="red" :label="props.value" class="q-px-sm" />
-            </q-td>
-          </template>
-          <template v-slot:body-cell-actions="props">
-            <q-td :props="props">
-              <q-btn
-                size="sm"
-                color="primary"
-                icon="add_shopping_cart"
-                dense
-                round
-                @click="quickRestock(props.row)"
-              >
-                <q-tooltip>快速補貨</q-tooltip>
-              </q-btn>
+              <div class="row items-center">
+                <q-avatar size="sm" color="red-2" text-color="red-8" class="q-mr-sm">
+                  <q-icon name="inventory" />
+                </q-avatar>
+                <div class="text-weight-medium">{{ props.value }}</div>
+              </div>
             </q-td>
           </template>
         </q-table>
@@ -257,24 +306,27 @@ import { api } from 'boot/axios';
 import { useQuasar } from 'quasar';
 
 const $q = useQuasar();
+const loading = ref(true);
 
 // 即將過期商品數據
-const expiringBatches = ref<ExpiringBatch[]>([]);
 interface ExpiringBatch {
+  productId: number;
+  name: string; // 商品名稱
   batchId: number;
-  product: string;
-  expirationDate: string;
+  batchCode: string;
   quantity: number;
+  expirationDate: string; // 效期
+  supplierName: string;
+  daysToExpiry: number;
 }
 
 // 低庫存商品數據
-const lowStockItems = ref<LowStockItem[]>([]);
 interface LowStockItem {
   productId: number;
-  productName: string;
-  currentStock: number;
-  minStock: number;
-  unit: string;
+  name: string; // 商品名稱
+  minStock: number; // 最低庫存
+  availableStock: number; // 目前庫存
+  shortage: number;
 }
 
 interface HotItem {
@@ -333,44 +385,47 @@ const formatNumber = (num: number): string => {
   return Math.floor(num).toLocaleString();
 };
 
-async function fetchExpiringData() {
-  try {
-    const response = await api.get<ExpiringBatch[]>('/expiringBatch');
-    expiringBatches.value = response.data.map((item) => ({
-      ...item,
-    }));
-  } catch (error) {
-    $q.notify({
-      color: 'negative',
-      message: '獲取即將過期批次資料失敗',
-      icon: 'report_problem',
-      position: 'top',
-    });
-    console.error('Error fetching inventory data:', error);
-  }
+interface OverviewResponse {
+  lowStockItems: LowStockItem[];
+  expiringBatches: ExpiringBatch[];
 }
 
-async function fetchLowStockItems() {
+const lowStockItems = ref<LowStockItem[]>([]);
+const expiringBatches = ref<ExpiringBatch[]>([]);
+
+async function fetchOverviewData() {
   try {
-    const response = await api.get<LowStockItem[]>('/lowStockItems');
-    lowStockItems.value = response.data.map((item) => ({
-      ...item,
-    }));
+    loading.value = true;
+    const response = await api.get<OverviewResponse>('/dashboard/overview');
+    const data = response.data;
+
+    if (data) {
+      lowStockItems.value = data.lowStockItems;
+      expiringBatches.value = data.expiringBatches;
+    } else {
+      $q.notify({
+        color: 'warning',
+        message: '回傳資料為空',
+        icon: 'warning',
+        position: 'top',
+      });
+    }
   } catch (error) {
     $q.notify({
       color: 'negative',
-      message: '獲取低庫存商品資料失敗',
+      message: '獲取儀表板總覽資料失敗',
       icon: 'report_problem',
       position: 'top',
     });
-    console.error('Error fetching low stock items:', error);
+    console.error('Error fetching dashboard overview:', error);
   }
+
+  loading.value = false;
 }
 
 // 頁面載入時開始動畫
 onMounted(async () => {
-  await fetchExpiringData();
-  await fetchLowStockItems();
+  await fetchOverviewData();
 
   targetValues.sales = 120000;
   targetValues.lowStock = lowStockItems.value.length;
@@ -402,17 +457,19 @@ onMounted(async () => {
 });
 
 const expiringColumns = ref<QTableColumn<ExpiringBatch>[]>([
-  { name: 'product', label: '商品名稱', field: 'product', align: 'left' },
-  { name: 'expiration_date', label: '效期', field: 'expirationDate', align: 'center' },
+  { name: 'name', label: '商品名稱', field: 'name', align: 'left' },
+  { name: 'batchCode', label: '批次代碼', field: 'batchCode', align: 'center' },
+  { name: 'expirationDate', label: '效期', field: 'expirationDate', align: 'center' },
   { name: 'quantity', label: '剩餘數量', field: 'quantity', align: 'center' },
+  { name: 'daysToExpiry', label: '剩餘天數', field: 'daysToExpiry', align: 'center' },
+  { name: 'supplierName', label: '供應商', field: 'supplierName', align: 'left' },
 ]);
 
 const lowStockColumns = ref<QTableColumn<LowStockItem>[]>([
-  { name: 'product_name', label: '商品名稱', field: 'productName', align: 'left' },
-  { name: 'current_stock', label: '目前庫存', field: 'currentStock', align: 'center' },
-  { name: 'min_stock', label: '最低庫存', field: 'minStock', align: 'right' },
-  { name: 'unit', label: '單位', field: 'unit', align: 'left' },
-  { name: 'actions', label: '操作', field: () => '', align: 'left' },
+  { name: 'name', label: '商品名稱', field: 'name', align: 'left' },
+  { name: 'availableStock', label: '目前庫存', field: 'availableStock', align: 'center' },
+  { name: 'minStock', label: '最低庫存', field: 'minStock', align: 'left' },
+  { name: 'shortage', label: '缺貨數量', field: 'shortage', align: 'left' },
 ]);
 
 // 熱銷商品數據
@@ -430,16 +487,25 @@ const hotItemColumns = ref<QTableColumn<HotItem>[]>([
   { name: 'total_quantity', label: '銷售數量', field: 'total_quantity', align: 'center' },
 ]);
 
-// 工具函數
-const getExpirationColor = (date: string): string => {
+// 輔助函數
+const getExpirationColor = (date: string) => {
   const today = new Date();
-  const expirationDate = new Date(date);
-  const diffTime = expirationDate.getTime() - today.getTime();
+  const expDate = new Date(date);
+  const diffTime = expDate.getTime() - today.getTime();
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-  if (diffDays <= 1) return 'red';
-  if (diffDays <= 3) return 'orange';
-  return 'yellow-8';
+  if (diffDays <= 3) return 'red';
+  if (diffDays <= 7) return 'orange';
+  return 'yellow';
+};
+
+const formatDate = (dateString: string) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('zh-TW', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  });
 };
 
 const getRankColor = (rank: number): string => {
@@ -447,11 +513,6 @@ const getRankColor = (rank: number): string => {
   if (rank === 2) return 'grey-6';
   if (rank === 3) return 'orange-8';
   return 'blue-grey-5';
-};
-
-const quickRestock = (item: LowStockItem) => {
-  console.log('快速補貨:', item.productName);
-  // 這裡可以加入補貨邏輯
 };
 </script>
 
@@ -527,5 +588,39 @@ const quickRestock = (item: LowStockItem) => {
 
 .q-badge {
   border-radius: 4px;
+}
+.expiring-table {
+  .q-table__top {
+    padding: 12px;
+  }
+
+  .q-table tbody td {
+    padding: 8px 12px;
+  }
+}
+
+.low-stock-table {
+  .q-table__top {
+    padding: 12px;
+  }
+
+  .q-table tbody td {
+    padding: 8px 12px;
+  }
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .expiring-table,
+  .low-stock-table {
+    .q-table tbody td {
+      padding: 6px 8px;
+      font-size: 12px;
+    }
+  }
+
+  .text-h6 {
+    font-size: 1.1rem;
+  }
 }
 </style>
