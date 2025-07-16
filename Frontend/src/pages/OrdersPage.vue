@@ -869,17 +869,42 @@ const viewOrderDetails = (order: SaleOrder) => {
   showOrderDetails.value = true;
 };
 
+function confirmDialog(): Promise<boolean> {
+  return new Promise((resolve) => {
+    $q.dialog({
+      title: '處理中→已出貨',
+      message: '將扣除庫存數量，是否繼續？',
+      ok: { label: '確定', color: 'positive' },
+      cancel: { label: '取消', color: 'negative' },
+      persistent: true,
+    })
+      .onOk(() => {
+        resolve(true);
+      })
+      .onCancel(() => {
+        resolve(false);
+      });
+  });
+}
 const updateOrderStatus = async (order: SaleOrder, newStatus: string) => {
+  if (loading.value) return;
+
+  const confirmed = await confirmDialog();
+  if (!confirmed) return;
+
   try {
+    loading.value = true; // 開啟 loading 狀態
+
     await api.put(`/saleOrder/${order.orderId}/status`, { status: newStatus });
 
     // eslint-disable-next-line
     order.orderStatus = newStatus as any;
     order.updatedAt = new Date().toISOString();
-
     if (newStatus === 'shipped') {
       order.shippedAt = new Date().toISOString();
     }
+
+    updateDashboard(orders.value, animatedValues);
 
     $q.notify({
       color: 'positive',
@@ -895,6 +920,8 @@ const updateOrderStatus = async (order: SaleOrder, newStatus: string) => {
       icon: 'error',
       position: 'top',
     });
+  } finally {
+    loading.value = false; // 關閉 loading 狀態
   }
 };
 

@@ -8,6 +8,7 @@ import org.allen.erpoor.saleOrder.entity.OrderItem;
 import org.allen.erpoor.util.CommonResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -135,11 +136,22 @@ public class SaleOrderController {
 
             return ResponseEntity.ok(new CommonResponse<>(200, "狀態更新成功", null));
 
+        } catch (DataAccessException e) {
+            String fullMessage = e.getRootCause() != null
+                    ? e.getRootCause().getMessage()
+                    : "資料庫錯誤";
+
+            // 只保留第一行，去除 PL/pgSQL function 堆疊資訊
+            String cleanMessage = fullMessage.split("\n")[0];
+
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(CommonResponse.error(400, cleanMessage));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(CommonResponse.error(500, "更新失敗"));
         }
     }
+
 
     @PutMapping("/{orderId}/cancel")
     public ResponseEntity<CommonResponse<String>> cancelOrder(

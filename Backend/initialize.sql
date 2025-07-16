@@ -545,6 +545,78 @@ SELECT
   END
 FROM generate_series(1, 200) AS i;  -- 創建200筆測試資料
 
+-- 加入sale_order及order_item測試資料
+DO $$
+DECLARE
+  i INT;                          -- 訂單迴圈
+  new_order_id INT;              -- 新插入的訂單 ID
+  item_count INT;                -- 每張訂單的商品筆數
+  v_product_id INT;              -- 隨機商品 ID
+  qty INT;                       -- 隨機數量
+  price DECIMAL(10,2);           -- 從 product 表查到的價格
+  p_name VARCHAR(100);           -- 從 product 表查到的商品名稱
+  v_total_amount DECIMAL(12,2);    -- 計算用總金額
+BEGIN
+  FOR i IN 1..30 LOOP
+    v_total_amount := 0;
+
+    -- 建立訂單
+    INSERT INTO sale_order (
+      order_date,
+      customer_name,
+      customer_phone,
+      customer_email,
+      customer_address,
+      notes
+    )
+    VALUES (
+      CURRENT_DATE - (random() * 30)::int,
+      '測試客戶' || i,
+      '09' || (100000000 + random() * 89999999)::int,
+      'test' || i || '@example.com',
+      '台北市測試路 ' || (i * 3)::text || ' 號',
+      '系統自動產生測試訂單'
+    )
+    RETURNING order_id INTO new_order_id;
+
+    -- 每張訂單有 1~5 筆商品
+    FOR item_count IN 1..(1 + (random() * 5)::int) LOOP
+      v_product_id := 1 + (random() * 14)::int;
+      qty := 1 + (random() * 3)::int;
+
+      -- 查詢商品名稱與價格
+      SELECT p.name, p.price INTO p_name, price
+      FROM product p
+      WHERE p.product_id = v_product_id;
+
+      -- 新增訂單明細
+      INSERT INTO order_item (
+        order_id,
+        product_id,
+        product_name,
+        product_sku,
+        quantity,
+        sale_price
+      ) VALUES (
+        new_order_id,
+        v_product_id,
+        p_name,
+        'SKU-' || v_product_id,
+        qty,
+        price
+      );
+
+      -- 累加金額
+      v_total_amount := v_total_amount + (qty * price);
+    END LOOP;
+
+    -- 更新總金額
+    UPDATE sale_order s
+	SET total_amount = total_amount
+	WHERE s.order_id = new_order_id;
+  END LOOP;
+END
+$$;
 
 
 
