@@ -324,7 +324,7 @@ BEGIN
             OLD.order_status,
             NEW.order_status,
             v_operator,
-            CURRENT_TIMESTAMP AT TIME ZONE 'UTC' AT TIME ZONE 'Asia/Taipei'
+            CURRENT_TIMESTAMP
         );
     END IF;
     RETURN NEW;
@@ -334,6 +334,63 @@ $$ LANGUAGE plpgsql;
 CREATE TRIGGER log_order_status_change
 BEFORE UPDATE ON sale_order 
 FOR EACH ROW EXECUTE FUNCTION log_order_status_change();
+
+-- 初始化扣除庫存方法
+CREATE OR REPLACE FUNCTION deduct_inventory_for_shipped_order()
+RETURNS TRIGGER AS $$
+DECLARE
+    item RECORD;
+    batch RECORD;
+    qty_to_deduct INT;
+BEGIN
+    -- 僅在狀態從 pending → shipped 時執行
+    IF OLD.order_status = 'pending' AND NEW.order_status = 'shipped' THEN
+
+        -- 逐一處理該訂單的每個商品
+        FOR item IN
+            SELECT * FROM order_item WHERE order_id = NEW.order_id
+        LOOP
+            qty_to_deduct := item.quantity;
+
+            -- 依照有效期限由近到遠，逐批扣除庫存
+            FOR batch IN
+                SELECT * FROM product_batch
+                WHERE product_id = item.product_id AND quantity > 0
+                ORDER BY expiration_date ASC
+            LOOP
+                IF batch.quantity >= qty_to_deduct THEN
+                    -- 扣除足夠的數量
+                    UPDATE product_batch
+                    SET quantity = quantity - qty_to_deduct
+                    WHERE batch_id = batch.batch_id;
+                    qty_to_deduct := 0;
+                    EXIT;
+                ELSE
+                    -- 扣除整個批次，繼續處理剩餘量
+                    qty_to_deduct := qty_to_deduct - batch.quantity;
+                    UPDATE product_batch
+                    SET quantity = 0
+                    WHERE batch_id = batch.batch_id;
+                END IF;
+            END LOOP;
+
+            -- 若扣完批次仍有剩餘 → 報錯，並中止更新
+            IF qty_to_deduct > 0 THEN
+                RAISE EXCEPTION '商品 [%] 庫存不足，無法完成出貨', item.product_name;
+            END IF;
+        END LOOP;
+    END IF;
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- 初始化扣除庫存觸發器
+DROP FUNCTION IF EXISTS deduct_inventory_on_shipped;
+CREATE TRIGGER deduct_inventory_on_shipped
+BEFORE UPDATE ON sale_order
+FOR EACH ROW
+EXECUTE FUNCTION deduct_inventory_for_shipped_order();
 
 
 -- 初始化建立庫存查詢視圖
