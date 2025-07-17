@@ -146,7 +146,7 @@
           :columns="columns"
           :loading="loading"
           :pagination="pagination"
-          :rows-per-page-options="[5, 10, 20, 50, 0]"
+          :rows-per-page-options="[0, 10, 20, 50]"
           @request="onRequest"
           row-key="orderId"
           flat
@@ -507,7 +507,7 @@
           </q-card-section>
           <q-card-section>
             <div class="q-mb-md">
-              確定要取消訂單 <strong>{{ orderToCancel?.orderNumber }}</strong> 嗎？
+              將作廢訂單 <strong>{{ orderToCancel?.orderNumber }}</strong>
             </div>
             <q-input
               v-model="cancelReason"
@@ -873,7 +873,7 @@ function confirmDialog(): Promise<boolean> {
   return new Promise((resolve) => {
     $q.dialog({
       title: '處理中→已出貨',
-      message: '將扣除庫存數量，是否繼續？',
+      message: '將扣除庫存數量',
       ok: { label: '確定', color: 'positive' },
       cancel: { label: '取消', color: 'negative' },
       persistent: true,

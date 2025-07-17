@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface ProductBatchRepository extends JpaRepository<ProductBatch, Long> {
 
+    public List<ProductBatch> findByProductId(Integer productId);
+
 }

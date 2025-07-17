@@ -110,12 +110,33 @@ COMMENT ON COLUMN product.enabled IS '是否啟用（上架）';
 COMMENT ON COLUMN product.price IS '商品單價';
 COMMENT ON COLUMN product.created_at IS '商品建立時間';
 
+-- 初始化 product_batch 商品編號生成函式
+CREATE OR REPLACE FUNCTION generate_order_number()
+RETURNS VARCHAR(20) AS $$
+DECLARE
+    new_number VARCHAR(20);
+    counter INT;
+    roc_year TEXT;
+BEGIN
+    SELECT TO_CHAR(EXTRACT(YEAR FROM CURRENT_DATE) - 1911, 'FM000') INTO roc_year;
+
+    SELECT COALESCE(MAX(CAST(SUBSTRING(order_number, 9) AS INT)), 0) + 1
+    INTO counter
+    FROM sale_order 
+    WHERE order_number LIKE 'PRB-' || roc_year || '-%';
+
+    new_number := 'PRB-' || roc_year || '-' || LPAD(counter::TEXT, 3, '0');
+    
+    RETURN new_number;
+END;
+$$ LANGUAGE plpgsql;
+
 -- 初始化 product_batch 商品批次資料表
 DROP TABLE IF EXISTS product_batch CASCADE;
 CREATE TABLE product_batch (
   batch_id SERIAL PRIMARY KEY,
   product_id INT NOT NULL REFERENCES product(product_id) ON DELETE CASCADE,
-  batch_code VARCHAR(50),
+  batch_code VARCHAR(50) UNIQUE NOT NULL DEFAULT generate_order_number(),
   quantity INT NOT NULL CHECK (quantity >= 0),
   expiration_date DATE NOT NULL,
   purchase_price DECIMAL(10,2) NOT NULL DEFAULT 0,
@@ -567,15 +588,17 @@ BEGIN
       customer_phone,
       customer_email,
       customer_address,
+      order_status,
       notes
     )
     VALUES (
-      CURRENT_DATE - (random() * 30)::int,
-      '測試客戶' || i,
-      '09' || (100000000 + random() * 89999999)::int,
-      'test' || i || '@example.com',
-      '台北市測試路 ' || (i * 3)::text || ' 號',
-      '系統自動產生測試訂單'
+    CURRENT_DATE - (random() * 30)::int,
+    '測試客戶' || i,
+    '09' || (100000000 + random() * 89999999)::int,
+    'test' || i || '@example.com',
+    '台北市測試路 ' || (i * 3)::text || ' 號',
+    (ARRAY['pending', 'pending','pending', 'shipped','shipped', 'shipped', 'cancelled'])[floor(random() * 7 + 1)::int],
+    '系統自動產生測試訂單'
     )
     RETURNING order_id INTO new_order_id;
 
@@ -630,5 +653,5 @@ FROM information_schema.tables
 WHERE table_type = 'BASE TABLE'
   AND table_schema NOT IN ('pg_catalog', 'information_schema');
 
--- SELECT * FROM sale_order
-SELECT * FROM order_item
+SELECT * FROM sale_order
+-- SELECT * FROM order_item

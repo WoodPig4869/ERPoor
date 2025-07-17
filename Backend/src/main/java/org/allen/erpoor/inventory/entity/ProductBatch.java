@@ -1,6 +1,8 @@
 package org.allen.erpoor.inventory.entity;
 
 import jakarta.persistence.*;
+import lombok.Generated;
+
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -25,6 +27,7 @@ public class ProductBatch {
     @Column(name = "product_id", nullable = false)
     private Integer productId; // 對應商品 ID（ Product 表 ）
 
+    @Generated
     @Column(name = "batch_code", length = 50)
     private String batchCode; // 批號
 

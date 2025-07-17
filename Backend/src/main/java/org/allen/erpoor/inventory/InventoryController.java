@@ -49,6 +49,21 @@ public class InventoryController {
         }
     }
 
+    @GetMapping("/{productId}")
+    public ResponseEntity<CommonResponse<Iterable<ProductBatch>>> findByProductId(@PathVariable Integer productId) {
+        logger.debug("收到查詢商品庫存請求,商品 ID: {}", productId);
+        Iterable<ProductBatch> batches;
+        try {
+            batches = productBatchRepository.findByProductId(productId);
+        } catch (Exception e) {
+            logger.error("查詢商品庫存時發生錯誤: {}", e.getMessage());
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(CommonResponse.error(500, "查詢庫存失敗"));
+        }
+        return ResponseEntity.ok(new CommonResponse<>(200, "查詢成功", batches));
+    }
+
     @PostMapping("/addProduct")
     public ResponseEntity<CommonResponse<String>> addProduct(@RequestBody Product product) {
         logger.debug("收到新增商品請求{}", product);
