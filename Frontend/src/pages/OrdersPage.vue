@@ -959,6 +959,7 @@ const confirmCancelOrder = async () => {
     showCancelOrderDialog.value = false;
     orderToCancel.value = null;
     cancelReason.value = '';
+    void fetchOrders();
   } catch (error) {
     console.error('Error cancelling order:', error);
     $q.notify({
