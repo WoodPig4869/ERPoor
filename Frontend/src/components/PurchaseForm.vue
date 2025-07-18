@@ -76,6 +76,9 @@ import { ref, nextTick, onMounted } from 'vue';
 import { api } from 'boot/axios';
 import { useQuasar } from 'quasar';
 import { eventBus } from 'src/utils/eventBus';
+import { useMainLayoutStore } from 'src/stores/MainLayout-store';
+
+const layoutStore = useMainLayoutStore();
 
 const $q = useQuasar();
 
@@ -131,6 +134,7 @@ async function submitForm() {
       position: 'top',
     });
     dialogModel.value = false;
+    layoutStore.incrementInventoryBadge();
     resetForm();
     eventBus.emit('productBatch-added');
   } catch (error) {

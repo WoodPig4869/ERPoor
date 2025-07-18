@@ -251,6 +251,9 @@ import { ref, nextTick, onMounted, computed } from 'vue';
 import { api } from 'boot/axios';
 import { useQuasar } from 'quasar';
 import { eventBus } from 'src/utils/eventBus';
+import { useMainLayoutStore } from 'src/stores/MainLayout-store';
+
+const layoutStore = useMainLayoutStore();
 
 const $q = useQuasar();
 
@@ -406,6 +409,7 @@ async function submitForm() {
       position: 'top',
     });
     dialogModel.value = false;
+    layoutStore.incrementOrdersBadge();
     resetForm();
     eventBus.emit('sale-order-added');
   } catch (error) {

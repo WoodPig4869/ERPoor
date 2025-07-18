@@ -542,6 +542,9 @@ import { useQuasar } from 'quasar';
 import { eventBus } from 'src/utils/eventBus';
 import ShippingForm from 'src/components/ShippingForm.vue';
 import type { QTableColumn } from 'quasar';
+import { useMainLayoutStore } from 'src/stores/MainLayout-store';
+
+const layoutStore = useMainLayoutStore();
 
 const $q = useQuasar();
 
@@ -981,6 +984,7 @@ const onRequest = (props: any) => {
 
 // 生命週期
 onMounted(() => {
+  layoutStore.resetOrdersBadge();
   void fetchOrders();
 
   // 監聽新增訂單事件

@@ -252,7 +252,7 @@
       </q-card>
 
       <!-- 熱銷商品表格 -->
-      <q-card class="q-mt-md bg-green-1" flat bordered>
+      <!-- <q-card class="q-mt-md bg-green-1" flat bordered>
         <q-card-section>
           <div class="text-h6 text-green-9 row items-center">
             <q-icon name="local_fire_department" class="q-mr-sm" />
@@ -294,7 +294,7 @@
             </q-td>
           </template>
         </q-table>
-      </q-card>
+      </q-card> -->
     </div>
   </q-page>
 </template>
@@ -329,12 +329,13 @@ interface LowStockItem {
   shortage: number;
 }
 
-interface HotItem {
-  product_id: number;
-  product_name: string;
-  total_quantity: number;
-  rank: number;
-}
+// 熱銷商品數據
+// interface HotItem {
+//   product_id: number;
+//   product_name: string;
+//   total_quantity: number;
+//   rank: number;
+// }
 
 // 動畫數值
 const animatedValues = reactive({
@@ -388,10 +389,14 @@ const formatNumber = (num: number): string => {
 interface OverviewResponse {
   lowStockItems: LowStockItem[];
   expiringBatches: ExpiringBatch[];
+  weeklyOrderCount: number;
+  monthlySales: number;
 }
 
 const lowStockItems = ref<LowStockItem[]>([]);
 const expiringBatches = ref<ExpiringBatch[]>([]);
+const weeklyOrderCount = ref(0);
+const monthlySales = ref(0);
 
 async function fetchOverviewData() {
   try {
@@ -402,6 +407,8 @@ async function fetchOverviewData() {
     if (data) {
       lowStockItems.value = data.lowStockItems;
       expiringBatches.value = data.expiringBatches;
+      weeklyOrderCount.value = data.weeklyOrderCount;
+      monthlySales.value = data.monthlySales;
     } else {
       $q.notify({
         color: 'warning',
@@ -427,10 +434,10 @@ async function fetchOverviewData() {
 onMounted(async () => {
   await fetchOverviewData();
 
-  targetValues.sales = 120000;
+  targetValues.sales = monthlySales.value;
   targetValues.lowStock = lowStockItems.value.length;
   targetValues.expiring = expiringBatches.value.length;
-  targetValues.orders = 42;
+  targetValues.orders = weeklyOrderCount.value;
 
   // 延遲一點開始動畫，讓頁面先渲染
   setTimeout(() => {
@@ -473,19 +480,19 @@ const lowStockColumns = ref<QTableColumn<LowStockItem>[]>([
 ]);
 
 // 熱銷商品數據
-const hotItems = ref<HotItem[]>([
-  { product_id: 1, product_name: '可樂', total_quantity: 120, rank: 1 },
-  { product_id: 2, product_name: '泡麵', total_quantity: 98, rank: 2 },
-  { product_id: 3, product_name: '洋芋片', total_quantity: 85, rank: 3 },
-  { product_id: 4, product_name: '礦泉水', total_quantity: 76, rank: 4 },
-  { product_id: 5, product_name: '餅乾', total_quantity: 65, rank: 5 },
-]);
+// const hotItems = ref<HotItem[]>([
+//   { product_id: 1, product_name: '可樂', total_quantity: 120, rank: 1 },
+//   { product_id: 2, product_name: '泡麵', total_quantity: 98, rank: 2 },
+//   { product_id: 3, product_name: '洋芋片', total_quantity: 85, rank: 3 },
+//   { product_id: 4, product_name: '礦泉水', total_quantity: 76, rank: 4 },
+//   { product_id: 5, product_name: '餅乾', total_quantity: 65, rank: 5 },
+// ]);
 
-const hotItemColumns = ref<QTableColumn<HotItem>[]>([
-  { name: 'rank', label: '排名', field: 'rank', align: 'left' },
-  { name: 'product_name', label: '商品名稱', field: 'product_name', align: 'left' },
-  { name: 'total_quantity', label: '銷售數量', field: 'total_quantity', align: 'center' },
-]);
+// const hotItemColumns = ref<QTableColumn<HotItem>[]>([
+//   { name: 'rank', label: '排名', field: 'rank', align: 'left' },
+//   { name: 'product_name', label: '商品名稱', field: 'product_name', align: 'left' },
+//   { name: 'total_quantity', label: '銷售數量', field: 'total_quantity', align: 'center' },
+// ]);
 
 // 輔助函數
 const getExpirationColor = (date: string) => {
@@ -508,12 +515,12 @@ const formatDate = (dateString: string) => {
   });
 };
 
-const getRankColor = (rank: number): string => {
-  if (rank === 1) return 'yellow-8';
-  if (rank === 2) return 'grey-6';
-  if (rank === 3) return 'orange-8';
-  return 'blue-grey-5';
-};
+// const getRankColor = (rank: number): string => {
+//   if (rank === 1) return 'yellow-8';
+//   if (rank === 2) return 'grey-6';
+//   if (rank === 3) return 'orange-8';
+//   return 'blue-grey-5';
+// };
 </script>
 
 <style scoped lang="scss">

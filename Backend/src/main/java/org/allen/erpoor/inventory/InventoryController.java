@@ -121,7 +121,6 @@ public class InventoryController {
     private static ProductBatch getProductBatch(ProductBatch batch) {
         ProductBatch newBatch = new ProductBatch();
         newBatch.setProductId(batch.getProductId());
-        newBatch.setBatchCode(batch.getBatchCode());
         newBatch.setQuantity(batch.getQuantity());
         newBatch.setExpirationDate(batch.getExpirationDate());
         newBatch.setPurchasePrice(batch.getPurchasePrice());

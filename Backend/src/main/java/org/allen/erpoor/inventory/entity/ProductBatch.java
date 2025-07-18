@@ -28,7 +28,7 @@ public class ProductBatch {
     private Integer productId; // 對應商品 ID（ Product 表 ）
 
     @Generated
-    @Column(name = "batch_code", length = 50)
+    @Column(name = "batch_code", insertable = false, length = 50)
     private String batchCode; // 批號
 
     @Column(name = "quantity", nullable = false)

@@ -3,6 +3,7 @@ package org.allen.erpoor.dashboard;
 import lombok.Data;
 import org.allen.erpoor.dashboard.entity.ExpiryAlertView;
 import org.allen.erpoor.dashboard.entity.LowStockAlertView;
+import org.allen.erpoor.saleOrder.SaleOrderRepository;
 import org.allen.erpoor.util.CommonResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,9 +24,11 @@ import org.slf4j.LoggerFactory;
 public class DashboardController {
     private static final Logger logger = LoggerFactory.getLogger(DashboardController.class);
     private final DashboardService dashboardService;
+    private final SaleOrderRepository saleOrderRepository;
 
-    public DashboardController(DashboardService dashboardService) {
+    public DashboardController(DashboardService dashboardService, SaleOrderRepository saleOrderRepository) {
         this.dashboardService = dashboardService;
+        this.saleOrderRepository = saleOrderRepository;
     }
 
     @GetMapping("/expiringBatch")
@@ -78,9 +85,24 @@ public class DashboardController {
             List<LowStockAlertView> lowStockItems = dashboardService.getLowStockItems();
             List<ExpiryAlertView> expiringBatches = dashboardService.getExpiringBatches();
 
+            LocalDate startOfMonth = LocalDate.now().withDayOfMonth(1);
+            LocalDate startOfNextMonth = startOfMonth.plusMonths(1);
+
+            BigDecimal monthlySales = saleOrderRepository.getMonthlySalesTotalShippedByOrderDate(
+                    startOfMonth,
+                    startOfNextMonth
+            );
+
+            LocalDate startOfWeek = LocalDate.now().with(DayOfWeek.MONDAY);
+            LocalDate startOfNextWeek = startOfWeek.plusWeeks(1);
+            int count = saleOrderRepository.getWeeklyOrderCount(startOfWeek, startOfNextWeek);
+
+
             Overview overview = new Overview();
             overview.setLowStockItems(lowStockItems);
             overview.setExpiringBatches(expiringBatches);
+            overview.setMonthlySales(monthlySales);
+            overview.setWeeklyOrderCount(count);
 
             logger.info("儀表板資料查詢成功：低庫存 {} 筆、即將過期 {} 筆",
                     lowStockItems.size(), expiringBatches.size());
@@ -101,4 +123,6 @@ public class DashboardController {
 class Overview {
     private List<LowStockAlertView> lowStockItems;
     private List<ExpiryAlertView> expiringBatches;
+    private BigDecimal monthlySales;
+    private int weeklyOrderCount;
 }

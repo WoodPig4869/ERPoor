@@ -367,6 +367,9 @@ import { useQuasar } from 'quasar';
 import { api } from 'boot/axios';
 import { eventBus } from 'src/utils/eventBus';
 import addNewProductForm from '../components/addNewProductForm.vue';
+import { useMainLayoutStore } from 'src/stores/MainLayout-store';
+
+const layoutStore = useMainLayoutStore();
 
 const $q = useQuasar();
 
@@ -471,7 +474,7 @@ async function fetchInventoryData() {
       ...item,
       nearExpiry: isNearingExpiry(item.nearestExpiryDate),
     }));
-    
+
     // 更新統計資料
     updateInventoryStats(rows.value);
   } catch (error) {
@@ -489,6 +492,7 @@ async function fetchInventoryData() {
 
 // 在組件掛載時獲取資料
 onMounted(() => {
+  layoutStore.resetInventoryBadge();
   eventBus.on('productBatch-added', () => {
     void fetchInventoryData();
   });
@@ -650,7 +654,7 @@ function updateInventoryStats(inventory: InventoryItem[]) {
   const totalProducts = inventory.length;
   const availableStock = inventory.reduce((sum, item) => sum + item.availableStock, 0);
   const expiredStock = inventory.reduce((sum, item) => sum + item.expiredStock, 0);
-  const totalValue = inventory.reduce((sum, item) => sum + (item.availableStock * item.price), 0);
+  const totalValue = inventory.reduce((sum, item) => sum + item.availableStock * item.price, 0);
 
   setTimeout(() => {
     animateNumber(0, totalProducts, 1000, (value) => {

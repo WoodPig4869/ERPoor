@@ -197,7 +197,10 @@ import PurchaseForm from 'src/components/PurchaseForm.vue';
 import ShippingForm from 'src/components/ShippingForm.vue';
 import InventoryForm from 'src/components/InventoryForm.vue';
 import { useQuasar } from 'quasar';
-import { ref, watch, onMounted, onUnmounted } from 'vue';
+import { ref, watch, onMounted, onUnmounted, computed } from 'vue';
+import { useMainLayoutStore } from 'src/stores/MainLayout-store';
+
+const layoutStore = useMainLayoutStore();
 
 const $q = useQuasar();
 const showPurchaseForm = ref(false);
@@ -226,17 +229,16 @@ interface MenuItem {
   icon: string;
   title: string;
   caption: string;
-  badge?: string;
+  badge?: number;
   badgeColor?: string;
 }
 
-const menuItems: MenuItem[] = [
+const menuItems = computed<MenuItem[]>(() => [
   {
     to: '/',
     icon: 'dashboard',
     title: '控制台',
     caption: '系統總覽與統計',
-    badge: '3',
     badgeColor: 'primary',
   },
   {
@@ -244,7 +246,7 @@ const menuItems: MenuItem[] = [
     icon: 'inventory',
     title: '庫存管理',
     caption: '商品庫存與進出貨',
-    badge: '8',
+    badge: layoutStore.inventoryBadge,
     badgeColor: 'secondary',
   },
   {
@@ -252,7 +254,7 @@ const menuItems: MenuItem[] = [
     icon: 'receipt_long',
     title: '訂單管理',
     caption: '訂單處理與追蹤',
-    badge: '12',
+    badge: layoutStore.ordersBadge,
     badgeColor: 'warning',
   },
   {
@@ -267,7 +269,7 @@ const menuItems: MenuItem[] = [
     title: '系統設定',
     caption: '偏好設定與配置',
   },
-];
+]);
 
 const linksList: EssentialLinkProps[] = [
   {
