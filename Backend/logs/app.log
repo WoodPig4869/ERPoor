@@ -2936,3 +2936,93 @@ Caused by: org.postgresql.util.PSQLException: ERROR: null value in column "batch
 2025-07-18 18:26:44 INFO  o.a.e.saleOrder.SaleOrderController - 成功查詢 34 筆訂單
 2025-07-18 18:26:44 DEBUG o.a.e.saleOrder.SaleOrderController - 收到查詢全部訂單請求
 2025-07-18 18:26:44 INFO  o.a.e.saleOrder.SaleOrderController - 成功查詢 34 筆訂單
+2025-07-18 18:30:18 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MjgzOTgzMywiaWF0IjoxNzUyODMwODMzfQ.TcoRoOaxTppMaVDad47-TBlDomTrtp3v-_RJo4RI-j8
+2025-07-18 18:30:18 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MjgzOTgzMywiaWF0IjoxNzUyODMwODMzfQ.TcoRoOaxTppMaVDad47-TBlDomTrtp3v-_RJo4RI-j8
+2025-07-18 18:30:18 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Fri Jul 18 19:57:13 CST 2025
+2025-07-18 18:30:18 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Fri Jul 18 19:57:13 CST 2025
+2025-07-18 18:30:18 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MjgzOTgzMywiaWF0IjoxNzUyODMwODMzfQ.TcoRoOaxTppMaVDad47-TBlDomTrtp3v-_RJo4RI-j8
+2025-07-18 18:30:18 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Fri Jul 18 19:57:13 CST 2025
+2025-07-18 18:30:18 DEBUG o.a.e.inventory.InventoryController - 收到商品名稱選項查詢請求
+2025-07-18 18:30:18 DEBUG o.a.e.saleOrder.SaleOrderController - 收到查詢產品請求
+2025-07-18 18:30:18 DEBUG o.a.e.inventory.InventoryController - 收到商品庫存狀態查詢請求
+2025-07-18 18:30:18 INFO  o.a.e.inventory.InventoryController - 成功查詢商品名稱選項
+2025-07-18 18:30:18 INFO  o.a.e.saleOrder.SaleOrderController - 成功查詢產品，數量: 15
+2025-07-18 18:30:18 INFO  o.a.e.inventory.InventoryController - 成功查詢商品庫存狀態，共 15 筆記錄
+2025-07-18 18:30:20 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MjgzOTgzMywiaWF0IjoxNzUyODMwODMzfQ.TcoRoOaxTppMaVDad47-TBlDomTrtp3v-_RJo4RI-j8
+2025-07-18 18:30:20 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Fri Jul 18 19:57:13 CST 2025
+2025-07-18 18:30:20 DEBUG o.a.e.dashboard.DashboardController - 收到儀表板概覽資料查詢請求
+2025-07-18 18:30:20 INFO  o.a.e.dashboard.DashboardController - 儀表板資料查詢成功：低庫存 8 筆、即將過期 18 筆
+2025-07-18 18:30:21 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MjgzOTgzMywiaWF0IjoxNzUyODMwODMzfQ.TcoRoOaxTppMaVDad47-TBlDomTrtp3v-_RJo4RI-j8
+2025-07-18 18:30:21 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Fri Jul 18 19:57:13 CST 2025
+2025-07-18 18:30:21 DEBUG o.a.e.inventory.InventoryController - 收到商品庫存狀態查詢請求
+2025-07-18 18:30:21 INFO  o.a.e.inventory.InventoryController - 成功查詢商品庫存狀態，共 15 筆記錄
+2025-07-18 18:30:34 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MjgzOTgzMywiaWF0IjoxNzUyODMwODMzfQ.TcoRoOaxTppMaVDad47-TBlDomTrtp3v-_RJo4RI-j8
+2025-07-18 18:30:34 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Fri Jul 18 19:57:13 CST 2025
+2025-07-18 18:30:34 DEBUG o.a.e.inventory.InventoryController - 收到新增進貨請求: ProductBatch{batchId=null, productId=3, batchCode='null', quantity=12, expirationDate=2025-07-31, purchasePrice=0, receivedDate=2025-07-18, supplierId=1, supplierName='凱亞良品', createdAt=null}
+2025-07-18 18:30:34 INFO  o.a.e.inventory.InventoryController - 新增進貨成功，商品 ID: 3
+2025-07-18 18:30:34 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MjgzOTgzMywiaWF0IjoxNzUyODMwODMzfQ.TcoRoOaxTppMaVDad47-TBlDomTrtp3v-_RJo4RI-j8
+2025-07-18 18:30:34 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MjgzOTgzMywiaWF0IjoxNzUyODMwODMzfQ.TcoRoOaxTppMaVDad47-TBlDomTrtp3v-_RJo4RI-j8
+2025-07-18 18:30:34 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Fri Jul 18 19:57:13 CST 2025
+2025-07-18 18:30:34 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Fri Jul 18 19:57:13 CST 2025
+2025-07-18 18:30:34 DEBUG o.a.e.inventory.InventoryController - 收到商品庫存狀態查詢請求
+2025-07-18 18:30:34 DEBUG o.a.e.inventory.InventoryController - 收到商品庫存狀態查詢請求
+2025-07-18 18:30:34 INFO  o.a.e.inventory.InventoryController - 成功查詢商品庫存狀態，共 15 筆記錄
+2025-07-18 18:30:34 INFO  o.a.e.inventory.InventoryController - 成功查詢商品庫存狀態，共 15 筆記錄
+2025-07-18 18:30:37 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MjgzOTgzMywiaWF0IjoxNzUyODMwODMzfQ.TcoRoOaxTppMaVDad47-TBlDomTrtp3v-_RJo4RI-j8
+2025-07-18 18:30:37 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Fri Jul 18 19:57:13 CST 2025
+2025-07-18 18:30:37 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MjgzOTgzMywiaWF0IjoxNzUyODMwODMzfQ.TcoRoOaxTppMaVDad47-TBlDomTrtp3v-_RJo4RI-j8
+2025-07-18 18:30:37 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Fri Jul 18 19:57:13 CST 2025
+2025-07-18 18:30:37 DEBUG o.a.e.saleOrder.SaleOrderController - 收到查詢產品請求
+2025-07-18 18:30:37 DEBUG o.a.e.saleOrder.SaleOrderController - 收到查詢全部訂單請求
+2025-07-18 18:30:37 INFO  o.a.e.saleOrder.SaleOrderController - 成功查詢產品，數量: 15
+2025-07-18 18:30:37 INFO  o.a.e.saleOrder.SaleOrderController - 成功查詢 34 筆訂單
+2025-07-18 18:30:38 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MjgzOTgzMywiaWF0IjoxNzUyODMwODMzfQ.TcoRoOaxTppMaVDad47-TBlDomTrtp3v-_RJo4RI-j8
+2025-07-18 18:30:38 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Fri Jul 18 19:57:13 CST 2025
+2025-07-18 18:30:38 DEBUG o.a.e.inventory.InventoryController - 收到商品庫存狀態查詢請求
+2025-07-18 18:30:38 INFO  o.a.e.inventory.InventoryController - 成功查詢商品庫存狀態，共 15 筆記錄
+2025-07-18 18:30:43 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MjgzOTgzMywiaWF0IjoxNzUyODMwODMzfQ.TcoRoOaxTppMaVDad47-TBlDomTrtp3v-_RJo4RI-j8
+2025-07-18 18:30:43 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MjgzOTgzMywiaWF0IjoxNzUyODMwODMzfQ.TcoRoOaxTppMaVDad47-TBlDomTrtp3v-_RJo4RI-j8
+2025-07-18 18:30:43 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Fri Jul 18 19:57:13 CST 2025
+2025-07-18 18:30:43 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Fri Jul 18 19:57:13 CST 2025
+2025-07-18 18:30:43 DEBUG o.a.e.saleOrder.SaleOrderController - 收到查詢全部訂單請求
+2025-07-18 18:30:43 DEBUG o.a.e.saleOrder.SaleOrderController - 收到查詢產品請求
+2025-07-18 18:30:43 INFO  o.a.e.saleOrder.SaleOrderController - 成功查詢 34 筆訂單
+2025-07-18 18:30:43 INFO  o.a.e.saleOrder.SaleOrderController - 成功查詢產品，數量: 15
+2025-07-18 18:30:45 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MjgzOTgzMywiaWF0IjoxNzUyODMwODMzfQ.TcoRoOaxTppMaVDad47-TBlDomTrtp3v-_RJo4RI-j8
+2025-07-18 18:30:45 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Fri Jul 18 19:57:13 CST 2025
+2025-07-18 18:30:45 DEBUG o.a.e.saleOrder.SaleOrderController - 收到查詢全部訂單請求
+2025-07-18 18:30:45 INFO  o.a.e.saleOrder.SaleOrderController - 成功查詢 34 筆訂單
+2025-07-18 18:30:49 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MjgzOTgzMywiaWF0IjoxNzUyODMwODMzfQ.TcoRoOaxTppMaVDad47-TBlDomTrtp3v-_RJo4RI-j8
+2025-07-18 18:30:49 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Fri Jul 18 19:57:13 CST 2025
+2025-07-18 18:30:53 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MjgzOTgzMywiaWF0IjoxNzUyODMwODMzfQ.TcoRoOaxTppMaVDad47-TBlDomTrtp3v-_RJo4RI-j8
+2025-07-18 18:30:53 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Fri Jul 18 19:57:13 CST 2025
+2025-07-18 18:30:53 DEBUG o.a.e.saleOrder.SaleOrderController - 收到查詢全部訂單請求
+2025-07-18 18:30:53 INFO  o.a.e.saleOrder.SaleOrderController - 成功查詢 34 筆訂單
+2025-07-18 18:30:58 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MjgzOTgzMywiaWF0IjoxNzUyODMwODMzfQ.TcoRoOaxTppMaVDad47-TBlDomTrtp3v-_RJo4RI-j8
+2025-07-18 18:30:58 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Fri Jul 18 19:57:13 CST 2025
+2025-07-18 18:31:01 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MjgzOTgzMywiaWF0IjoxNzUyODMwODMzfQ.TcoRoOaxTppMaVDad47-TBlDomTrtp3v-_RJo4RI-j8
+2025-07-18 18:31:01 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Fri Jul 18 19:57:13 CST 2025
+2025-07-18 18:31:01 DEBUG o.a.e.saleOrder.SaleOrderController - 收到查詢全部訂單請求
+2025-07-18 18:31:01 INFO  o.a.e.saleOrder.SaleOrderController - 成功查詢 34 筆訂單
+2025-07-18 18:32:22 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MjgzOTgzMywiaWF0IjoxNzUyODMwODMzfQ.TcoRoOaxTppMaVDad47-TBlDomTrtp3v-_RJo4RI-j8
+2025-07-18 18:32:22 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Fri Jul 18 19:57:13 CST 2025
+2025-07-18 18:32:22 DEBUG o.a.e.saleOrder.SaleOrderController - 收到查詢產品請求
+2025-07-18 18:32:22 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MjgzOTgzMywiaWF0IjoxNzUyODMwODMzfQ.TcoRoOaxTppMaVDad47-TBlDomTrtp3v-_RJo4RI-j8
+2025-07-18 18:32:22 INFO  o.a.e.saleOrder.SaleOrderController - 成功查詢產品，數量: 15
+2025-07-18 18:32:22 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Fri Jul 18 19:57:13 CST 2025
+2025-07-18 18:32:22 DEBUG o.a.e.saleOrder.SaleOrderController - 收到查詢全部訂單請求
+2025-07-18 18:32:22 INFO  o.a.e.saleOrder.SaleOrderController - 成功查詢 34 筆訂單
+2025-07-18 18:32:27 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MjgzOTgzMywiaWF0IjoxNzUyODMwODMzfQ.TcoRoOaxTppMaVDad47-TBlDomTrtp3v-_RJo4RI-j8
+2025-07-18 18:32:27 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Fri Jul 18 19:57:13 CST 2025
+2025-07-18 18:32:28 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MjgzOTgzMywiaWF0IjoxNzUyODMwODMzfQ.TcoRoOaxTppMaVDad47-TBlDomTrtp3v-_RJo4RI-j8
+2025-07-18 18:32:28 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Fri Jul 18 19:57:13 CST 2025
+2025-07-18 18:32:28 DEBUG o.a.e.saleOrder.SaleOrderController - 收到查詢全部訂單請求
+2025-07-18 18:32:28 INFO  o.a.e.saleOrder.SaleOrderController - 成功查詢 34 筆訂單
+2025-07-18 18:32:32 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MjgzOTgzMywiaWF0IjoxNzUyODMwODMzfQ.TcoRoOaxTppMaVDad47-TBlDomTrtp3v-_RJo4RI-j8
+2025-07-18 18:32:32 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Fri Jul 18 19:57:13 CST 2025
+2025-07-18 18:32:32 DEBUG o.a.e.inventory.InventoryController - 收到商品庫存狀態查詢請求
+2025-07-18 18:32:32 INFO  o.a.e.inventory.InventoryController - 成功查詢商品庫存狀態，共 15 筆記錄
+2025-07-18 18:32:33 DEBUG o.a.e.a.JwtAuthenticationFilter - 驗證 JWT : eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFUlBvb3IiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc1MjgzOTgzMywiaWF0IjoxNzUyODMwODMzfQ.TcoRoOaxTppMaVDad47-TBlDomTrtp3v-_RJo4RI-j8
+2025-07-18 18:32:33 DEBUG o.a.erpoor.account.JWTServiceImpl - 成功解析 JWT，使用者: admin, 過期時間: Fri Jul 18 19:57:13 CST 2025
+2025-07-18 18:32:33 DEBUG o.a.e.dashboard.DashboardController - 收到儀表板概覽資料查詢請求
+2025-07-18 18:32:33 INFO  o.a.e.dashboard.DashboardController - 儀表板資料查詢成功：低庫存 8 筆、即將過期 18 筆
