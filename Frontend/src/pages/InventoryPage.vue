@@ -106,6 +106,17 @@
           <q-icon name="search" />
         </template>
       </q-input>
+      <div class="col-12 col-md-2">
+        <q-btn
+          color="primary"
+          icon="refresh"
+          label="重新整理"
+          @click="fetchInventoryData"
+          :loading="loading"
+          unelevated
+          class="full-width"
+        />
+      </div>
     </div>
 
     <q-table
@@ -425,6 +436,7 @@ async function onRowClick(productId: number) {
 }
 
 async function fetchProductBatches(productId: number) {
+  loading.value = true;
   try {
     batchLoading.value = true;
     const response = await api.get<ProductBatch[]>(`/inventory/${productId}`);
@@ -448,6 +460,7 @@ async function fetchProductBatches(productId: number) {
     console.error('Error fetching product batches:', error);
   } finally {
     batchLoading.value = false;
+    loading.value = false;
   }
 }
 export interface InventoryItem {

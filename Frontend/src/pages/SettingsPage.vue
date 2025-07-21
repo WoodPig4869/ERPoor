@@ -66,7 +66,7 @@
           <q-icon name="logout" class="logout-icon" />
           <div class="logout-text">
             <h3>安全登出</h3>
-            <p>登出後需要重新輸入帳號密碼才能使用系統</p>
+            <p>將清除您的憑證訊息</p>
           </div>
         </div>
         <q-btn
