@@ -414,7 +414,7 @@ FOR EACH ROW
 EXECUTE FUNCTION deduct_inventory_for_shipped_order();
 
 
--- 初始化建立庫存查詢視圖
+-- 初始化庫存查詢視圖
 DROP VIEW IF EXISTS product_inventory_view;
 CREATE OR REPLACE VIEW product_inventory_view AS
 SELECT 
@@ -503,23 +503,6 @@ CREATE TRIGGER trigger_update_order_total
     AFTER INSERT OR UPDATE OR DELETE ON order_item
     FOR EACH ROW
     EXECUTE FUNCTION update_order_total();
-
--- 6. 建立庫存查詢視圖
-CREATE OR REPLACE VIEW product_inventory_view AS
-SELECT 
-    p.product_id,
-    p.name,
-    p.category,
-    p.unit,
-    p.price,
-    COALESCE(SUM(pb.quantity), 0) as total_stock,
-    COALESCE(SUM(CASE WHEN pb.expiration_date > CURRENT_DATE THEN pb.quantity ELSE 0 END), 0) as available_stock,
-    COALESCE(SUM(CASE WHEN pb.expiration_date <= CURRENT_DATE THEN pb.quantity ELSE 0 END), 0) as expired_stock,
-    MIN(CASE WHEN pb.quantity > 0 AND pb.expiration_date > CURRENT_DATE THEN pb.expiration_date END) as nearest_expiry_date
-FROM product p
-LEFT JOIN product_batch pb ON p.product_id = pb.product_id
-WHERE p.enabled = TRUE
-GROUP BY p.product_id, p.name, p.category, p.unit, p.price;
 
 
 --------------
@@ -653,4 +636,4 @@ FROM information_schema.tables
 WHERE table_type = 'BASE TABLE'
   AND table_schema NOT IN ('pg_catalog', 'information_schema');
 
-SELECT * FROM sale_order
+SELECT * from product_inventory_view;

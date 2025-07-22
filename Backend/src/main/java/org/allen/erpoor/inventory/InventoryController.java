@@ -54,7 +54,7 @@ public class InventoryController {
         logger.debug("收到查詢商品庫存請求,商品 ID: {}", productId);
         Iterable<ProductBatch> batches;
         try {
-            batches = productBatchRepository.findByProductId(productId);
+            batches = productBatchRepository.findByProductIdAndQuantityGreaterThan(productId,0);
         } catch (Exception e) {
             logger.error("查詢商品庫存時發生錯誤: {}", e.getMessage());
             return ResponseEntity

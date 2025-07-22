@@ -244,8 +244,45 @@
                 <q-avatar size="sm" color="red-2" text-color="red-8" class="q-mr-sm">
                   <q-icon name="inventory" />
                 </q-avatar>
-                <div class="text-weight-medium">{{ props.value }}</div>
+                <div>
+                  <div class="text-weight-medium">{{ props.value }}</div>
+                  <div class="text-caption text-grey-6">ID: {{ props.row.productId }}</div>
+                </div>
               </div>
+            </q-td>
+          </template>
+
+          <template v-slot:body-cell-availableStock="props">
+            <q-td :props="props">
+              <q-badge
+                :color="props.value < 10 ? 'red' : props.value < 30 ? 'orange' : 'green'"
+                :label="`${props.value} 件`"
+                class="q-px-sm"
+              />
+            </q-td>
+          </template>
+
+          <template v-slot:body-cell-minStock="props">
+            <q-td :props="props">
+              <q-chip
+                color="grey-4"
+                text-color="grey-8"
+                dense
+                :label="`${props.value} 件`"
+                icon="inventory_2"
+              />
+            </q-td>
+          </template>
+
+          <template v-slot:body-cell-shortage="props">
+            <q-td :props="props">
+              <q-chip
+                :color="props.value > 20 ? 'orange' : 'red'"
+                text-color="white"
+                dense
+                :label="`缺 ${props.value} 件`"
+                icon="trending_down"
+              />
             </q-td>
           </template>
         </q-table>
