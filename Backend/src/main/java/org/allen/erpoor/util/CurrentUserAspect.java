@@ -18,7 +18,7 @@ public class CurrentUserAspect {
     @Before("@annotation(org.allen.erpoor.util.SetAppUser)")
     public void setAppCurrentUser() {
         String currentUser = SecurityContextHolder.getContext().getAuthentication().getName();
-        em.createNativeQuery("SELECT set_config('app.current_user', :user, true)")
+        em.createNativeQuery("SELECT set_config('app.current_user', :user, false)")
                 .setParameter("user", currentUser)
                 .getSingleResult();
     }

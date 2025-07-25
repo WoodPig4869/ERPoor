@@ -191,7 +191,7 @@
   <q-dialog v-model="showProductBatchDetails" :maximized="$q.screen.lt.md">
     <q-card
       class="product-batch-details-card"
-      style="min-width: 800px; max-width: 90vw; max-height: 90vh"
+      :style="$q.screen.lt.md ? '' : 'min-width: 800px; max-width: 90vw; max-height: 90vh'"
     >
       <q-card-section class="row items-center q-pb-none bg-primary text-white">
         <q-icon name="inventory" size="md" class="q-mr-sm" />
@@ -202,35 +202,39 @@
 
       <q-separator />
 
-      <q-card-section v-if="selectedProduct" class="scroll" style="max-height: 70vh">
+      <q-card-section v-if="selectedProduct" class="scroll" :style="$q.screen.lt.md ? '' : 'max-height: 70vh'">
         <div class="row q-col-gutter-md">
           <!-- 產品基本資訊 -->
-          <div class="col-12 col-md-6">
+          <div class="col-12">
             <q-card flat bordered class="info-card">
               <q-card-section>
                 <div class="text-subtitle1 text-weight-bold text-primary q-mb-md">
                   <q-icon name="inventory" class="q-mr-sm" />
                   產品資訊
                 </div>
-                <div class="info-grid">
-                  <div class="info-item">
-                    <div class="info-label">產品名稱</div>
-                    <div class="info-value text-weight-medium">
-                      {{ selectedProduct.name }}
+                <div class="mobile-info-grid">
+                  <div class="mobile-info-row">
+                    <div class="mobile-info-item">
+                      <div class="mobile-info-label">產品名稱</div>
+                      <div class="mobile-info-value text-weight-medium">
+                        {{ selectedProduct.name }}
+                      </div>
+                    </div>
+                    <div class="mobile-info-item">
+                      <div class="mobile-info-label">類別</div>
+                      <div class="mobile-info-value">{{ selectedProduct.category }}</div>
                     </div>
                   </div>
-                  <div class="info-item">
-                    <div class="info-label">類別</div>
-                    <div class="info-value">{{ selectedProduct.category }}</div>
-                  </div>
-                  <div class="info-item">
-                    <div class="info-label">單位</div>
-                    <div class="info-value">{{ selectedProduct.unit }}</div>
-                  </div>
-                  <div class="info-item">
-                    <div class="info-label">售價</div>
-                    <div class="info-value text-green-8 text-weight-bold">
-                      ${{ selectedProduct.price }}
+                  <div class="mobile-info-row">
+                    <div class="mobile-info-item">
+                      <div class="mobile-info-label">單位</div>
+                      <div class="mobile-info-value">{{ selectedProduct.unit }}</div>
+                    </div>
+                    <div class="mobile-info-item">
+                      <div class="mobile-info-label">售價</div>
+                      <div class="mobile-info-value text-green-8 text-weight-bold">
+                        ${{ selectedProduct.price }}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -239,47 +243,49 @@
           </div>
 
           <!-- 庫存統計 -->
-          <div class="col-12 col-md-6">
+          <div class="col-12">
             <q-card flat bordered class="info-card">
               <q-card-section>
                 <div class="text-subtitle1 text-weight-bold text-primary q-mb-md">
                   <q-icon name="assessment" class="q-mr-sm" />
                   庫存統計
                 </div>
-                <div class="info-grid">
-                  <div class="info-item">
-                    <div class="info-label">總庫存</div>
-                    <div class="info-value text-weight-bold">
+                <div class="mobile-stats-grid">
+                  <div class="mobile-stat-item">
+                    <div class="mobile-stat-value text-weight-bold">
                       {{ selectedProduct.totalStock }}
                     </div>
+                    <div class="mobile-stat-label">總庫存</div>
                   </div>
-                  <div class="info-item">
-                    <div class="info-label">有效庫存</div>
-                    <div class="info-value text-green-8 text-weight-bold">
+                  <div class="mobile-stat-item">
+                    <div class="mobile-stat-value text-green-8 text-weight-bold">
                       {{ selectedProduct.availableStock }}
                     </div>
+                    <div class="mobile-stat-label">有效庫存</div>
                   </div>
-                  <div class="info-item">
-                    <div class="info-label">過期庫存</div>
-                    <div class="info-value text-red-8 text-weight-bold">
+                  <div class="mobile-stat-item">
+                    <div class="mobile-stat-value text-red-8 text-weight-bold">
                       {{ selectedProduct.expiredStock }}
                     </div>
+                    <div class="mobile-stat-label">過期庫存</div>
                   </div>
-                  <div class="info-item">
-                    <div class="info-label">最近到期日</div>
-                    <div class="info-value">
-                      {{ selectedProduct.nearestExpiryDate }}
-                      <q-chip
-                        v-if="isNearingExpiry(selectedProduct.nearestExpiryDate)"
-                        color="orange-5"
-                        text-color="white"
-                        icon="warning"
-                        label="即將過期"
-                        size="sm"
-                        class="q-ml-sm"
-                      />
-                    </div>
+                </div>
+                <div class="mobile-expiry-info q-mt-md q-pa-sm rounded-borders bg-grey-1">
+                  <div class="text-body2 text-weight-medium text-grey-8 q-mb-xs">
+                    最近到期日
                   </div>
+                  <div class="text-body1 text-weight-bold">
+                    {{ selectedProduct.nearestExpiryDate }}
+                  </div>
+                  <q-chip
+                    v-if="isNearingExpiry(selectedProduct.nearestExpiryDate)"
+                    color="orange-5"
+                    text-color="white"
+                    icon="warning"
+                    label="即將過期"
+                    size="sm"
+                    class="q-mt-xs"
+                  />
                 </div>
               </q-card-section>
             </q-card>
@@ -302,7 +308,7 @@
                 </div>
                 <q-table
                   :rows="productBatches"
-                  :columns="batchColumns"
+                  :columns="$q.screen.lt.md ? mobileBatchColumns : batchColumns"
                   row-key="batchId"
                   :loading="batchLoading"
                   flat
@@ -310,6 +316,8 @@
                   hide-pagination
                   :pagination="{ rowsPerPage: 0 }"
                   class="detail-batches-table"
+                  :grid="$q.screen.lt.sm"
+                  :card-container-class="$q.screen.lt.sm ? 'mobile-batch-grid' : ''"
                 >
                   <template #body-cell-batchCode="props">
                     <q-td :props="props">
@@ -353,6 +361,48 @@
                         />
                       </div>
                     </q-td>
+                  </template>
+                  
+                  <!-- 手機版卡片模式 -->
+                  <template #item="props" v-if="$q.screen.lt.sm">
+                    <div class="q-pa-xs col-12">
+                      <q-card flat bordered class="mobile-batch-card">
+                        <q-card-section class="q-pa-md">
+                          <div class="row items-center justify-between q-mb-sm">
+                            <q-chip color="blue-2" text-color="blue-8" dense>
+                              {{ props.row.batchCode }}
+                            </q-chip>
+                            <q-badge
+                              :color="props.row.quantity > 0 ? 'green-4' : 'red-4'"
+                              text-color="white"
+                              :label="props.row.quantity"
+                            />
+                          </div>
+                          
+                          <div class="mobile-batch-details">
+                            <div class="mobile-batch-detail-row">
+                              <span class="mobile-batch-label">進價:</span>
+                              <span class="mobile-batch-value">${{ props.row.purchasePrice }}</span>
+                            </div>
+                            <div class="mobile-batch-detail-row">
+                              <span class="mobile-batch-label">到期日:</span>
+                              <span class="mobile-batch-value">
+                                {{ formatDate(props.row.expirationDate) }}
+                                <q-chip
+                                  v-if="isNearingExpiry(props.row.expirationDate)"
+                                  color="orange-5"
+                                  text-color="white"
+                                  icon="warning"
+                                  label="即將過期"
+                                  size="sm"
+                                  class="q-ml-xs"
+                                />
+                              </span>
+                            </div>
+                          </div>
+                        </q-card-section>
+                      </q-card>
+                    </div>
                   </template>
                 </q-table>
               </q-card-section>
@@ -605,13 +655,31 @@ const batchColumns = [
     align: 'left' as const,
     sortable: true,
   },
-  // {
-  //   name: 'salePrice',
-  //   label: '售價',
-  //   field: 'salePrice',
-  //   align: 'right' as const,
-  //   sortable: true,
-  // },
+  {
+    name: 'expirationDate',
+    label: '到期日',
+    field: 'expirationDate',
+    align: 'left' as const,
+    sortable: true,
+  },
+];
+
+// 手機版批次表格欄位 (減少欄位)
+const mobileBatchColumns = [
+  {
+    name: 'batchCode',
+    label: '批次編號',
+    field: 'batchCode',
+    align: 'left' as const,
+    sortable: true,
+  },
+  {
+    name: 'quantity',
+    label: '數量',
+    field: 'quantity',
+    align: 'center' as const,
+    sortable: true,
+  },
   {
     name: 'expirationDate',
     label: '到期日',
@@ -739,6 +807,7 @@ function updateInventoryStats(inventory: InventoryItem[]) {
     }
   }
 
+  // 桌面版資訊網格
   .info-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -764,6 +833,88 @@ function updateInventoryStats(inventory: InventoryItem[]) {
         text-align: right;
       }
     }
+  }
+
+  // 手機版資訊網格
+  .mobile-info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .mobile-info-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+
+      @media (max-width: 480px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .mobile-info-item {
+      padding: 12px;
+      background: rgba(0, 0, 0, 0.02);
+      border-radius: 8px;
+      border-left: 3px solid $primary;
+
+      .mobile-info-label {
+        font-size: 12px;
+        font-weight: 500;
+        color: #616161;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 4px;
+      }
+
+      .mobile-info-value {
+        font-size: 14px;
+        font-weight: 600;
+        color: #424242;
+      }
+    }
+  }
+
+  // 手機版統計網格
+  .mobile-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+    }
+
+    .mobile-stat-item {
+      text-align: center;
+      padding: 16px 8px;
+      background: rgba(0, 0, 0, 0.02);
+      border-radius: 8px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+
+      .mobile-stat-value {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 4px;
+
+        @media (max-width: 480px) {
+          font-size: 18px;
+        }
+      }
+
+      .mobile-stat-label {
+        font-size: 12px;
+        font-weight: 500;
+        color: #616161;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+
+  .mobile-expiry-info {
+    text-align: center;
   }
 }
 
@@ -837,6 +988,54 @@ function updateInventoryStats(inventory: InventoryItem[]) {
 
   .stat-value {
     font-size: 1.4rem;
+  }
+}
+
+// 手機版批次卡片樣式
+.mobile-batch-grid {
+  .q-card {
+    margin-bottom: 8px;
+  }
+}
+
+.mobile-batch-card {
+  border-radius: 8px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+  }
+
+  .mobile-batch-details {
+    margin-top: 8px;
+
+    .mobile-batch-detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .mobile-batch-label {
+        font-size: 12px;
+        font-weight: 500;
+        color: #616161;
+      }
+
+      .mobile-batch-value {
+        font-size: 13px;
+        font-weight: 600;
+        color: #424242;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+    }
   }
 }
 </style>

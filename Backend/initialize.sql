@@ -504,6 +504,40 @@ CREATE TRIGGER trigger_update_order_total
     FOR EACH ROW
     EXECUTE FUNCTION update_order_total();
 
+-- 初始化盤點記錄
+DROP TABLE IF EXISTS inventory_check_log;
+CREATE TABLE inventory_check_log (
+  id BIGSERIAL PRIMARY KEY,
+  product_name VARCHAR(100) NOT NULL,
+  expected_quantity INT NOT NULL,
+  actual_quantity INT NOT NULL,
+  difference INT GENERATED ALWAYS AS (actual_quantity - expected_quantity) STORED,
+  created_by VARCHAR(50),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+COMMENT ON COLUMN inventory_check_log.id IS '盤點記錄主鍵 ID';
+COMMENT ON COLUMN inventory_check_log.product_name IS '商品名稱（盤點對象）';
+COMMENT ON COLUMN inventory_check_log.expected_quantity IS '帳面上的預期庫存數量';
+COMMENT ON COLUMN inventory_check_log.actual_quantity IS '實際盤點時的庫存數量';
+COMMENT ON COLUMN inventory_check_log.difference IS '實際數量 - 預期數量，正值代表盤盈，負值代表盤虧';
+COMMENT ON COLUMN inventory_check_log.created_by IS '執行盤點的使用者帳號，由 trigger 自動填入';
+COMMENT ON COLUMN inventory_check_log.created_at IS '調整紀錄的建立時間，預設為當前時間戳';
+
+-- 自動填入盤點者觸發器
+CREATE OR REPLACE FUNCTION set_created_by_from_app_user()
+RETURNS TRIGGER AS $$
+BEGIN
+  IF NEW.created_by IS NULL THEN
+    NEW.created_by := current_setting('app.current_user', true);
+  END IF;
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER set_created_by_trigger
+BEFORE INSERT ON inventory_check_log
+FOR EACH ROW
+EXECUTE FUNCTION set_created_by_from_app_user();
 
 --------------
 --------------
@@ -625,7 +659,6 @@ END
 $$;
 
 
-
 --------------
 --------------
 --------------
@@ -636,4 +669,4 @@ FROM information_schema.tables
 WHERE table_type = 'BASE TABLE'
   AND table_schema NOT IN ('pg_catalog', 'information_schema');
 
-SELECT * from product_inventory_view;
+SELECT * from inventory_check_log;

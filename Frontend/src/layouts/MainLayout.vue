@@ -787,4 +787,232 @@ const toggleTheme = () => {
     animation-delay: 0.5s;
   }
 }
+// 現代化頂部導航欄
+.modern-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  .toolbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+
+    // 確保 toolbar 有足夠的 flex 空間分配
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+  }
+}
+
+.modern-title {
+  // 給標題區域適當的 flex 屬性
+  flex: 1;
+  min-width: 0; // 允許縮小
+
+  .title-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    // 防止標題被完全擠壓
+    min-width: 120px;
+
+    .title-icon {
+      color: rgba(255, 255, 255, 0.9);
+      flex-shrink: 0; // icon 不縮小
+    }
+
+    .title-text {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: white;
+      letter-spacing: 0.5px;
+      white-space: nowrap; // 防止換行
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .beta-chip {
+      border-color: rgba(255, 255, 255, 0.3);
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.7rem;
+      flex-shrink: 0; // chip 不縮小
+    }
+  }
+}
+
+// 操作按鈕組
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0; // 按鈕區域不縮小
+
+  .action-btn {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    &.purchase-btn:hover {
+      background-color: rgba(63, 81, 181, 0.1);
+      color: #ffc107;
+    }
+
+    &.shipping-btn:hover {
+      background-color: rgba(156, 39, 176, 0.1);
+      color: #ffc107;
+    }
+
+    &.inventory-btn:hover {
+      background-color: rgba(255, 193, 7, 0.1);
+      color: #ffc107;
+    }
+  }
+
+  .btn-separator {
+    height: 24px;
+    margin: 0 8px;
+    opacity: 0.3;
+  }
+
+  .theme-btn {
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+// Menu 按鈕樣式
+.menu-btn {
+  margin-right: 8px;
+  flex-shrink: 0; // menu 按鈕不縮小
+}
+
+// 響應式設計優化
+@media (max-width: 1024px) {
+  .modern-header .toolbar-container {
+    padding: 0 12px;
+  }
+
+  .action-buttons {
+    gap: 4px;
+
+    .action-btn {
+      padding: 8px;
+    }
+
+    .btn-separator {
+      margin: 0 4px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .modern-header .toolbar-container {
+    padding: 0 8px;
+  }
+
+  .modern-title {
+    .title-container {
+      gap: 8px;
+      min-width: 100px; // 窄螢幕下縮小最小寬度
+
+      .title-text {
+        font-size: 1.1rem;
+      }
+
+      .beta-chip {
+        font-size: 0.65rem;
+        padding: 2px 6px;
+      }
+    }
+  }
+
+  .action-buttons {
+    gap: 2px;
+
+    .action-btn {
+      padding: 6px;
+      min-width: 40px;
+    }
+
+    .btn-separator {
+      margin: 0 2px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .modern-title {
+    .title-container {
+      gap: 6px;
+      min-width: 80px;
+
+      .title-text {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .action-buttons {
+    // 在極窄螢幕下，隱藏部分按鈕或使用下拉選單
+    .btn-separator {
+      display: none;
+    }
+
+    // 可以考慮隱藏 tooltip 文字較長的按鈕
+    .inventory-btn {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .modern-header .toolbar-container {
+    padding: 0 4px;
+    min-height: 48px;
+  }
+
+  .modern-title {
+    .title-container {
+      min-width: 70px;
+
+      .title-text {
+        font-size: 0.9rem;
+      }
+
+      // 極窄螢幕下隱藏 BETA 標籤
+      .beta-chip {
+        display: none;
+      }
+    }
+  }
+
+  .action-buttons {
+    // 只保留最重要的按鈕
+    .shipping-btn {
+      display: none;
+    }
+  }
+}
+
+// 針對特別窄的螢幕（如小手機橫屏）
+@media (max-width: 360px) {
+  .modern-title {
+    .title-container {
+      min-width: 60px;
+
+      .title-text {
+        font-size: 0.85rem;
+      }
+    }
+  }
+}
 </style>

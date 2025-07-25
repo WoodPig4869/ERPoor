@@ -3,6 +3,8 @@ import axios, { type AxiosInstance } from 'axios';
 import { Notify } from 'quasar';
 import type { Router } from 'vue-router';
 
+const baseURL = import.meta.env.VITE_API_BASE_URL;
+
 declare module 'vue' {
   interface ComponentCustomProperties {
     $axios: AxiosInstance;
@@ -22,7 +24,7 @@ interface RefreshTokenResponse {
 // "export default () => {}" function below (which runs individually
 // for each client)
 const api = axios.create({
-  baseURL: 'http://localhost:8080/api',
+  baseURL: baseURL,
   headers: {
     'Content-Type': 'application/json',
   },

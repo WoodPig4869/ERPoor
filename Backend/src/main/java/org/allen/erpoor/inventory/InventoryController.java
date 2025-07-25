@@ -1,10 +1,8 @@
 package org.allen.erpoor.inventory;
 
-import org.allen.erpoor.inventory.entity.Product;
-import org.allen.erpoor.inventory.entity.ProductBatch;
-import org.allen.erpoor.inventory.entity.ProductInventoryView;
-import org.allen.erpoor.inventory.entity.ProductOption;
+import org.allen.erpoor.inventory.entity.*;
 import org.allen.erpoor.util.CommonResponse;
+import org.allen.erpoor.util.SetAppUser;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,11 +18,13 @@ public class InventoryController {
     private final ProductInventoryViewRepository productInventoryViewRepository;
     private final ProductRepository productRepository;
     private final ProductBatchRepository productBatchRepository;
+    private final InventoryCheckLogRepository inventoryCheckLogRepository;
 
-    public InventoryController(ProductInventoryViewRepository productInventoryViewRepository, ProductRepository productRepository, ProductBatchRepository productBatchRepository) {
+    public InventoryController(ProductInventoryViewRepository productInventoryViewRepository, ProductRepository productRepository, ProductBatchRepository productBatchRepository, InventoryCheckLogRepository inventoryCheckLogRepository) {
         this.productInventoryViewRepository = productInventoryViewRepository;
         this.productRepository = productRepository;
         this.productBatchRepository = productBatchRepository;
+        this.inventoryCheckLogRepository = inventoryCheckLogRepository;
     }
 
     @GetMapping("/productInventoryView")
@@ -100,6 +100,7 @@ public class InventoryController {
         }
     }
 
+    @SetAppUser
     @PostMapping("/purchase")
     public ResponseEntity<CommonResponse<String>> addPurchase(@RequestBody ProductBatch batch) {
         logger.debug("收到新增進貨請求: {}", batch);
@@ -129,4 +130,25 @@ public class InventoryController {
         newBatch.setSupplierName(batch.getSupplierName());
         return newBatch;
     }
+
+    @SetAppUser
+    @PostMapping("/inventory-check")
+    public ResponseEntity<CommonResponse<String>> addInventoryCheck(@RequestBody InventoryCheckLog checkLog) {
+        logger.debug("收到新增盤點請求: {}", checkLog);
+        try {
+            // 儲存盤點記錄
+            inventoryCheckLogRepository.save(checkLog);
+
+            logger.info("新增盤點成功，商品: {}", checkLog.getProductName());
+            return ResponseEntity.ok(
+                    new CommonResponse<>(200, "新增盤點成功", "商品: " + checkLog.getProductName())
+            );
+        } catch (Exception e) {
+            logger.error("新增盤點時發生錯誤: {}", e.getMessage(), e);
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(CommonResponse.error(500, "新增盤點失敗"));
+        }
+    }
+
 }
