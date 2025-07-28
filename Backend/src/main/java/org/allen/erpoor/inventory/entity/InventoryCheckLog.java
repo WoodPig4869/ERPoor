@@ -37,6 +37,6 @@ public class InventoryCheckLog {
     @Column(name = "created_by", length = 50, updatable = false)
     private String createdBy;
 
-    @Column(name = "created_at", updatable = false)
+    @Column(name = "created_at", updatable = false,insertable = false)
     private LocalDateTime createdAt;
 }

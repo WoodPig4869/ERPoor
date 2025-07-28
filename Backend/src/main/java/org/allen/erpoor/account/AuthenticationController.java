@@ -40,7 +40,7 @@ public class AuthenticationController {
 
     @PostMapping("/renewRefreshToken")
     public ResponseEntity<CommonResponse<LoginResponse>> renewRefreshToken(@RequestBody refreshTokenRequest refreshToken) {
-        logger.debug("收到更新請求 refreshToken={}", refreshToken);
+        logger.debug("收到更新請求 refreshToken={}", refreshToken.getRefreshToken());
         try {
             LoginResponse response = authenticationService.renewRefreshToken(refreshToken.getRefreshToken());
             logger.info("用戶更新refreshToken成功");

@@ -77,7 +77,7 @@
         <q-card class="stat-card bg-purple-1" flat bordered>
           <q-card-section>
             <div class="row items-center q-gutter-md">
-              <q-icon name="attach_money" size="md" class="text-purple-7" />
+              <q-icon name="account_balance" size="md" class="text-purple-7" />
               <div>
                 <div class="text-subtitle2 text-grey-7">庫存價值</div>
                 <div class="stat-value text-purple-8 q-mt-xs">
@@ -202,7 +202,11 @@
 
       <q-separator />
 
-      <q-card-section v-if="selectedProduct" class="scroll" :style="$q.screen.lt.md ? '' : 'max-height: 70vh'">
+      <q-card-section
+        v-if="selectedProduct"
+        class="scroll"
+        :style="$q.screen.lt.md ? '' : 'max-height: 70vh'"
+      >
         <div class="row q-col-gutter-md">
           <!-- 產品基本資訊 -->
           <div class="col-12">
@@ -271,9 +275,7 @@
                   </div>
                 </div>
                 <div class="mobile-expiry-info q-mt-md q-pa-sm rounded-borders bg-grey-1">
-                  <div class="text-body2 text-weight-medium text-grey-8 q-mb-xs">
-                    最近到期日
-                  </div>
+                  <div class="text-body2 text-weight-medium text-grey-8 q-mb-xs">最近到期日</div>
                   <div class="text-body1 text-weight-bold">
                     {{ selectedProduct.nearestExpiryDate }}
                   </div>
@@ -362,7 +364,7 @@
                       </div>
                     </q-td>
                   </template>
-                  
+
                   <!-- 手機版卡片模式 -->
                   <template #item="props" v-if="$q.screen.lt.sm">
                     <div class="q-pa-xs col-12">
@@ -378,7 +380,7 @@
                               :label="props.row.quantity"
                             />
                           </div>
-                          
+
                           <div class="mobile-batch-details">
                             <div class="mobile-batch-detail-row">
                               <span class="mobile-batch-label">進價:</span>
@@ -563,6 +565,9 @@ onMounted(() => {
     void fetchInventoryData();
   });
   void fetchInventoryData();
+  eventBus.on('inventory-checked', () => {
+    void fetchInventoryData();
+  });
 });
 
 // Function to check if expiry date is within 7 days

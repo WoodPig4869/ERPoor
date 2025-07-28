@@ -341,6 +341,7 @@ import { ref, onMounted, reactive } from 'vue';
 import type { QTableColumn } from 'quasar';
 import { api } from 'boot/axios';
 import { useQuasar } from 'quasar';
+import { eventBus } from 'src/utils/eventBus';
 
 const $q = useQuasar();
 const loading = ref(true);
@@ -498,6 +499,19 @@ onMounted(async () => {
       animatedValues.orders = value;
     });
   }, 300);
+
+  eventBus.on('productBatch-added', () => {
+    void fetchOverviewData();
+  });
+  eventBus.on('product-added', () => {
+    void fetchOverviewData();
+  });
+  eventBus.on('sale-order-added', () => {
+    void fetchOverviewData();
+  });
+  eventBus.on('inventory-checked', () => {
+    void fetchOverviewData();
+  });
 });
 
 const expiringColumns = ref<QTableColumn<ExpiringBatch>[]>([

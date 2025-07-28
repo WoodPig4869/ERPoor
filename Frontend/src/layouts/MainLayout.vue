@@ -258,10 +258,10 @@ const menuItems = computed<MenuItem[]>(() => [
     badgeColor: 'warning',
   },
   {
-    to: '/analytics',
-    icon: 'analytics',
-    title: '數據分析',
-    caption: '銷售報表與分析',
+    to: '/inventoryRecords',
+    icon: 'fact_check',
+    title: '盤點記錄',
+    caption: '盤點歷史',
   },
   {
     to: '/settings',

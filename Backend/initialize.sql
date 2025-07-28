@@ -504,7 +504,7 @@ CREATE TRIGGER trigger_update_order_total
     FOR EACH ROW
     EXECUTE FUNCTION update_order_total();
 
--- 初始化盤點記錄
+-- 初始化盤點記錄表
 DROP TABLE IF EXISTS inventory_check_log;
 CREATE TABLE inventory_check_log (
   id BIGSERIAL PRIMARY KEY,
@@ -538,6 +538,76 @@ CREATE TRIGGER set_created_by_trigger
 BEFORE INSERT ON inventory_check_log
 FOR EACH ROW
 EXECUTE FUNCTION set_created_by_from_app_user();
+
+-- 初始化盤點更動庫存觸發器
+CREATE OR REPLACE FUNCTION trg_adjust_product_batch_on_check()
+RETURNS TRIGGER AS $$
+DECLARE
+    v_product_id INT;
+    v_diff INT;
+    v_remaining INT;
+    v_batch_id INT;
+    v_batch_qty INT;
+BEGIN
+    -- 1. 取得商品對應的 product_id
+    SELECT product_id INTO v_product_id
+    FROM product
+    WHERE name = NEW.product_name;
+
+    IF v_product_id IS NULL THEN
+        RAISE EXCEPTION '找不到商品名稱：%', NEW.product_name;
+    END IF;
+
+    v_diff := NEW.difference;
+
+    -- 2. 差異為正 → 盤盈 → 增加最早過期的庫存
+    IF v_diff > 0 THEN
+        UPDATE product_batch
+        SET quantity = quantity + v_diff
+        WHERE batch_id = (
+            SELECT batch_id
+            FROM product_batch
+            WHERE product_id = v_product_id
+            ORDER BY expiration_date ASC
+            LIMIT 1
+        );
+
+    -- 3. 差異為負 → 盤虧 → 從最晚過期的批次開始扣
+    ELSIF v_diff < 0 THEN
+        v_remaining := ABS(v_diff);
+
+        FOR v_batch_id, v_batch_qty IN
+            SELECT batch_id, quantity
+            FROM product_batch
+            WHERE product_id = v_product_id AND quantity > 0
+            ORDER BY expiration_date DESC  -- 最晚過期先扣
+        LOOP
+            IF v_batch_qty >= v_remaining THEN
+                -- 這筆批次庫存夠扣，直接扣除
+                UPDATE product_batch
+                SET quantity = quantity - v_remaining
+                WHERE batch_id = v_batch_id;
+                EXIT;
+            ELSE
+                -- 扣不夠，清空這筆庫存，繼續扣下一筆
+                UPDATE product_batch
+                SET quantity = 0
+                WHERE batch_id = v_batch_id;
+
+                v_remaining := v_remaining - v_batch_qty;
+            END IF;
+        END LOOP;
+    END IF;
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS trg_after_insert_inventory_check ON inventory_check_log;
+CREATE TRIGGER trg_after_insert_inventory_check
+AFTER INSERT ON inventory_check_log
+FOR EACH ROW
+EXECUTE FUNCTION trg_adjust_product_batch_on_check();
 
 --------------
 --------------
@@ -658,6 +728,47 @@ BEGIN
 END
 $$;
 
+DO $$
+DECLARE
+  i INT;
+  product_count INT;
+  v_product_name VARCHAR(100);
+  v_expected INT;
+  v_actual INT;
+BEGIN
+  -- 取得商品總數
+  SELECT COUNT(*) INTO product_count FROM product;
+
+  FOR i IN 1..20 LOOP
+    -- 隨機選擇一個商品名稱
+    SELECT name INTO v_product_name
+    FROM product
+    OFFSET floor(random() * product_count)
+    LIMIT 1;
+
+    -- 帳面預期數量：80~150
+    v_expected := (random() * 70 + 80)::int;
+
+    -- 前 15 筆為一致，後 5 筆隨機浮動 ±10
+    IF i <= 15 THEN
+      v_actual := v_expected;
+    ELSE
+      v_actual := v_expected + ((random() * 20 - 10)::int);  -- 差異範圍 -10 ~ +10
+    END IF;
+
+    INSERT INTO inventory_check_log (
+      product_name,
+      expected_quantity,
+      actual_quantity,
+      created_by
+    ) VALUES (
+      v_product_name,
+      v_expected,
+      v_actual,
+      'admin'
+    );
+  END LOOP;
+END $$;
 
 --------------
 --------------

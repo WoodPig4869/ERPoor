@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Collection;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/inventory")
@@ -150,5 +151,29 @@ public class InventoryController {
                     .body(CommonResponse.error(500, "新增盤點失敗"));
         }
     }
+
+    @GetMapping("/check-log")
+    public ResponseEntity<CommonResponse<List<InventoryCheckLog>>> getCheckLogs() {
+        logger.debug("收到查詢盤點紀錄請求");
+
+        try {
+            List<InventoryCheckLog> logs = inventoryCheckLogRepository.findAll();
+
+            if (logs.isEmpty()) {
+                logger.info("未找到任何盤點紀錄");
+                return ResponseEntity.ok(new CommonResponse<>(200, "目前尚無盤點紀錄", logs));
+            }
+
+            logger.info("查詢成功，共 {} 筆盤點紀錄", logs.size());
+            return ResponseEntity.ok(new CommonResponse<>(200, "查詢成功", logs));
+
+        } catch (Exception e) {
+            logger.error("查詢盤點紀錄時發生錯誤: {}", e.getMessage());
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(CommonResponse.error(500, "查詢盤點紀錄失敗"));
+        }
+    }
+
 
 }

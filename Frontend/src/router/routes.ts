@@ -17,8 +17,8 @@ const routes: RouteRecordRaw[] = [
         meta: { requiresAuth: true },
       },
       {
-        path: 'analytics',
-        component: () => import('pages/AnalyticsPage.vue'),
+        path: 'inventoryRecords',
+        component: () => import('pages/InventoryRecords.vue'),
         meta: { requiresAuth: true },
       },
       {

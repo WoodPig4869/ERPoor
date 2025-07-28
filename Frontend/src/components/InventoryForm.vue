@@ -14,7 +14,7 @@
             label="商品名稱"
             :options="productOptions"
             option-value="productId"
-            option-label="productName"
+            option-label="name"
             dense
             filled
             emit-value
@@ -49,7 +49,7 @@
                 <q-icon :name="differenceIcon" />
               </template>
               差異：{{ difference }} ({{
-                difference > 0 ? '盈餘' : difference < 0 ? '短缺' : '一致'
+                difference > 0 ? '盤盈' : difference < 0 ? '盤虧' : '一致'
               }})
             </q-banner>
           </div>
@@ -58,7 +58,7 @@
 
       <q-card-actions align="right">
         <q-btn flat label="清空" color="secondary" type="button" @click="resetForm" />
-        <q-btn label="送出" color="primary" :loading="loading" @click="submitForm" />
+        <q-btn label="送出" color="primary" :loading="loading" @click="handleSubmit" />
       </q-card-actions>
     </q-card>
   </q-dialog>
@@ -76,8 +76,8 @@ const $q = useQuasar();
 
 interface ProductOption {
   productId: number;
-  productName: string;
-  expectedQuantity: number;
+  name: string;
+  totalStock: number;
 }
 
 interface InventoryCheckData {
@@ -127,7 +127,7 @@ onMounted(async () => {
 
 async function getInventoryCheckOptions() {
   try {
-    const { data } = await api.get('/inventory/getInventoryCheckOptions');
+    const { data } = await api.get('/inventory/productInventoryView');
     productOptions.value = data;
   } catch (error) {
     console.log('獲取庫存盤點選項失敗', error);
@@ -143,9 +143,10 @@ async function getInventoryCheckOptions() {
 function onProductChange(productId: number) {
   const selectedProductData = productOptions.value.find((p) => p.productId === productId);
   if (selectedProductData) {
-    formData.value.productName = selectedProductData.productName;
-    formData.value.expectedQuantity = selectedProductData.expectedQuantity;
-    expectedQuantity.value = selectedProductData.expectedQuantity;
+    formData.value.productName = selectedProductData.name;
+    formData.value.expectedQuantity = selectedProductData.totalStock;
+    expectedQuantity.value = selectedProductData.totalStock;
+    formData.value.actualQuantity = selectedProductData.totalStock;
   }
 }
 
@@ -164,7 +165,7 @@ async function submitForm() {
   console.log('盤點資料:', submitData);
 
   try {
-    await api.post('/inventory-check', submitData);
+    await api.post('/inventory/inventory-check', submitData);
 
     const message =
       difference.value === 0 ? '盤點完成，庫存一致' : `盤點完成，差異：${difference.value}`;
@@ -190,6 +191,63 @@ async function submitForm() {
     });
   } finally {
     loading.value = false;
+  }
+}
+
+function handleSubmit() {
+  const actual = formData.value.actualQuantity;
+  const expected = formData.value.expectedQuantity;
+  const product = formData.value.productName;
+
+  if (actual === expected) {
+    // ✅ 庫存一致的確認對話框
+    $q.dialog({
+      title: '✅ 盤點確認',
+      message: '庫存一致，將記錄盤點時間',
+      html: true,
+      ok: {
+        label: '確認盤點',
+        color: 'positive',
+        flat: false,
+      },
+      cancel: {
+        label: '取消',
+        color: 'grey',
+        flat: true,
+      },
+      persistent: true,
+    }).onOk(() => {
+      void submitForm();
+    });
+  } else {
+    // ⚠️ 有差異時的紅色提示框
+    $q.dialog({
+      title: '<div class="text-h6 text-weight-bold text-red">⚠️ 盤點確認</div>',
+      message: `
+        <div class="q-mt-sm">
+          <p class="text-weight-bold">您即將執行<b class="text-red">庫存修正</b>：</p>
+          <ul>
+            <li>產品: <b>${product}</b></li>
+            <li>原數量: <b>${expected}</b></li>
+            <li>修正為: <b class="text-red">${actual}</b></li>
+          </ul>
+        </div>
+      `,
+      html: true,
+      ok: {
+        label: '確認修正',
+        color: 'negative',
+        flat: false,
+      },
+      cancel: {
+        label: '取消',
+        color: 'grey',
+        flat: true,
+      },
+      persistent: true,
+    }).onOk(() => {
+      void submitForm();
+    });
   }
 }
 
